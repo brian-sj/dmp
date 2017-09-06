@@ -1,0 +1,13 @@
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\bin\Debug\GMap.NET.Core.dll
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\bin\Debug\GMap.NET.Core.pdb
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\bin\Debug\zh-Hans\GMap.NET.Core.resources.dll
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\bin\Debug\System.Data.SqlServerCe.dll
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\GMap.NET.Core.csprojResolveAssemblyReference.cache
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\GMap.NET.Properties.Resources.resources
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\GMap.NET.Resources.Strings.resources
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\GMap.NET.Resources.Strings.zh-Hans.resources
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\GMap.NET.Core.csproj.GenerateResource.Cache
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\GMap.NET.Core.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\zh-Hans\GMap.NET.Core.resources.dll
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\GMap.NET.Core.dll
+D:\DronProject\DrogenMP\ExtLibs\GMap.NET.Core\obj\Debug\GMap.NET.Core.pdb

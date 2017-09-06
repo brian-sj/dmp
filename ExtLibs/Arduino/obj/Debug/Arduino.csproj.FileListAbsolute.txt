@@ -1,0 +1,9 @@
+D:\DronProject\DrogenMP\ExtLibs\Arduino\bin\Debug\Arduino.dll
+D:\DronProject\DrogenMP\ExtLibs\Arduino\bin\Debug\Arduino.pdb
+D:\DronProject\DrogenMP\ExtLibs\Arduino\bin\Debug\log4net.dll
+D:\DronProject\DrogenMP\ExtLibs\Arduino\bin\Debug\MissionPlanner.Comms.dll
+D:\DronProject\DrogenMP\ExtLibs\Arduino\bin\Debug\log4net.xml
+D:\DronProject\DrogenMP\ExtLibs\Arduino\obj\Debug\Arduino.csprojResolveAssemblyReference.cache
+D:\DronProject\DrogenMP\ExtLibs\Arduino\obj\Debug\Arduino.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\Arduino\obj\Debug\Arduino.dll
+D:\DronProject\DrogenMP\ExtLibs\Arduino\obj\Debug\Arduino.pdb

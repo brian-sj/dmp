@@ -1,0 +1,16 @@
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\GDAL.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\GDAL.pdb
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\gdalconst_csharp.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\gdal_csharp.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\GMap.NET.Core.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\log4net.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\ogr_csharp.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\osr_csharp.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\System.Data.SqlServerCe.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\GMap.NET.Core.pdb
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\log4net.xml
+D:\DronProject\DrogenMP\ExtLibs\GDAL\bin\Debug\zh-Hans\GMap.NET.Core.resources.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\obj\Debug\GDAL.csprojResolveAssemblyReference.cache
+D:\DronProject\DrogenMP\ExtLibs\GDAL\obj\Debug\GDAL.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\GDAL\obj\Debug\GDAL.dll
+D:\DronProject\DrogenMP\ExtLibs\GDAL\obj\Debug\GDAL.pdb

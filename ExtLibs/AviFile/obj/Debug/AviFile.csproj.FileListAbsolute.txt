@@ -1,0 +1,5 @@
+D:\DronProject\DrogenMP\ExtLibs\AviFile\bin\Debug\AviFile.dll
+D:\DronProject\DrogenMP\ExtLibs\AviFile\bin\Debug\AviFile.pdb
+D:\DronProject\DrogenMP\ExtLibs\AviFile\obj\Debug\AviFile.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\AviFile\obj\Debug\AviFile.dll
+D:\DronProject\DrogenMP\ExtLibs\AviFile\obj\Debug\AviFile.pdb

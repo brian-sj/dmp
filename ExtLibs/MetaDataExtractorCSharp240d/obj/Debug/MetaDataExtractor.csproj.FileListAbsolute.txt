@@ -1,0 +1,9 @@
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\bin\Debug\exif.xslt
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\bin\Debug\sampleFile.xml
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\bin\Debug\MetadataExtractor.dtd
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\bin\Debug\MetadataExtractorNew.dtd
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\bin\Debug\MetaDataExtractor.dll
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\bin\Debug\MetaDataExtractor.pdb
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\obj\Debug\MetaDataExtractor.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\obj\Debug\MetaDataExtractor.dll
+D:\DronProject\DrogenMP\ExtLibs\MetaDataExtractorCSharp240d\obj\Debug\MetaDataExtractor.pdb

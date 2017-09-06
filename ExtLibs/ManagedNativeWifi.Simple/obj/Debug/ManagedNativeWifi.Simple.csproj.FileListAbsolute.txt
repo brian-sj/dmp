@@ -1,0 +1,5 @@
+D:\DronProject\DrogenMP\ExtLibs\ManagedNativeWifi.Simple\bin\Debug\ManagedNativeWifi.Simple.dll
+D:\DronProject\DrogenMP\ExtLibs\ManagedNativeWifi.Simple\bin\Debug\ManagedNativeWifi.Simple.pdb
+D:\DronProject\DrogenMP\ExtLibs\ManagedNativeWifi.Simple\obj\Debug\ManagedNativeWifi.Simple.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\ManagedNativeWifi.Simple\obj\Debug\ManagedNativeWifi.Simple.dll
+D:\DronProject\DrogenMP\ExtLibs\ManagedNativeWifi.Simple\obj\Debug\ManagedNativeWifi.Simple.pdb

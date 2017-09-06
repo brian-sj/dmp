@@ -1,0 +1,544 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibVLC.NET</name>
+    </assembly>
+    <members>
+        <member name="T:LibVLC.NET.AudioTrack">
+            <summary>
+              Represents an audio track.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.AudioTrack.ToString">
+            <summary>
+              Overrides <see cref="M:LibVLC.NET.Track.ToString"/> and returns a string
+              representing the audio track.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:LibVLC.NET.AudioTrack.Channels">
+            <summary>
+              Gets the number of channels of the audio track.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.AudioTrack.BitRate">
+            <summary>
+              Gets bit rate of the audio track.
+            </summary>
+        </member>
+        <member name="T:LibVLC.NET.LibVLCLibrary">
+            <summary>
+              Provides access to the functions of a loaded <c>LibVLC</c> library.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.libvlc_new">
+            <summary>
+              Create and initialize a libvlc instance. 
+            </summary>
+            <returns>
+              The libvlc instance or NULL in case of error. 
+            </returns>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.libvlc_release(System.IntPtr)">
+            <summary>
+              Decrement the reference count of a libvlc instance, and destroy it if 
+              it reaches zero. 
+            </summary>
+            <param name="p_instance">
+              The instance to the reference.
+            </param>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.libvlc_get_compiler">
+            <summary>
+              Retrieve libvlc compiler version. 
+            </summary>
+            <returns>
+              A string containing the libvlc compiler version.
+            </returns>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.libvlc_get_changeset">
+            <summary>
+              Retrieve libvlc changeset. 
+            </summary>
+            <returns>
+              A string containing the libvlc changeset.
+            </returns>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.#ctor(System.String)">
+            <summary>
+              Initializes a new <see cref="T:LibVLC.NET.LibVLCLibrary"/> instance with the 
+              native <c>LibVLC</c> libraries located in the provided directory.
+            </summary>                
+            <param name="libVLCDirectory">
+              The location of the libraries <c>libvlc.dll</c>, 
+              <c>libvlccore.dll</c> and the <c>plugins</c> folder.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+              Will be thrown if <paramref name="libVLCDirectory"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+              Will be thrown if no suitable libvlc.dll could be loaded in the 
+              directory specified by <paramref name="libVLCDirectory"/>.
+            </exception>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.Finalize">
+            <summary>
+              Destroys the <see cref="T:LibVLC.NET.LibVLCLibrary"/> instance.
+            </summary>
+            <remarks>
+              <see cref="M:LibVLC.NET.LibVLCLibrary.Finalize"/> invokes <see cref="M:LibVLC.NET.LibVLCLibrary.Dispose(System.Boolean)"/> passing 
+              <c>false</c>.
+            </remarks>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.Dispose(System.Boolean)">
+            <summary>
+              Is called by <see cref="M:LibVLC.NET.LibVLCLibrary.Dispose"/> or by the destructor to free the 
+              native <c>LibVLC</c> library.
+            </summary>
+            <param name="disposing">
+              Specifies whether <see cref="M:LibVLC.NET.LibVLCLibrary.Dispose(System.Boolean)"/> has been called by 
+              <see cref="M:LibVLC.NET.LibVLCLibrary.Dispose"/> or by the destructor.
+            </param>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.Dispose">
+            <summary>
+              Implementes <see cref="M:System.IDisposable.Dispose"/> and frees the native 
+              <c>LibVLC</c> library.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.VerifyAccess">
+            <summary>
+              Ensures the <see cref="T:LibVLC.NET.LibVLCLibrary"/> instance has not been 
+              disposed yet.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.LibVLCLibrary.Directory">
+            <summary>
+              Gets the directory where the native <see cref="N:LibVLC"/> library is 
+              located.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.Load(System.String)">
+            <summary>
+              Loads the library from the specified directory.
+            </summary>
+            <param name="libVLCDirectory">
+              The directory where <c>libvlc.dll</c> is located; may be <c>null</c>.
+            </param>
+            <returns>
+              The laoded library.
+            </returns>
+            <remarks>
+              If the library at the provided 
+            </remarks>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCLibrary.Free(LibVLC.NET.LibVLCLibrary)">
+            <summary>
+              Frees the provided library.
+            </summary>
+            <param name="library">
+              The library to free.
+            </param>
+            <returns>
+              The number how ofter the library is still referenced; will be <c>0</c>
+              in case the library is no longer referenced and has been disposed.
+            </returns>
+        </member>
+        <member name="T:LibVLC.NET.Instance">
+            <summary>
+              Represents a <c>LibVLC</c> instance.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.Instance.#ctor(LibVLC.NET.LibVLCLibrary)">
+            <summary>
+              Initializes a new instance of the class <see cref="T:LibVLC.NET.Instance"/>.
+            </summary>
+            <param name="library">
+              May be <c>null</c> to use the default library.
+            </param>
+        </member>
+        <member name="M:LibVLC.NET.Instance.#ctor">
+            <summary>
+              Initializes a new instance of the class <see cref="T:LibVLC.NET.Instance"/>.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.Instance.Finalize">
+            <summary>
+              Destroys the <see cref="T:LibVLC.NET.Instance"/> instance.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.MediaPlayerEventArgs.Event">
+            <summary>
+              Gets the value of Event of the MediaPlayerEventArgs.
+            </summary>
+        </member>
+        <member name="T:LibVLC.NET.MediaPlayerState">
+            <summary>
+              Represents the finite state of a media player.
+            </summary>
+            <seealso cref="P:LibVLC.NET.MediaPlayer.State"/>
+        </member>
+        <member name="F:LibVLC.NET.MediaPlayerState.NothingSpecial">
+            <summary>
+              The media player is currently idle.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.MediaPlayerState.Opening">
+            <summary>
+              The media player is currently opening a media.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.MediaPlayerState.Playing">
+            <summary>
+              The media player is currently playing a media.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.MediaPlayerState.Buffering">
+            <summary>
+              The media player is currently buffering.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.MediaPlayerState.Paused">
+            <summary>
+              Playback of a media has currently paused.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.MediaPlayerState.Ended">
+            <summary>
+              The media player has reached the end of a media.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.MediaPlayerState.Stopped">
+            <summary>
+              The media player has stopped playing a media.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.MediaPlayerState.Error">
+            <summary>
+              There has been an error opening a media.
+            </summary>
+        </member>
+        <member name="T:LibVLC.NET.Track">
+            <summary>
+              Base class for all track classes.
+            </summary>
+            <seealso cref="T:LibVLC.NET.VideoTrack"/>
+            <seealso cref="T:LibVLC.NET.AudioTrack"/>
+            <seealso cref="T:LibVLC.NET.SubtitleTrack"/>
+        </member>
+        <member name="M:LibVLC.NET.Track.ToString">
+            <summary>
+              Overrides <see cref="M:System.Object.ToString"/> and returns the track's
+              name.
+            </summary>
+            <returns>
+              The name of the track.
+            </returns>
+        </member>
+        <member name="P:LibVLC.NET.Track.Index">
+            <summary>
+              Gets the index of the track within the media player's track 
+              collection.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.Track.Name">
+            <summary>
+              Gets the name of the track.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.Track.Title">
+            <summary>
+              Gets the name of the track.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.Track.Codec">
+            <summary>
+              Gets the codec of the track.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.Track.Language">
+            <summary>
+              Gets the language of the track; may be <c>null</c> if the 
+              language could not be determined.
+            </summary>
+            <seealso cref="P:LibVLC.NET.Track.Culture"/>
+        </member>
+        <member name="P:LibVLC.NET.Track.Culture">
+            <summary>
+              Gets the culture of the track; may be <c>null</c> if the 
+              Culture could not be determined.
+            </summary>
+            <seealso cref="P:LibVLC.NET.Track.Language"/>
+        </member>
+        <member name="T:LibVLC.NET.VideoBuffer">
+            <summary>
+              Represents the video buffer of a media player.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.VideoBuffer.#ctor(System.UInt32,System.UInt32,LibVLC.NET.PixelFormat)">
+            <summary>
+              Create a new instance of the class <see cref="T:LibVLC.NET.VideoBuffer"/>.
+            </summary>
+            <param name="width">
+              The width of the video.
+            </param>
+            <param name="height">
+              The height of the video.
+            </param>
+            <param name="pixelFormat">
+              The pixel format of the video.
+            </param>
+        </member>
+        <member name="F:LibVLC.NET.VideoBuffer.Width">
+            <summary>
+              Gets or sets the width of the video in pixels.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoBuffer.Height">
+            <summary>
+              Gets the height of the video in pixels.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoBuffer.PixelFormat">
+            <summary>
+              Gets or sets the pixel format of the video frame.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoBuffer.Stride">
+            <summary>
+              Gets or sets the stride of a video frame which is the width 
+              multiplied by the bytes per pixel.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoBuffer.Lines">
+            <summary>
+              Gets or sets the number of scan lines.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoBuffer.FrameBuffer">
+            <summary>
+              Gets or sets the video frame buffer.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.VideoBuffer.ToString">
+            <summary>
+              Override <see cref="M:System.Object.ToString"/> and returns a string 
+              representation of the video size.
+            </summary>
+            <returns>
+              A string representing the video format.
+            </returns>
+        </member>
+        <member name="T:LibVLC.NET.VideoTrack">
+            <summary>
+              Represents a video track.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.VideoTrack.ToString">
+            <summary>
+              Overrides <see cref="M:LibVLC.NET.Track.ToString"/> and returns a string
+              representing the video track.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:LibVLC.NET.VideoTrack.Width">
+            <summary>
+              Gets the width (in pixels) of the video track.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.VideoTrack.Height">
+            <summary>
+              Gets the height (in pixels) of the video track.
+            </summary>
+        </member>
+        <member name="T:LibVLC.NET.PixelFormat">
+            <summary>
+              Represents the pixel format of a video.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.PixelFormat.RV32">
+            <summary>
+              Specifies a pixel format with a red, green, blue and an alpha value 
+              represented by a byte.
+            </summary>
+        </member>
+        <member name="T:LibVLC.NET.MediaPlayer">
+            <summary>
+              Represents a native LibVLC media player
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.MediaPlayer.Dispose">
+            <summary>
+              Disposes the media player.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.MediaPlayer.LoadSubitem(System.Int32)">
+            <summary>
+              Loads the subitem at the provided index.
+            </summary>
+            <param name="subitemIndex">
+              The zero-based index of the subitem to load; must be between <c>0</c>
+              and <see cref="P:LibVLC.NET.MediaPlayer.SubitemCount"/>.
+            </param>
+            <remarks>
+              The current media of the media player will be replaced by the subitem
+              with the specified index.
+            </remarks>
+        </member>
+        <member name="P:LibVLC.NET.MediaPlayer.Location">
+            <summary>
+              Gets or sets the value of Location of the MediaPlayer.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.MediaPlayer.State">
+            <summary>
+              Gets the current state of the media player.
+            </summary>
+        </member>
+        <member name="P:LibVLC.NET.MediaPlayer.SubitemCount">
+            <summary>
+              Gets the number of subitems of the current media.
+            </summary>
+            <seealso cref="M:LibVLC.NET.MediaPlayer.LoadSubitem(System.Int32)"/>
+        </member>
+        <member name="E:LibVLC.NET.MediaPlayer.VideoFormat">
+            <summary>
+              Will be called after the contents of the video buffer has been 
+              changed.
+            </summary>
+        </member>
+        <member name="E:LibVLC.NET.MediaPlayer.VideoLock">
+            <summary>
+              Will be called after the contents of the video buffer has been 
+              changed.
+            </summary>
+        </member>
+        <member name="E:LibVLC.NET.MediaPlayer.Display">
+            <summary>
+              Will be called after the contents of the video buffer has been 
+              changed.
+            </summary>
+        </member>
+        <member name="E:LibVLC.NET.MediaPlayer.VideoUnlock">
+            <summary>
+              Will be called after the contents of the video buffer has been 
+              changed.
+            </summary>
+        </member>
+        <member name="E:LibVLC.NET.MediaPlayer.VideoCleanup">
+            <summary>
+              Will be called after the contents of the video buffer has been 
+              changed.
+            </summary>
+        </member>
+        <member name="T:LibVLC.NET.SubtitleTrack">
+            <summary>
+              Represents a subtitle track.
+            </summary>
+        </member>
+        <member name="T:LibVLC.NET.LibVLCException">
+            <summary>
+              Represents an error returned by a native <c>LibVLC</c> function.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCException.#ctor(System.String)">
+            <summary>
+              Initializes a new <see cref="T:LibVLC.NET.LibVLCException"/> with the provided
+              error message.
+            </summary>
+            <param name="errorMessage">
+              The message which will be returned by 
+              <see cref="P:System.Exception.Message"/>.
+            </param>
+        </member>
+        <member name="M:LibVLC.NET.LibVLCException.#ctor(LibVLC.NET.LibVLCLibrary)">
+            <summary>
+              Initializes a new <see cref="T:LibVLC.NET.LibVLCException"/> with the most recent
+              <c>LibVLC</c> error.
+            </summary>
+            <param name="library">
+              The <see cref="T:LibVLC.NET.LibVLCLibrary"/> which will be used to obtain the 
+              most recent error for the calling thread.
+            </param>
+            <remarks>
+              <see cref="M:LibVLC.NET.LibVLCLibrary.libvlc_errmsg"/> is called to get the 
+              message to initialize <see cref="P:System.Exception.Message"/> with.
+            </remarks>
+        </member>
+        <member name="T:LibVLC.NET.VideoFormat">
+            <summary>
+              Describes the format of a video frame.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoFormat.Width">
+            <summary>
+              Gets or sets the width of the video in pixels.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoFormat.Height">
+            <summary>
+              Gets the height of the video in pixels.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoFormat.PixelFormat">
+            <summary>
+              Gets or sets the pixel format of the video frame.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoFormat.Stride">
+            <summary>
+              Gets or sets the stride of a video frame which typically is its 
+              width multiplied by the bytes per pixel.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoFormat.BufferSize">
+            <summary>
+              Gets or sets the size of the video frame buffer in bytes.
+            </summary>
+        </member>
+        <member name="F:LibVLC.NET.VideoFormat.Buffer">
+            <summary>
+              Gets or sets the buffer.
+            </summary>
+        </member>
+        <member name="M:LibVLC.NET.VideoFormat.ToString">
+            <summary>
+              Override <see cref="M:System.Object.ToString"/> and returns a string 
+              representation of the video size.
+            </summary>
+            <returns>
+              A string representing the video format.
+            </returns>
+        </member>
+        <member name="T:LibVLC.NET.WeakReference`1">
+            <summary>
+              Represents a strongly typed weak reference.
+            </summary>
+            <typeparam name="TargetType">
+              The type of the target.
+            </typeparam>
+        </member>
+        <member name="M:LibVLC.NET.WeakReference`1.#ctor(`0)">
+            <summary>
+              Initializes a new instance of the class 
+              <see cref="T:LibVLC.NET.WeakReference`1"/>.
+            </summary>
+            <param name="target">
+              Specifies the target to reference.
+            </param>
+        </member>
+        <member name="M:LibVLC.NET.WeakReference`1.TryGetTarget(`0@)">
+            <summary>
+              Tries to get the target of the weak reference.
+            </summary>
+            <param name="target">
+              Will be set to the referenced target or the default value of 
+              <typeparamref name="TargetType"/> if the referenced target is no 
+              longer alive.
+            </param>
+            <returns>
+              <c>true</c> if the target is still alive or <c>false</c> if not.
+            </returns>
+        </member>
+    </members>
+</doc>

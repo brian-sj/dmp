@@ -1,0 +1,10 @@
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\bin\Debug\LibVLC.NET.dll
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\bin\Debug\LibVLC.NET.pdb
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\bin\Debug\LibVLC.NET.XML
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\bin\Debug\System.Runtime.dll
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\bin\Debug\System.Runtime.Extensions.dll
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\bin\Debug\System.Runtime.InteropServices.dll
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.csprojResolveAssemblyReference.cache
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.dll
+D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.pdb

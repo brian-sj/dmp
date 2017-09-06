@@ -1,0 +1,8 @@
+D:\DronProject\DrogenMP\ExtLibs\KMLib\bin\Debug\KMLib.dll
+D:\DronProject\DrogenMP\ExtLibs\KMLib\bin\Debug\KMLib.pdb
+D:\DronProject\DrogenMP\ExtLibs\KMLib\bin\Debug\Core.dll
+D:\DronProject\DrogenMP\ExtLibs\KMLib\bin\Debug\Core.pdb
+D:\DronProject\DrogenMP\ExtLibs\KMLib\obj\Debug\KMLib.csprojResolveAssemblyReference.cache
+D:\DronProject\DrogenMP\ExtLibs\KMLib\obj\Debug\KMLib.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\KMLib\obj\Debug\KMLib.dll
+D:\DronProject\DrogenMP\ExtLibs\KMLib\obj\Debug\KMLib.pdb

@@ -1,0 +1,9 @@
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\bin\Debug\ZedGraph.dll
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\bin\Debug\ZedGraph.pdb
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.csprojResolveAssemblyReference.cache
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.ZedGraph.ZedGraphControl.resources
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.ZedGraph.ZedGraphLocale.resources
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.csproj.GenerateResource.Cache
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.dll
+D:\DronProject\DrogenMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.pdb

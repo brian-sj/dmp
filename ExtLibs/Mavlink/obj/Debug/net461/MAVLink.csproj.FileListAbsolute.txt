@@ -1,0 +1,6 @@
+D:\DronProject\DrogenMP\ExtLibs\Mavlink\bin\Debug\net461\MAVLink.dll
+D:\DronProject\DrogenMP\ExtLibs\Mavlink\bin\Debug\net461\log4net.dll
+D:\DronProject\DrogenMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.csprojResolveAssemblyReference.cache
+D:\DronProject\DrogenMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.csproj.CoreCompileInputs.cache
+D:\DronProject\DrogenMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.AssemblyInfo.cs
+D:\DronProject\DrogenMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.dll
