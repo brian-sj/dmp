@@ -1,0 +1,9 @@
+D:\DronProject\DMP\DMP_v1\bin\Debug\plugins\ExtGuided.dll.config
+D:\DronProject\DMP\DMP_v1\bin\Debug\plugins\ExtGuided.dll
+D:\DronProject\DMP\DMP_v1\bin\Debug\plugins\ExtGuided.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\ExtGuided\obj\Debug\ExtGuided.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\ExtGuided\obj\Debug\ExtGuided.FilePick.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\ExtGuided\obj\Debug\ExtGuided.csproj.GenerateResource.Cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\ExtGuided\obj\Debug\ExtGuided.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\ExtGuided\obj\Debug\ExtGuided.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\ExtGuided\obj\Debug\ExtGuided.pdb

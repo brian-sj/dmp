@@ -6,3 +6,11 @@ D:\DronProject\DrogenMP\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.csprojRe
 D:\DronProject\DrogenMP\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.csproj.CoreCompileInputs.cache
 D:\DronProject\DrogenMP\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.dll
 D:\DronProject\DrogenMP\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\bin\Debug\SharpAdbClient.xml
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\bin\Debug\SharpAdbClient.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\bin\Debug\SharpAdbClient.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\bin\Debug\Mono.Posix.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.pdb

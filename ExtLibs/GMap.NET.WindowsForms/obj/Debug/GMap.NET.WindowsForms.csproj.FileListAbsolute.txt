@@ -11,3 +11,16 @@ D:\DronProject\DrogenMP\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.Windows
 D:\DronProject\DrogenMP\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.WindowsForms.csproj.CoreCompileInputs.cache
 D:\DronProject\DrogenMP\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.WindowsForms.dll
 D:\DronProject\DrogenMP\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.WindowsForms.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\bin\Debug\GMap.NET.WindowsForms.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\bin\Debug\GMap.NET.WindowsForms.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\bin\Debug\GMap.NET.Core.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\bin\Debug\System.Data.SqlServerCe.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\bin\Debug\GMap.NET.Core.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\bin\Debug\zh-Hans\GMap.NET.Core.resources.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.WindowsForms.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.TilePrefetcher.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\obj\Debug\System.Windows.Forms.Properties.Resources.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.WindowsForms.csproj.GenerateResource.Cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.WindowsForms.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.WindowsForms.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\GMap.NET.WindowsForms\obj\Debug\GMap.NET.WindowsForms.pdb

@@ -8,3 +8,13 @@ D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.csprojResolveAss
 D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.csproj.CoreCompileInputs.cache
 D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.dll
 D:\DronProject\DrogenMP\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\bin\Debug\LibVLC.NET.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\bin\Debug\LibVLC.NET.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\bin\Debug\LibVLC.NET.XML
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\bin\Debug\System.Runtime.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\bin\Debug\System.Runtime.Extensions.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\bin\Debug\System.Runtime.InteropServices.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\LibVLC.NET\obj\Debug\LibVLC.NET.pdb

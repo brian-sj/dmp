@@ -3543,14 +3543,14 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\DronProject\\DrogenMP\\ExtLibs\\Utilities\\MissionPlanner.Utilities.csproj",
+      "projectUniqueName": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Utilities\\MissionPlanner.Utilities.csproj",
       "projectName": "MissionPlanner.Utilities",
-      "projectPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\Utilities\\MissionPlanner.Utilities.csproj",
+      "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Utilities\\MissionPlanner.Utilities.csproj",
       "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
-      "outputPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\Utilities\\obj\\",
+      "outputPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Utilities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\DronProject\\DrogenMP\\.nuget\\NuGet.Config",
+        "D:\\DronProject\\DMP\\DMP_v1\\.nuget\\NuGet.Config",
         "C:\\Users\\brian\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3564,14 +3564,14 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "D:\\DronProject\\DrogenMP\\ExtLibs\\GMap.NET.Core\\GMap.NET.Core.csproj": {
-              "projectPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\GMap.NET.Core\\GMap.NET.Core.csproj"
+            "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\GMap.NET.Core\\GMap.NET.Core.csproj": {
+              "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\GMap.NET.Core\\GMap.NET.Core.csproj"
             },
-            "D:\\DronProject\\DrogenMP\\ExtLibs\\Mavlink\\MAVLink.csproj": {
-              "projectPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\Mavlink\\MAVLink.csproj"
+            "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\MAVLink.csproj": {
+              "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\MAVLink.csproj"
             },
-            "D:\\DronProject\\DrogenMP\\ExtLibs\\GeoUtility\\GeoUtility.csproj": {
-              "projectPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\GeoUtility\\GeoUtility.csproj"
+            "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\GeoUtility\\GeoUtility.csproj": {
+              "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\GeoUtility\\GeoUtility.csproj"
             }
           }
         }

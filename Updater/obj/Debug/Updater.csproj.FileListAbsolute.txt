@@ -1,0 +1,9 @@
+D:\DronProject\DMP\DMP_v1\bin\Debug\Updater.exe.config
+D:\DronProject\DMP\DMP_v1\bin\Debug\Updater.exe
+D:\DronProject\DMP\DMP_v1\bin\Debug\Updater.pdb
+D:\DronProject\DMP\DMP_v1\Updater\obj\Debug\Updater.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\DMP_v1\Updater\obj\Debug\Updater.Properties.Resources.resources
+D:\DronProject\DMP\DMP_v1\Updater\obj\Debug\Updater.csproj.GenerateResource.Cache
+D:\DronProject\DMP\DMP_v1\Updater\obj\Debug\Updater.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\Updater\obj\Debug\Updater.exe
+D:\DronProject\DMP\DMP_v1\Updater\obj\Debug\Updater.pdb

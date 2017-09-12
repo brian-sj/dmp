@@ -3,3 +3,8 @@ D:\DronProject\DrogenMP\ExtLibs\Core\bin\Debug\Core.pdb
 D:\DronProject\DrogenMP\ExtLibs\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
 D:\DronProject\DrogenMP\ExtLibs\Core\obj\Debug\Core.dll
 D:\DronProject\DrogenMP\ExtLibs\Core\obj\Debug\Core.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\Core\bin\Debug\Core.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\Core\bin\Debug\Core.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\Core\obj\Debug\Core.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\Core\obj\Debug\Core.pdb

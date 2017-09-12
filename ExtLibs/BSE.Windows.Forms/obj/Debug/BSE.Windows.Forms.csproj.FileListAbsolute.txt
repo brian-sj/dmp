@@ -10,3 +10,15 @@ D:\DronProject\DrogenMP\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.cs
 D:\DronProject\DrogenMP\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.csproj.CoreCompileInputs.cache
 D:\DronProject\DrogenMP\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.dll
 D:\DronProject\DrogenMP\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\bin\Debug\BSE.Windows.Forms.XML
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\bin\Debug\BSE.Windows.Forms.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\bin\Debug\BSE.Windows.Forms.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.Properties.Resources.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.Panel.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.XPanderPanel.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.XPanderPanelList.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.csproj.GenerateResource.Cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\BSE.Windows.Forms\obj\Debug\BSE.Windows.Forms.pdb

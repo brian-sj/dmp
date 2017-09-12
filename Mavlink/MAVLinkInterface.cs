@@ -2224,6 +2224,8 @@ Please check the following
                         doCommand(MAV_CMD.GET_HOME_POSITION, 0, 0, 0, 0, 0, 0, 0, false);
                         giveComport = true;
                         start = DateTime.Now;
+
+                        
                         retrys--;
                         continue;
                     }

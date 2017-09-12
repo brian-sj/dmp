@@ -51,14 +51,14 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\DronProject\\DrogenMP\\ExtLibs\\Mavlink\\MAVLink.csproj",
+      "projectUniqueName": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\MAVLink.csproj",
       "projectName": "MAVLink",
-      "projectPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\Mavlink\\MAVLink.csproj",
+      "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\MAVLink.csproj",
       "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
-      "outputPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\Mavlink\\obj\\",
+      "outputPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\DronProject\\DrogenMP\\.nuget\\NuGet.Config",
+        "D:\\DronProject\\DMP\\DMP_v1\\.nuget\\NuGet.Config",
         "C:\\Users\\brian\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -6,3 +6,11 @@ D:\DronProject\DrogenMP\ExtLibs\SharpKml\obj\Debug\SharpKml.csprojResolveAssembl
 D:\DronProject\DrogenMP\ExtLibs\SharpKml\obj\Debug\SharpKml.csproj.CoreCompileInputs.cache
 D:\DronProject\DrogenMP\ExtLibs\SharpKml\obj\Debug\SharpKml.dll
 D:\DronProject\DrogenMP\ExtLibs\SharpKml\obj\Debug\SharpKml.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\bin\Debug\SharpKml.XML
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\bin\Debug\SharpKml.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\bin\Debug\SharpKml.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\bin\Debug\Ionic.Zip.Reduced.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\obj\Debug\SharpKml.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\obj\Debug\SharpKml.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\obj\Debug\SharpKml.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\obj\Debug\SharpKml.pdb

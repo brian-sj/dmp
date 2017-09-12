@@ -1,0 +1,12 @@
+D:\DronProject\DMP\DMP_v1\bin\Debug\plugins\MissionPlanner.SimpleGrid.dll.config
+D:\DronProject\DMP\DMP_v1\bin\Debug\plugins\MissionPlanner.SimpleGrid.dll
+D:\DronProject\DMP\DMP_v1\bin\Debug\plugins\MissionPlanner.SimpleGrid.pdb
+D:\DronProject\DMP\DMP_v1\bin\Debug\plugins\pt\MissionPlanner.SimpleGrid.resources.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SimpleGrid\obj\Debug\MissionPlanner.SimpleGrid.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\SimpleGrid\obj\Debug\MissionPlanner.SimpleGrid.GridUI.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\SimpleGrid\obj\Debug\MissionPlanner.GridUI.pt.resources
+D:\DronProject\DMP\DMP_v1\ExtLibs\SimpleGrid\obj\Debug\MissionPlanner.SimpleGrid.csproj.GenerateResource.Cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\SimpleGrid\obj\Debug\MissionPlanner.SimpleGrid.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\SimpleGrid\obj\Debug\pt\MissionPlanner.SimpleGrid.resources.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SimpleGrid\obj\Debug\MissionPlanner.SimpleGrid.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\SimpleGrid\obj\Debug\MissionPlanner.SimpleGrid.pdb

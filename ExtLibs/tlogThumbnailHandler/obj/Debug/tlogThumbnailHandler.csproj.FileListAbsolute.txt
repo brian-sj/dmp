@@ -3,3 +3,8 @@ D:\DronProject\DrogenMP\ExtLibs\tlogThumbnailHandler\bin\Debug\tlogThumbnailHand
 D:\DronProject\DrogenMP\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.csproj.CoreCompileInputs.cache
 D:\DronProject\DrogenMP\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.dll
 D:\DronProject\DrogenMP\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\bin\Debug\tlogThumbnailHandler.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\bin\Debug\tlogThumbnailHandler.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.dll
+D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.pdb

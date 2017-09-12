@@ -10,7 +10,7 @@ using MissionPlanner.Utilities;
 
 namespace MissionPlanner.Controls
 {
-    public class MyDataGridView : DataGridView
+    public class MyDataGridView : DataGridView 
     {
         protected override void OnPaint(PaintEventArgs e)
         {

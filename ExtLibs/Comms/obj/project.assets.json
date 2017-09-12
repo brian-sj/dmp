@@ -51,14 +51,14 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\DronProject\\DrogenMP\\ExtLibs\\Comms\\MissionPlanner.Comms.csproj",
+      "projectUniqueName": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Comms\\MissionPlanner.Comms.csproj",
       "projectName": "MissionPlanner.Comms",
-      "projectPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\Comms\\MissionPlanner.Comms.csproj",
+      "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Comms\\MissionPlanner.Comms.csproj",
       "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
-      "outputPath": "D:\\DronProject\\DrogenMP\\ExtLibs\\Comms\\obj\\",
+      "outputPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Comms\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\DronProject\\DrogenMP\\.nuget\\NuGet.Config",
+        "D:\\DronProject\\DMP\\DMP_v1\\.nuget\\NuGet.Config",
         "C:\\Users\\brian\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

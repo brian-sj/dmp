@@ -25,6 +25,6 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="D:\DronProject\DrogenMP\ExtLibs\Mavlink\bin\Debug\net461\MAVLink.dll" target="lib\net461\MAVLink.dll" />
+    <file src="D:\DronProject\DMP\DMP_v1\ExtLibs\Mavlink\bin\Debug\net461\MAVLink.dll" target="lib\net461\MAVLink.dll" />
   </files>
 </package>
