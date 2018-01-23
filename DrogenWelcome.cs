@@ -243,7 +243,7 @@ namespace MissionPlanner
             float lng = 0;
             float alt = 10;
             
-            bool ret = MainV2.comPort.doCommand(MAVLink.MAV_CMD.TAKEOFF, min_pitch  , 0,0, yaw_angle ,  lat , lng , alt  );
+            bool ret = MainV2.comPort.doCommand(MAVLink.MAV_CMD.TAKEOFF, min_pitch  , 0,0, yaw_angle ,  lat , lng , alt  ); 
             if(ret)
             {
                 CustomMessageBox.Show("Success");
