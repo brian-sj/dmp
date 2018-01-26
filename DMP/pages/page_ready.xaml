@@ -93,12 +93,10 @@
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
                     <Label Content="착륙높이" Width="60"  />
-                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
-                                HorizontalAlignment="Center" VerticalAlignment="Center" >
 
-                        <TextBox Name="landingHeight" 
+                    <TextBox Name="landingHeight" Style="{StaticResource SUB_MENU_TB_ROUND}" 
                                     Text="{Binding Path=Landing_height , Mode=TwoWay}" />
-                    </Border>
+
                 </DockPanel>
             </Border>
 
