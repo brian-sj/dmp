@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:DMP"
       xmlns:model="clr-namespace:DMP.DataModels"
       xmlns:controls="clr-namespace:DMP.Controls"
-      mc:Ignorable="d" 
-      
+      mc:Ignorable="d"
       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:util="clr-namespace:DMP.util"
       Title="Ready">
@@ -23,6 +22,7 @@
             <Setter Property="Width" Value="100" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Height" Value="14" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
         </Style>
         
         <Style TargetType="Border" x:Key="MENU_BORDER" >
@@ -48,12 +48,12 @@
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel >
                     <Label Content="원점높이형태" Width="60"  />
-                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0"
-                                HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <ComboBox Name="cmbInitialHeightType" SelectedValuePath="Key" DisplayMemberPath="Value"
-                      ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdInitialHeightType }" SelectedValue="{Binding InitialHeightType}"
+                        <ComboBox Name="cmbInitialHeightType" SelectedValuePath="Key" 
+                                Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}" 
+                                DisplayMemberPath="Value"
+                            ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdInitialHeightType }" SelectedValue="{Binding InitialHeightType}"
                       />
-                    </Border>
+                    
                 </DockPanel>
             </Border>
             <Border Style="{StaticResource MENU_BORDER}" >
@@ -76,17 +76,14 @@
 
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
-                    <Label Content="착륙방법" Width="60"  />
-                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
-                                HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        
-                        <ComboBox Name="cmbLandingStyle" Grid.Column="1" Grid.Row="8"  
+                    <Label DockPanel.Dock="Left" Content="착륙방법" Width="60"  />
+                    <ComboBox Name="cmbLandingStyle" Grid.Column="1" Grid.Row="8"  
+                              Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
                       SelectedValuePath="Key" 
                                   ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdLandingType }"
                       DisplayMemberPath="Value" 
                       SelectedValue="{Binding Landing_style}"
                       />
-                    </Border>
                 </DockPanel>
             </Border>
 
@@ -100,35 +97,28 @@
                 </DockPanel>
             </Border>
 
-
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
                     <Label Content="신호끊김시" Width="60"  />
-                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
-                                HorizontalAlignment="Center" VerticalAlignment="Center" >
-
-                        <ComboBox Name="cmbDoWhenError" 
+                    <ComboBox Name="cmbDoWhenError" 
+                              Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
                                   SelectedValuePath="Key" DisplayMemberPath="Value"  
                                   ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdDoWhenError }"
                                   SelectedValue="{Binding Dowhenerror}" 
                          />
-                    </Border>
+                    
                 </DockPanel>
             </Border>
-
-
 
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
                     <Label Content="코너" Width="60"  />
-                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
-                                HorizontalAlignment="Center" VerticalAlignment="Center" >
-
-                        <ComboBox Name="cmbCornerStyle"  
+                    <ComboBox Name="cmbCornerStyle"  
+                      Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
                       SelectedValuePath="Key" DisplayMemberPath="Value"  
                       ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdCornerType}"
                       SelectedValue="{Binding Path=CornerType , Mode=TwoWay}"/>
-                    </Border>
+                    
                 </DockPanel>
             </Border>
             
