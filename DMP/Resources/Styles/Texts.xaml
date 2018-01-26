@@ -14,8 +14,9 @@
         <Setter Property="Margin" Value="0,6" />
         <Setter Property="FontSize" Value="25" />
         <Setter Property="FontWeight" Value="ExtraBold" />
+        
     </Style>
-
+    <!-- 수정  -->
     <!--  Base Style for TextBox  Key 줬다.  -->
     <Style
         x:Key="BaseTextBoxStyle" 
