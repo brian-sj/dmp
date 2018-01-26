@@ -44,12 +44,11 @@
                 </DockPanel>
             </Border>
 
-
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel >
                     <Label Content="원점높이형태" Width="60"  />
                         <ComboBox Name="cmbInitialHeightType" SelectedValuePath="Key" 
-                                Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}" 
+                                
                                 DisplayMemberPath="Value"
                             ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdInitialHeightType }" SelectedValue="{Binding InitialHeightType}"
                       />
@@ -78,6 +77,7 @@
                 <DockPanel>
                     <Label DockPanel.Dock="Left" Content="착륙방법" Width="60"  />
                     <ComboBox Name="cmbLandingStyle" Grid.Column="1" Grid.Row="8"  
+                              Background="Gray" Width="80"
                               Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
                       SelectedValuePath="Key" 
                                   ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdLandingType }"
@@ -115,6 +115,7 @@
                     <Label Content="코너" Width="60"  />
                     <ComboBox Name="cmbCornerStyle"  
                       Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
+                      Background="Brown"
                       SelectedValuePath="Key" DisplayMemberPath="Value"  
                       ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdCornerType}"
                       SelectedValue="{Binding Path=CornerType , Mode=TwoWay}"/>

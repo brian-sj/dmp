@@ -3,36 +3,42 @@
                     xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
                      >
     
-    <ControlTemplate x:Key="CustomPushpinTemplate" TargetType="m:Pushpin">
-        <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel>
-                <Grid Margin="0" Width="33" Height="33">
-                    <Rectangle HorizontalAlignment="Left" Margin="-0.208,13.238,0,-0.146" Width="10.555" Fill="#FF005167" RenderTransformOrigin="0.5,0.5">
-                        <Rectangle.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform AngleX="-23"/>
-                                <RotateTransform Angle="-12.944"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Rectangle.RenderTransform>
-                    </Rectangle>
-                    <Rectangle Fill="Gray" Stroke="#FF005167" RadiusX="5" RadiusY="5" />
-                    <ContentPresenter HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center"
-                                                                Content="{TemplateBinding Content}"
-                                                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                Margin="0" TextBlock.FontFamily="Segoe UI" TextBlock.FontWeight="Bold" TextBlock.Foreground="#FFB8D30B">
-                    </ContentPresenter>
-                </Grid>
-            </StackPanel>
-            
-        </Grid>
+    <ControlTemplate x:Key="CustomPushpinTemplate" TargetType="m:Pushpin" >
+        <StackPanel Margin="-10 -10 -10 -10" Width="30" Height="30">
+                <Canvas Width="20" Height="20" >
+                    <Polygon Fill="Red"
+                        Points="0,10 10,30 20,10">
+                        <Polygon.LayoutTransform>
+                            <RotateTransform Angle="0" />
+                        </Polygon.LayoutTransform>
+                    </Polygon>
+                    <Ellipse  Fill="Yellow" 
+                             Height="20" Width="20">
+                    </Ellipse>
+                    <Canvas.LayoutTransform>
+                        <RotateTransform Angle="310" />
+                    </Canvas.LayoutTransform>
+                </Canvas>
+            <TextBlock Margin="2 2 2 2 " Background="Gray" Text="11" Opacity="0.4"/>
+        </StackPanel>
     </ControlTemplate>
     <ControlTemplate x:Key="CustomPushpinTemplateActive" TargetType="m:Pushpin">
         <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
+                <Canvas>
+                    <Polygon Points="0,0 10,20 20,20">
+                        <Polygon.LayoutTransform>
+                            <RotateTransform Angle="-45" />
+                        </Polygon.LayoutTransform>
+                    </Polygon>
+                    <Ellipse  Fill="Yellow" 
+                             Canvas.Top="10" Canvas.Left="10"
+                             Height="20" Width="20">
+                    </Ellipse>
+                </Canvas>
+                
                 <Grid Margin="0" Width="33" Height="33">
+                    
                     <Rectangle HorizontalAlignment="Left" Margin="-0.208,13.238,0,-0.146" Width="10.555" Fill="#FF005167" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
