@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26606.0
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionPlanner", "MissionPlanner.csproj", "{A2E22272-95FE-47B6-B050-9AE7E2055BF5}"
 EndProject
@@ -79,6 +79,25 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino", "ExtLibs\Arduino\Arduino.csproj", "{EC0F2B60-CC39-4990-801F-C5DB4B570600}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAVLink", "ExtLibs\Mavlink\MAVLink.csproj", "{13D2EC90-C41F-48A1-AADA-859B6DC24EDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMP", "DMP\DMP.csproj", "{83CDA197-9362-42D1-8B36-BC50685E1D70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "자료", "자료", "{5C43FE94-3D45-4654-8A8C-5ECF3BE6C737}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\brian\Pictures\DMP_v3\DMP_02step_01mission.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_02step_01mission.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_02step_02target.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_02step_02target.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_02step_03waypoint.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_02step_03waypoint.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_02step_04review_v2.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_02step_04review_v2.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_02step_05Fly.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_02step_05Fly.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_04설정_01펌웨어.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_04설정_01펌웨어.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_04설정_02가속도교정.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_04설정_02가속도교정.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_04설정_03나침판.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_04설정_03나침판.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_04설정_04무선교정.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_04설정_04무선교정.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_04설정_05ESC.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_04설정_05ESC.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_04설정_07파라미터.jpg = C:\Users\brian\Pictures\DMP_v3\DMP_04설정_07파라미터.jpg
+		C:\Users\brian\Pictures\DMP_v3\DMP_STYLE.xlsx = C:\Users\brian\Pictures\DMP_v3\DMP_STYLE.xlsx
+		C:\Users\brian\Pictures\DMP_v3\dmpGuideSystem_v1_180123.pptx = C:\Users\brian\Pictures\DMP_v3\dmpGuideSystem_v1_180123.pptx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1692,6 +1711,54 @@ Global
 		{13D2EC90-C41F-48A1-AADA-859B6DC24EDC}.Release|x64.Build.0 = Release|Any CPU
 		{13D2EC90-C41F-48A1-AADA-859B6DC24EDC}.Release|x86.ActiveCfg = Release|Any CPU
 		{13D2EC90-C41F-48A1-AADA-859B6DC24EDC}.Release|x86.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|ARM.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|ARM.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|x64.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|x64.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|x86.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Ad-Hoc|x86.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|ARM.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|ARM.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|iPhoneSimulator.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|x64.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|x64.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.AppStore|x86.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|ARM.Build.0 = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|x64.Build.0 = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Debug|x86.Build.0 = Debug|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|ARM.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|ARM.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|iPhone.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|x64.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|x64.Build.0 = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|x86.ActiveCfg = Release|Any CPU
+		{83CDA197-9362-42D1-8B36-BC50685E1D70}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1727,23 +1794,8 @@ Global
 		{EC0F2B60-CC39-4990-801F-C5DB4B570600} = {7E264F12-9EC3-4CDC-A187-6879C2B2BFCF}
 		{13D2EC90-C41F-48A1-AADA-859B6DC24EDC} = {7E264F12-9EC3-4CDC-A187-6879C2B2BFCF}
 	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CDB2481-6714-42B6-87D3-B691A5F5CEF9}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = MissionPlanner.csproj

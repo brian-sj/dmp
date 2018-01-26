@@ -725,5 +725,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             CMB_primary_compass.Visible = MainV2.comPort.MAV.param.ContainsKey("COMPASS_PRIMARY");
             LBL_primary_compass.Visible = MainV2.comPort.MAV.param.ContainsKey("COMPASS_PRIMARY");
         }
+
+        private void mavlinkComboBoxfitness_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

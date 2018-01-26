@@ -8,3 +8,4 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\ManagedNativeWifi.Simple\bin\Debug\ManagedNati
 D:\DronProject\DMP\DMP_v1\ExtLibs\ManagedNativeWifi.Simple\obj\Debug\ManagedNativeWifi.Simple.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\ManagedNativeWifi.Simple\obj\Debug\ManagedNativeWifi.Simple.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\ManagedNativeWifi.Simple\obj\Debug\ManagedNativeWifi.Simple.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\ManagedNativeWifi.Simple\obj\Debug\ManagedNativeWifi.Simple.csprojResolveAssemblyReference.cache

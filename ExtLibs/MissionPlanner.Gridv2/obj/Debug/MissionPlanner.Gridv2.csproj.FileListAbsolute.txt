@@ -8,3 +8,13 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner
 D:\DronProject\DMP\DMP_v1\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Gridv2.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Gridv2.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Gridv2.pdb
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\MissionPlanner.Gridv2.dll.config
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\MissionPlanner.Gridv2.dll
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\MissionPlanner.Gridv2.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Gridv2.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.GridUIv2.resources
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Properties.Resources.resources
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Gridv2.csproj.GenerateResource.Cache
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Gridv2.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Gridv2.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Gridv2\obj\Debug\MissionPlanner.Gridv2.pdb

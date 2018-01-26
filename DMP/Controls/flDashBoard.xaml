@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="DMP.Controls.flDashBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DMP"
+             xmlns:model="clr-namespace:DMP.DataModels"
+             mc:Ignorable="d" 
+             Opacity="0.8"
+             d:DesignHeight="360" Width="240">
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="AntiqueWhite" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="{StaticResource LatoBold}" />
+            
+        </Style>
+
+        <Style x:Key="fdTopLabel" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="FontSize" Value="{StaticResource FontSizeLarge }" />
+            <Setter Property="Margin" Value="0 30 0 0" />
+        </Style>
+
+        <Style x:Key="fdDataLabel" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="FontSize" Value="{StaticResource FontSizeXLarge }" />
+            <Setter Property="FontWeight" Value="ExtraBold" />
+        </Style>
+
+        <Style x:Key="fdUnitLabel" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="FontSize" Value="{StaticResource FontSizeLarge }" />
+            <Setter Property="Margin" Value="0 -10 0 0" />
+            <Setter Property="FontWeight" Value="ExtraBold" />
+        </Style>
+
+        <Style TargetType="Border">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Gray" />
+        </Style>
+
+        <Style TargetType="StackPanel">
+            <Setter Property="Height" Value="120" />
+            <Setter Property="Background" Value="#000" />
+        </Style>
+        
+    </UserControl.Resources>
+    <Grid DataContext="{x:Static model:GvarDesignModel.Instance}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="120" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="120" /> 
+            <RowDefinition Height ="120" />
+            <RowDefinition Height ="120" />
+        </Grid.RowDefinitions>
+        <Border  Grid.Column="0" Grid.Row="0">
+            <StackPanel>
+                <Label Content="Altitude" Style="{StaticResource fdTopLabel}"   />
+                <Label Content="{Binding FDalt}" Style="{StaticResource fdDataLabel}" FontSize="30"   />
+                <Label Content="m" Style="{StaticResource fdUnitLabel}"   />
+            </StackPanel>
+        </Border>
+
+        <Border  Grid.Column="1" Grid.Row="0">
+            <StackPanel>
+                <Label Content="Speed" Style="{StaticResource fdTopLabel}"/>
+                <Label Content="{Binding FDspeed}" Style="{StaticResource fdDataLabel}" />
+                <Label Content="m" Style="{StaticResource fdUnitLabel}"/>
+            </StackPanel>
+        </Border>
+
+        <Border  Grid.Column="0" Grid.Row="1">
+            <StackPanel>
+                <Label Content="flight Distance"   Style="{StaticResource fdTopLabel}"/>
+                <Label Content="{Binding TotalFlightDistance}"  Style="{StaticResource fdDataLabel}" />
+                <Label Content="m" Style="{StaticResource fdUnitLabel}"  />
+            </StackPanel>
+        </Border>
+
+        <Border  Grid.Column="1" Grid.Row="1">
+            <StackPanel>
+                <Label Content="Temperature" Style="{StaticResource fdTopLabel}"  />
+                <Label Content="{Binding FDtemperature}" Style="{StaticResource fdDataLabel}"  />
+                <Label Content="'c" Style="{StaticResource fdUnitLabel}"  />
+            </StackPanel>
+        </Border>
+
+        <Border  Grid.Column="0" Grid.Row="2">
+            <StackPanel>
+                <Label Content="Atmosphere Pressure" Style="{StaticResource fdTopLabel}" />
+                <Label Content="{Binding FDpressAbs}"  Style="{StaticResource fdDataLabel}" />
+                <Label Content="ATM Pressure"  Style="{StaticResource fdUnitLabel}" />
+            </StackPanel>
+        </Border>
+
+        <Border  Grid.Column="1" Grid.Row="2">
+            <StackPanel >
+                <Label Content="Heading" Style="{StaticResource fdTopLabel}" />
+                <Label Content="{Binding FDheading}" Style="{StaticResource fdDataLabel}" />
+                <Label Content="m" Style="{StaticResource fdUnitLabel}"  />
+            </StackPanel>
+        </Border>
+
+
+    </Grid>
+</UserControl>

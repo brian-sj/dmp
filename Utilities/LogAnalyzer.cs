@@ -114,7 +114,7 @@ namespace MissionPlanner.Utilities
                 CustomMessageBox.Show("Failed to start LogAnalyzer");
             }
 
-            Loading.Close();
+            //Loading.Close();
 
             return FileName + ".xml";
         }

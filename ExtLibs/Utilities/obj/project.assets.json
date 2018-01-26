@@ -3535,7 +3535,9 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brian\\.nuget\\packages\\": {}
+    "C:\\Users\\brian\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3543,16 +3545,21 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Utilities\\MissionPlanner.Utilities.csproj",
+      "projectUniqueName": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\Utilities\\MissionPlanner.Utilities.csproj",
       "projectName": "MissionPlanner.Utilities",
-      "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Utilities\\MissionPlanner.Utilities.csproj",
+      "projectPath": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\Utilities\\MissionPlanner.Utilities.csproj",
       "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
-      "outputPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Utilities\\obj\\",
+      "outputPath": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\Utilities\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "D:\\DronProject\\DMP\\DMP_v1\\.nuget\\NuGet.Config",
+        "D:\\DronProject\\DMP\\GitDMP\\.nuget\\NuGet.Config",
         "C:\\Users\\brian\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "net461"
@@ -3564,17 +3571,22 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\GMap.NET.Core\\GMap.NET.Core.csproj": {
-              "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\GMap.NET.Core\\GMap.NET.Core.csproj"
+            "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\Mavlink\\MAVLink.csproj": {
+              "projectPath": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\Mavlink\\MAVLink.csproj"
             },
-            "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\MAVLink.csproj": {
-              "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\MAVLink.csproj"
+            "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\GeoUtility\\GeoUtility.csproj": {
+              "projectPath": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\GeoUtility\\GeoUtility.csproj"
             },
-            "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\GeoUtility\\GeoUtility.csproj": {
-              "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\GeoUtility\\GeoUtility.csproj"
+            "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\GMap.NET.Core\\GMap.NET.Core.csproj": {
+              "projectPath": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\GMap.NET.Core\\GMap.NET.Core.csproj"
             }
           }
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
@@ -3582,23 +3594,23 @@
         "dependencies": {
           "BitMiracle.LibTiff.NET": {
             "target": "Package",
-            "version": "2.4.571"
-          },
-          "ProjNet": {
-            "target": "Package",
-            "version": "1.2.0"
-          },
-          "SharpZipLib": {
-            "target": "Package",
-            "version": "0.86.0"
-          },
-          "log4net": {
-            "target": "Package",
-            "version": "2.0.8"
+            "version": "[2.4.571, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "10.0.2"
+            "version": "[10.0.2, )"
+          },
+          "ProjNet": {
+            "target": "Package",
+            "version": "[1.2.0, )"
+          },
+          "SharpZipLib": {
+            "target": "Package",
+            "version": "[0.86.0, )"
+          },
+          "log4net": {
+            "target": "Package",
+            "version": "[2.0.8, )"
           }
         }
       }

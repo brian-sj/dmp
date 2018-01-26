@@ -1,0 +1,158 @@
+﻿<Application x:Class="DMP.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DMP"
+             xmlns:util="clr-namespace:DMP.util"
+             xmlns:b="clr-namespace:DMP.Controls.button"
+             xmlns:system ="clr-namespace:System;assembly=mscorlib"
+             StartupUri="MainWindow.xaml">
+
+
+    <Application.Resources>
+        
+
+        <ResourceDictionary >
+           
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/Colours.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/Buttons.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/Texts.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/Windows.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/DMPMenu.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <Color x:Key="AccentColor">#CC000000</Color>
+            <Color x:Key="MainButtonGray">#FFADADAD</Color>
+
+
+
+            <system:Double x:Key="SUBMENUSIZE">292</system:Double>
+            <system:Double x:Key="SUB_MENU_ITEM_RIGHT_SIZE">140</system:Double>
+            <system:Double x:Key="SUB_MENU_ITEM_LEFT_SIZE">60</system:Double>
+            <system:Double x:Key="SUB_MENU_ITEM_HEIGHT">26</system:Double>
+            <system:Double x:Key="MMainNavButton_WIDTH">80</system:Double>
+            <system:Double x:Key="MMainNavButton_HEIGHT">80</system:Double>
+            
+            <!--  #####################Style ...   -->
+            <Style x:Key="MMainNavButton" TargetType="b:MenuButton">
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="Width" Value="80" />
+                <Setter Property="MinWidth" Value="80" />
+                <Setter Property="Height" Value="80" />
+                <Setter Property="Background" Value="#3f424a" />
+                <Setter Property="Foreground" Value="#ffffff" />
+                <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Lato-Regular" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type b:MenuButton}" >
+                            <Border
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="3"
+                        SnapsToDevicePixels="True">
+                                <Grid>
+                                    <TextBlock
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{TemplateBinding FontSize}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                Text="{TemplateBinding Content}"
+                                            />
+
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource BackLightBlue}"
+                                        Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        From="{StaticResource BackLightBlue}"
+                                        Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="{StaticResource BackLightBlueBrush}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="MainButtonRound" TargetType="Button">
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="Height" Value="40" />
+                <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" /> 
+                <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Lato-Regular" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                                <ContentPresenter x:Name="contentPresenter" 
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                                  Content="{TemplateBinding Content}" 
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  Margin="{TemplateBinding Padding}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="MainButtonSmall" TargetType="Button">
+                <Setter Property="Margin" Value="1" />
+                <Setter Property="Height" Value="24" />
+                <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
+                <Setter Property="Background" Value="{StaticResource ForeLightGrayBrush}" />
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Lato-Regular" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border1" CornerRadius="3" Margin="1" Padding="8 3 8 3" BorderThickness="1" BorderBrush="#dbdbdb" Background="{TemplateBinding Background}">
+                                <ContentPresenter x:Name="contentPresenter" 
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                                  Content="{TemplateBinding Content}" 
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  Margin="{TemplateBinding Padding}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border1" Property="Background" Value="{StaticResource ButtonOverBlueBrush}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                        
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!-- ################# Style    -->
+        </ResourceDictionary>
+        
+        
+    </Application.Resources>
+</Application>

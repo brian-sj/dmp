@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83CDA197-9362-42D1-8B36-BC50685E1D70}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DMP</RootNamespace>
+    <AssemblyName>DMP</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Presentation.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Presentation.1.7.5\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpZipLib.Silverlight4">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\SL4\SharpZipLib.Silverlight4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <HintPath>..\packages\System.Data.SQLite.x64.1.0.106.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.106.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.106.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive.Core, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Core.3.1.1\lib\net46\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\net46\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net46\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="ToastNotifications, Version=2.2.5.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.2.2.5\lib\net40\ToastNotifications.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastNotifications.Messages, Version=2.2.5.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.Messages.2.2.5\lib\net40\ToastNotifications.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Animation\FrameworkElementAnimations.cs" />
+    <Compile Include="Animation\PageAnimation.cs" />
+    <Compile Include="Animation\PageAnimations.cs" />
+    <Compile Include="Animation\StoryBoardHelpers.cs" />
+    <Compile Include="Attached Properties\BaseAttachedProperty.cs" />
+    <Compile Include="Attached Properties\ButtonAttachedProperty.cs" />
+    <Compile Include="Attached Properties\FrameworkElementAnimationAttachedProperties.cs" />
+    <Compile Include="Attached Properties\NoFrameHistory.cs" />
+    <Compile Include="Attached Properties\PasswordBoxAttachedProperties.cs" />
+    <Compile Include="Attached Properties\TextAttachedProperties.cs" />
+    <Compile Include="Controls\button\MenuButton.cs" />
+    <Compile Include="Controls\LabeledControl.xaml.cs">
+      <DependentUpon>LabeledControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabeledLabel.xaml.cs">
+      <DependentUpon>LabeledLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Commands\MapClickCommand.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Controls\HUD.xaml.cs">
+      <DependentUpon>HUD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabeledTextBox.xaml.cs">
+      <DependentUpon>LabeledTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumericUpDown.xaml.cs">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\pushpin\DMPPushpin.cs" />
+    <Compile Include="Controls\TargetListControl.xaml.cs">
+      <DependentUpon>TargetListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TargetListItemControl.xaml.cs">
+      <DependentUpon>TargetListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TargetPointItem.xaml.cs">
+      <DependentUpon>TargetPointItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WayPointItem.xaml.cs">
+      <DependentUpon>WayPointItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WPListControl.xaml.cs">
+      <DependentUpon>WPListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WPListItemControl.xaml.cs">
+      <DependentUpon>WPListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentState.cs" />
+    <Compile Include="DataModels\Commands\RelayCommand.cs" />
+    <Compile Include="DataModels\DefaultValue.cs" />
+    <Compile Include="DataModels\EnumListDictionary.cs" />
+    <Compile Include="DataModels\EnumListDictionaryDesignModel.cs" />
+    <Compile Include="DataModels\MapDesignModel.cs" />
+    <Compile Include="DataModels\MapModel.cs" />
+    <Compile Include="DataModels\ToastViewModel.cs" />
+    <Compile Include="DataModels\UIDesignModel.cs" />
+    <Compile Include="DataModels\GvarDesignModel.cs" />
+    <Compile Include="DataModels\GvarModel.cs" />
+    <Compile Include="DataModels\StaticComboOptionDesignModel.cs" />
+    <Compile Include="DataModels\StaticComboOptions.cs" />
+    <Compile Include="Dialogs\CustomMessageBox.xaml.cs">
+      <DependentUpon>CustomMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ProgressReporterDialogue.xaml.cs">
+      <DependentUpon>ProgressReporterDialogue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Test.cs" />
+    <Compile Include="GCSViews\ConfigurationView\ConfigFrameClassType.xaml.cs">
+      <DependentUpon>ConfigFrameClassType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GCSViews\ConfigurationView\ConfigFrameType.xaml.cs">
+      <DependentUpon>ConfigFrameType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GCSViews\FlightData.xaml.cs">
+      <DependentUpon>FlightData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GCSViews\FlightPlanner.xaml.cs">
+      <DependentUpon>FlightPlanner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="hil\Aircraft.cs" />
+    <Compile Include="hil\Hil.cs" />
+    <Compile Include="hil\Matrix3.cs" />
+    <Compile Include="hil\QuadCopter.cs" />
+    <Compile Include="hil\Utils.cs" />
+    <Compile Include="hil\Vector3.cs" />
+    <Compile Include="hil\Wind.cs" />
+    <Compile Include="hil\XPlane.cs" />
+    <Compile Include="L10N.cs" />
+    <Compile Include="MainV2.cs" />
+    <Compile Include="mavlink\MAVAuthKeys.cs" />
+    <Compile Include="mavlink\MAVLinkInterface.cs" />
+    <Compile Include="mavlink\MAVLinkSerialPort.cs" />
+    <Compile Include="mavlink\MAVList.cs" />
+    <Compile Include="mavlink\MAVState.cs" />
+    <Compile Include="pages\page_connect.xaml.cs">
+      <DependentUpon>page_connect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\page_help.xaml.cs">
+      <DependentUpon>page_help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\page_login.xaml.cs">
+      <DependentUpon>page_login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\page_register.xaml.cs">
+      <DependentUpon>page_register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\page_setting.xaml.cs">
+      <DependentUpon>page_setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\page_help.xaml.cs">
+      <DependentUpon>page_help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\slideMenuReady.xaml.cs">
+      <DependentUpon>slideMenuReady.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Strings.cs" />
+    <Compile Include="Utilities\Airports.cs" />
+    <Compile Include="Utilities\AltitudeAngel\AASettings.cs" />
+    <Compile Include="Utilities\AltitudeAngel\AASettings.Designer.cs">
+      <DependentUpon>AASettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\AltitudeAngel\AltitudeAngel.cs" />
+    <Compile Include="Utilities\AltitudeAngel\MapAdapter.cs" />
+    <Compile Include="Utilities\AltitudeAngel\MissionPlannerAdaptor.cs" />
+    <Compile Include="Utilities\AltitudeAngel\OverlayAdapter.cs" />
+    <Compile Include="Utilities\AP_GPS_base.cs" />
+    <Compile Include="Utilities\AP_GPS_GSOF.cs" />
+    <Compile Include="Utilities\AP_GPS_NOVA.cs" />
+    <Compile Include="Utilities\AP_GPS_SBF.cs" />
+    <Compile Include="Utilities\AP_Terrain.cs" />
+    <Compile Include="Utilities\BoardDetect.cs" />
+    <Compile Include="Utilities\CircleSurveyMission.cs" />
+    <Compile Include="Utilities\Crypto.cs" />
+    <Compile Include="Utilities\Device.cs" />
+    <Compile Include="Utilities\dxf.cs" />
+    <Compile Include="Utilities\ExpireType.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Utilities\fft.cs" />
+    <Compile Include="Utilities\fftui.cs" />
+    <Compile Include="Utilities\fftui.Designer.cs">
+      <DependentUpon>fftui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Firmware.cs" />
+    <Compile Include="Utilities\fitCurve.cs" />
+    <Compile Include="Utilities\fontgen.cs" />
+    <Compile Include="Utilities\GimbalPoint.cs" />
+    <Compile Include="Utilities\GitHubContent.cs" />
+    <Compile Include="Utilities\GMapMarkerAirport.cs" />
+    <Compile Include="Utilities\GMapMarkerOverlapCount.cs" />
+    <Compile Include="Utilities\GMapMarkerPhoto.cs" />
+    <Compile Include="Utilities\GMapMarkerPOI.cs" />
+    <Compile Include="Utilities\GMapMarkerRallyPt.cs" />
+    <Compile Include="Utilities\GStreamer.cs" />
+    <Compile Include="Utilities\httpserver.cs" />
+    <Compile Include="Utilities\ICorrections.cs" />
+    <Resource Include="Resources\Fonts\fontawesome-webfont.ttf" />
+    <None Include="Utilities\ImageOverFilter.cs" />
+    <Compile Include="Utilities\ImageProjection.cs" />
+    <Compile Include="Utilities\Kalman3D.cs" />
+    <Compile Include="Utilities\LangUtility.cs" />
+    <Compile Include="Utilities\LineOffset.cs" />
+    <Compile Include="Utilities\ListExtension.cs" />
+    <Compile Include="Utilities\LogAnalyzer.cs" />
+    <Compile Include="Utilities\Matrix.cs" />
+    <Compile Include="Utilities\MeasureString.cs" />
+    <Compile Include="Utilities\NGEN.cs" />
+    <Compile Include="Utilities\nmea.cs" />
+    <Compile Include="Utilities\OpticalFlow.cs" />
+    <Compile Include="Utilities\ParameterMetaDataConstants.cs" />
+    <Compile Include="Utilities\ParameterMetaDataParser.cs" />
+    <Compile Include="Utilities\ParameterMetaDataRepository.cs" />
+    <Compile Include="Utilities\ParameterMetaDataRepositoryAPM.cs" />
+    <Compile Include="Utilities\ParameterMetaDataRepositoryPX4.cs" />
+    <Compile Include="Utilities\ParamFile.cs" />
+    <Compile Include="Utilities\Password.cs" />
+    <Compile Include="Utilities\POI.cs" />
+    <Compile Include="Utilities\Proximity.cs" />
+    <Compile Include="Utilities\rtcm3.cs" />
+    <Compile Include="Utilities\sbp.cs" />
+    <Compile Include="Utilities\Settings.cs" />
+    <Compile Include="Utilities\Speech.cs" />
+    <Compile Include="Utilities\StreamCombiner.cs" />
+    <Compile Include="Utilities\StringRedirectWriter.cs" />
+    <Compile Include="Utilities\TerrainFollow.cs" />
+    <Compile Include="Utilities\ThemeManager.cs" />
+    <Compile Include="Utilities\Tools.cs" />
+    <Compile Include="Utilities\Tracking.cs" />
+    <Compile Include="Utilities\ubx_m8p.cs" />
+    <Compile Include="Utilities\UDPMavlinkShim.cs" />
+    <Compile Include="Utilities\UDPVideoShim.cs" />
+    <Compile Include="Utilities\Update.cs" />
+    <Compile Include="Utilities\VersionDetection.cs" />
+    <Compile Include="Utilities\vlcrender.cs" />
+    <Compile Include="Utilities\ZeroConf.cs" />
+    <Compile Include="util\DMPEnumerations.cs" />
+    <Compile Include="util\EnumHelperService.cs" />
+    <Compile Include="util\EnumToItemsSource.cs" />
+    <Compile Include="util\EnumToObjectArray.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataModels\TargetPointModel.cs" />
+    <Compile Include="DataModels\ViewModelBase.cs" />
+    <Compile Include="DataModels\WayPointModel.cs" />
+    <Compile Include="util\GeoCalculate.cs" />
+    <Compile Include="util\ListToXML.cs" />
+    <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
+    <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\HorizontalAlignmentConverter.cs" />
+    <Compile Include="ValueConverters\StringParamToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\IoCConverter.cs" />
+    <Compile Include="ValueConverters\SentByMeToAlignmentConverter.cs" />
+    <Compile Include="ValueConverters\SentByMeToBackgroundConverter.cs" />
+    <Compile Include="ValueConverters\StringRgbToBrushConverter.cs" />
+    <Compile Include="ValueConverters\TimeToDisplayTimeConverter.cs" />
+    <Compile Include="ValueConverters\TimeToReadTimeConverter.cs" />
+    <Page Include="Controls\HUD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LabeledControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LabeledLabel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LabeledTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TargetListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TargetListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TargetPointItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WayPointItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WPListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WPListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\CustomMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ProgressReporterDialogue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GCSViews\ConfigurationView\ConfigFrameClassType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GCSViews\ConfigurationView\ConfigFrameType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GCSViews\FlightData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GCSViews\FlightPlanner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\page_connect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\page_help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\page_login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\page_register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\page_setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Properties\page_help.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\BingMapPushPinStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\Colours.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\Scroll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\StringResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\Texts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\DMPMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\flDashBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\flDashBoard.xaml.cs">
+      <DependentUpon>flDashBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="pages\page_ready.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\page_play.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pages\page_review.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pages\page_waypoint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pages\page_target.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\slideMenuReady.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="pages\page_ready.xaml.cs">
+      <DependentUpon>page_ready.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\page_play.xaml.cs">
+      <DependentUpon>page_play.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\page_review.xaml.cs">
+      <DependentUpon>page_review.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\page_waypoint.xaml.cs">
+      <DependentUpon>page_waypoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\page_target.xaml.cs">
+      <DependentUpon>page_target.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\AltitudeAngel\AASettings.resx">
+      <DependentUpon>AASettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\fftui.resx">
+      <DependentUpon>fftui.cs</DependentUpon>
+    </EmbeddedResource>
+    <Resource Include="Resources\Fonts\Lato-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Lato-Regular.ttf" />
+    <Resource Include="Resources\Fonts\NotoSansCJKkr-Regular.otf" />
+    <Resource Include="Resources\Fonts\Lato-Black.ttf" />
+    <Resource Include="Resources\Fonts\Lato-BlackItalic.ttf" />
+    <Resource Include="Resources\Fonts\Lato-BoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Lato-Hairline.ttf" />
+    <Resource Include="Resources\Fonts\Lato-HairlineItalic.ttf" />
+    <Resource Include="Resources\Fonts\Lato-Heavy.ttf" />
+    <Resource Include="Resources\Fonts\Lato-HeavyItalic.ttf" />
+    <Resource Include="Resources\Fonts\Lato-Italic.ttf" />
+    <Resource Include="Resources\Fonts\Lato-Light.ttf" />
+    <Resource Include="Resources\Fonts\Lato-LightItalic.ttf" />
+    <Resource Include="Resources\Fonts\Lato-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Lato-MediumItalic.ttf" />
+    <Resource Include="Resources\Fonts\Lato-Semibold.ttf" />
+    <Resource Include="Resources\Fonts\Lato-SemiboldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Lato-Thin.ttf" />
+    <Resource Include="Resources\Fonts\Lato-ThinItalic.ttf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\imgs\01common_01colorGuide.jpg" />
+    <Resource Include="Resources\imgs\01common_02mainLayoutGuide.jpg" />
+    <Resource Include="Resources\imgs\01common_03FormGuide.jpg" />
+    <Resource Include="Resources\imgs\01common_04btnGuide.jpg" />
+    <Resource Include="Resources\imgs\02pageGuide_01main.jpg" />
+    <Resource Include="Resources\imgs\02pageGuide_02misson.jpg" />
+    <Resource Include="Resources\imgs\02pageGuide_03target.jpg" />
+    <Resource Include="Resources\imgs\02pageGuide_04waypoint.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\imgs\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\imgs\emoji-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Comms\" />
+    <Folder Include="Resources\Logo\" />
+    <Folder Include="util\model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExtLibs\AltitudeAngelWings\AltitudeAngelWings.csproj">
+      <Project>{098f542c-7c70-4b9c-b2e2-ac5dc5e0294b}</Project>
+      <Name>AltitudeAngelWings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\Comms\MissionPlanner.Comms.csproj">
+      <Project>{825e7a10-390c-4a2b-b3a8-491d14966912}</Project>
+      <Name>MissionPlanner.Comms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\Controls\MissionPlanner.Controls.csproj">
+      <Project>{c8b88795-6d01-494d-83ad-6944bd4c5023}</Project>
+      <Name>MissionPlanner.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\LibVLC.NET\LibVLC.NET.csproj">
+      <Project>{bb06dff7-4f41-4b9d-a3c3-3b6d2b8702b6}</Project>
+      <Name>LibVLC.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\ManagedNativeWifi.Simple\ManagedNativeWifi.Simple.csproj">
+      <Project>{cce510f7-1da6-40f2-8921-b86ed41bb85e}</Project>
+      <Name>ManagedNativeWifi.Simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\Mavlink\MAVLink.csproj">
+      <Project>{13d2ec90-c41f-48a1-aada-859b6dc24edc}</Project>
+      <Name>MAVLink</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\MissionPlanner.Gridv2\MissionPlanner.Gridv2.csproj">
+      <Project>{a7aa6037-bf11-473e-94f9-717276fe080c}</Project>
+      <Name>MissionPlanner.Gridv2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\MissionPlanner.Stats\MissionPlanner.Stats.csproj">
+      <Project>{6a6f4345-0a45-413e-b6d6-fd73660dad4c}</Project>
+      <Name>MissionPlanner.Stats</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\px4uploader\px4uploader.csproj">
+      <Project>{664fc484-2a94-4b0d-808f-a71f88e06b11}</Project>
+      <Name>px4uploader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\SharpKml\SharpKml.csproj">
+      <Project>{53f12a60-e9cc-44bc-8366-1ae3ab2b547d}</Project>
+      <Name>SharpKml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\SimpleGrid\MissionPlanner.SimpleGrid.csproj">
+      <Project>{28d0bef6-d69c-43ab-a22c-724f116d50ea}</Project>
+      <Name>MissionPlanner.SimpleGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtLibs\Utilities\MissionPlanner.Utilities.csproj">
+      <Project>{1378a66c-38e4-46f5-a05f-dc04ef7d4d16}</Project>
+      <Name>MissionPlanner.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\imgs\arrow-down.png" />
+    <Resource Include="Resources\imgs\arrow-up.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.106.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.106.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>

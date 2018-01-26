@@ -1515,7 +1515,7 @@ Please check the following
 
         public static void modifyParamForDisplay(bool fromapm, string paramname, ref float value)
         {
-            int planforremoval;
+            //int planforremoval;
 
             if (paramname.ToUpper().EndsWith("_IMAX") || paramname.ToUpper().EndsWith("ALT_HOLD_RTL") ||
                 paramname.ToUpper().EndsWith("APPROACH_ALT") || paramname.ToUpper().EndsWith("TRIM_ARSPD_CM") ||
@@ -1718,7 +1718,7 @@ Please check the following
         {
             giveComport = true;
             MAVLinkMessage buffer;
-
+            //uicallback
             mavlink_command_long_t req = new mavlink_command_long_t();
 
                 req.target_system = sysid;
@@ -3965,9 +3965,7 @@ Please check the following
                         }
                     }
                 }
-
                 log.Info("SubscribeToPacketType " + item.Key + " " + item.Value);
-
                 Subscriptions.Add(item);
             }
 

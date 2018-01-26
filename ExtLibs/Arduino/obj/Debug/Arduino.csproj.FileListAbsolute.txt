@@ -16,3 +16,12 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\Arduino\obj\Debug\Arduino.csprojResolveAssembl
 D:\DronProject\DMP\DMP_v1\ExtLibs\Arduino\obj\Debug\Arduino.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\Arduino\obj\Debug\Arduino.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\Arduino\obj\Debug\Arduino.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\bin\Debug\Arduino.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\bin\Debug\Arduino.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\bin\Debug\log4net.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\bin\Debug\MissionPlanner.Comms.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\bin\Debug\log4net.xml
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\obj\Debug\Arduino.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\obj\Debug\Arduino.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\obj\Debug\Arduino.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\Arduino\obj\Debug\Arduino.pdb

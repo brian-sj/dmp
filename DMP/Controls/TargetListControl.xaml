@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="DMP.Controls.TargetListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DMP.Controls"
+             xmlns:util="clr-namespace:DMP.util"
+             xmlns:model="clr-namespace:DMP.DataModels"
+             mc:Ignorable="d">
+    <!--<Grid Background="{StaticResource ForegroundDarkBrush}" DataContext="{x:Static core:ChatListDesignModel.Instance}">     util:DMPGVarsmodel.Instance  -->
+    <Grid Background="{StaticResource ForeLightGrayBrush}">
+        
+        <ScrollViewer Margin="2 0 0 0"
+            VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" 
+                      Height="900">
+            <!-- height 값을 이걸로 주니까 스크롤이 안생기네.  Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Canvas}}}" -->
+            <ItemsControl Name="icList" ItemsSource="{Binding TPList, Mode=TwoWay}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="x:Type model:WayPointModel">
+                        <Border Background="Black" Padding="0 4 4 4" >
+                            <local:TargetListItemControl Tag="{Binding}" MouseDown="TargetListItemControl_MouseDoubleClick"/>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <StackPanel >
+            <TextBlock Text="{Binding Name}"/> 
+        </StackPanel>
+    </Grid>
+</UserControl>

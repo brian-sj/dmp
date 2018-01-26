@@ -184,7 +184,7 @@
     <value>110, 42</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 91</value>
+    <value>290, 84</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>73</value>
@@ -226,7 +226,7 @@ After pushing this button:
     <value>buttonStart</value>
   </data>
   <data name="&gt;&gt;buttonStart.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.6277.35251, Culture=neutral, PublicKeyToken=38326cb7e06851fc</value>
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;buttonStart.Parent" xml:space="preserve">
     <value>$this</value>
@@ -241,7 +241,7 @@ After pushing this button:
     <value>113, 158</value>
   </data>
   <data name="mavlinkComboBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 21</value>
+    <value>120, 20</value>
   </data>
   <data name="mavlinkComboBox1.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -250,7 +250,7 @@ After pushing this button:
     <value>mavlinkComboBox1</value>
   </data>
   <data name="&gt;&gt;mavlinkComboBox1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkComboBox, MissionPlanner, Version=1.1.6278.13288, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.MavlinkComboBox, MissionPlanner, Version=1.1.6471.19433, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkComboBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -313,7 +313,7 @@ After pushing this button:
     <value>11, 165</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
+    <value>67, 12</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -340,7 +340,7 @@ After pushing this button:
     <value>113, 186</value>
   </data>
   <data name="mavlinkNumericUpDown1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
+    <value>62, 21</value>
   </data>
   <data name="mavlinkNumericUpDown1.TabIndex" type="System.Int32, mscorlib">
     <value>79</value>
@@ -349,7 +349,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown1</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6278.13288, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6471.19433, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -364,7 +364,7 @@ After pushing this button:
     <value>113, 212</value>
   </data>
   <data name="mavlinkNumericUpDown2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
+    <value>62, 21</value>
   </data>
   <data name="mavlinkNumericUpDown2.TabIndex" type="System.Int32, mscorlib">
     <value>80</value>
@@ -373,7 +373,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown2</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown2.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6278.13288, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6471.19433, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -388,7 +388,7 @@ After pushing this button:
     <value>113, 238</value>
   </data>
   <data name="mavlinkNumericUpDown3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
+    <value>62, 21</value>
   </data>
   <data name="mavlinkNumericUpDown3.TabIndex" type="System.Int32, mscorlib">
     <value>81</value>
@@ -397,7 +397,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown3</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown3.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6278.13288, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6471.19433, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -412,7 +412,7 @@ After pushing this button:
     <value>113, 264</value>
   </data>
   <data name="mavlinkNumericUpDown4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
+    <value>62, 21</value>
   </data>
   <data name="mavlinkNumericUpDown4.TabIndex" type="System.Int32, mscorlib">
     <value>82</value>
@@ -421,7 +421,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown4</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown4.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6278.13288, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6471.19433, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -436,7 +436,7 @@ After pushing this button:
     <value>113, 290</value>
   </data>
   <data name="mavlinkNumericUpDown5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
+    <value>62, 21</value>
   </data>
   <data name="mavlinkNumericUpDown5.TabIndex" type="System.Int32, mscorlib">
     <value>83</value>
@@ -445,7 +445,7 @@ After pushing this button:
     <value>mavlinkNumericUpDown5</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown5.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6278.13288, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.MavlinkNumericUpDown, MissionPlanner, Version=1.1.6471.19433, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mavlinkNumericUpDown5.Parent" xml:space="preserve">
     <value>$this</value>
@@ -463,7 +463,7 @@ After pushing this button:
     <value>11, 193</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 13</value>
+    <value>99, 12</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>84</value>
@@ -493,7 +493,7 @@ After pushing this button:
     <value>11, 219</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 13</value>
+    <value>103, 12</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>85</value>
@@ -523,7 +523,7 @@ After pushing this button:
     <value>11, 245</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 13</value>
+    <value>106, 12</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>86</value>
@@ -553,7 +553,7 @@ After pushing this button:
     <value>11, 271</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 13</value>
+    <value>87, 12</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>87</value>
@@ -583,7 +583,7 @@ After pushing this button:
     <value>11, 297</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
+    <value>91, 12</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>88</value>
@@ -613,7 +613,7 @@ After pushing this button:
     <value>181, 193</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 13</value>
+    <value>193, 12</value>
   </data>
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>89</value>
@@ -643,7 +643,7 @@ After pushing this button:
     <value>181, 219</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 13</value>
+    <value>193, 12</value>
   </data>
   <data name="label10.TabIndex" type="System.Int32, mscorlib">
     <value>90</value>
@@ -673,7 +673,7 @@ After pushing this button:
     <value>181, 245</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 13</value>
+    <value>333, 12</value>
   </data>
   <data name="label11.TabIndex" type="System.Int32, mscorlib">
     <value>91</value>
@@ -703,7 +703,7 @@ After pushing this button:
     <value>181, 271</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 13</value>
+    <value>466, 12</value>
   </data>
   <data name="label12.TabIndex" type="System.Int32, mscorlib">
     <value>92</value>
@@ -733,7 +733,7 @@ After pushing this button:
     <value>181, 297</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 13</value>
+    <value>495, 12</value>
   </data>
   <data name="label13.TabIndex" type="System.Int32, mscorlib">
     <value>93</value>
@@ -757,7 +757,7 @@ After pushing this button:
     <value>True</value>
   </metadata>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 349</value>
+    <value>650, 543</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ConfigESCCalibration</value>

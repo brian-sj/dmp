@@ -1,0 +1,57 @@
+﻿<Page x:Class="DMP.PageTarget"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DMP"
+      xmlns:uc="clr-namespace:DMP.Controls"
+      xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+      mc:Ignorable="d" 
+      Title="Target" >
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/BingMapPushPinStyle.xaml">
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary> 
+    </Page.Resources>
+   <!-- Height를 주어야 한다. -->
+    <Grid  VerticalAlignment="Stretch" MinHeight="800" >
+        <m:Map x:Name="MapWithEvents" CredentialsProvider="At7hRwCD3E_9oRFHn1geVrHct2_eN0EXzxYRVBW-Q6yxnG3wvBDDjqFEqU-K8ljL" 
+                           Mode="Aerial"
+                           MouseDoubleClick="MapWithEvents_MouseDoubleClick"
+                            Center="37.3844168105,126.65596369" 
+                           ZoomLevel="16" 
+                    >
+
+
+            <m:MapLayer x:Name="DmapPolylineLayer" >
+                <Canvas x:Name="ContentPopup" Visibility="Collapsed">
+                    <Rectangle x:Name="ContentPopupRectangle" Fill="LawnGreen" Opacity="0.7" Canvas.Left="0" Canvas.Top="0" Height="40" Width="120" RadiusX="20" RadiusY="20"/>
+                    <StackPanel Canvas.Left="20" Canvas.Top="10">
+                        <TextBlock x:Name="ContentPopupText" FontSize="12" FontWeight="Bold" TextWrapping="Wrap" Width="200">
+                        </TextBlock>
+                    </StackPanel>
+                </Canvas>
+            </m:MapLayer>
+            <m:MapLayer x:Name="DmapFlightLayer">
+                <Rectangle Visibility="Visible" x:Name="ContentPopupRectangle2" Fill="LemonChiffon" Opacity="0.7" Canvas.Left="0" Canvas.Top="150" Height="40" Width="220" RadiusX="20" RadiusY="20"/>
+            </m:MapLayer>
+            <m:MapLayer x:Name="DmapPushPinLayer" >
+                <Rectangle Visibility="Visible" x:Name="ContentPopupRectangle3" Fill="LightSalmon" Opacity="0.7" Canvas.Left="0" Canvas.Top="100" Height="40" Width="120" RadiusX="20" RadiusY="20"/>
+            </m:MapLayer>
+        </m:Map>
+
+        <Border HorizontalAlignment="Left" Width="{StaticResource SUBMENUSIZE}"  
+                BorderThickness="2" Margin="2 10 2 10" Panel.ZIndex="10">
+            <StackPanel x:Name="PagePanel">
+                <uc:TargetListControl x:Name="targetListControl">
+                </uc:TargetListControl>
+                <uc:NumericUpDown Height="35" MaxValue="100" MinValue="0" Value="10" />
+                <Button Click="Button_Click">Add</Button>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Page>

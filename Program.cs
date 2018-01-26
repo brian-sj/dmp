@@ -221,8 +221,8 @@ namespace MissionPlanner
 
 
                 /******** Brian   *****/
-                //Application.Run(new MainV2());
-                Application.Run(new DrogenWelcome());
+                Application.Run(new MainV2());
+                //Application.Run(new DrogenWelcome());
             }
             catch (Exception ex)
             {

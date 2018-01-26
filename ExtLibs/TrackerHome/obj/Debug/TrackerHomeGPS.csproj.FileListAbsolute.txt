@@ -5,3 +5,10 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\TrackerHome\obj\Debug\TrackerHomeGPS.csprojRes
 D:\DronProject\DMP\DMP_v1\ExtLibs\TrackerHome\obj\Debug\TrackerHomeGPS.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\TrackerHome\obj\Debug\TrackerHome.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\TrackerHome\obj\Debug\TrackerHome.pdb
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\TrackerHome.dll.config
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\TrackerHome.dll
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\TrackerHome.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\TrackerHome\obj\Debug\TrackerHomeGPS.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\TrackerHome\obj\Debug\TrackerHomeGPS.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\TrackerHome\obj\Debug\TrackerHome.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\TrackerHome\obj\Debug\TrackerHome.pdb

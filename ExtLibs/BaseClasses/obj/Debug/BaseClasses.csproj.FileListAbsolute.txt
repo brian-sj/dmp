@@ -3,3 +3,4 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\BaseClasses\bin\Debug\BaseClassesNET.pdb
 D:\DronProject\DMP\DMP_v1\ExtLibs\BaseClasses\obj\Debug\BaseClasses.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\BaseClasses\obj\Debug\BaseClassesNET.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\BaseClasses\obj\Debug\BaseClassesNET.pdb
+D:\DronProject\DMP\DMP_v1\ExtLibs\BaseClasses\obj\Debug\BaseClasses.csprojResolveAssemblyReference.cache

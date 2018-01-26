@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="DMP.Controls.NumericUpDown" x:Name="ucNumericUpDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:DMP.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="23" d:DesignWidth="200" Height="23" Width="150" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" 
+             Loaded="ucNumericUpDown_Loaded"
+             >
+    <UserControl.Resources>
+        <ResourceDictionary >
+            <my:BtnHeightConverter x:Key="BtnHeightConverter" />
+            <my:DecimationConverter x:Key="DecimationConverter" />
+            <my:BtnShowConverter x:Key="BtnShowConverter" />
+            <my:BtnShowGridConverter x:Key="BtnShowGridConverter" />
+            <Style x:Key="disableImageButton" TargetType="{x:Type Image}">
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="true">
+                        <Setter Property="Opacity" Value="1" />
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Opacity" Value="0.25" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="68" />
+        </Grid.ColumnDefinitions>
+        <TextBox HorizontalAlignment="Stretch"  Name="tbValue" Height="{Binding ElementName=ucNumericUpDown, Path=Height}" Grid.ColumnSpan="{Binding Path=ShowButtons, Converter={StaticResource BtnShowGridConverter}}">
+        </TextBox>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Visibility="{Binding Path=ShowButtons, Converter={StaticResource BtnShowConverter}}">
+            <Button  Margin="1 0 -2 0" Padding="0 0 0 0" Height="{Binding ElementName=tbValue, Path=Height, Converter={StaticResource BtnHeightConverter}}" Name="btnUp" Width="34" Click="btnUp_Click">
+                +
+            </Button>
+            <Button  Margin="-2 0 1 0" Padding="0 0 0 0" Height="{Binding ElementName=tbValue, Path=Height, Converter={StaticResource BtnHeightConverter}}" Name="btnDown"  Width="34" Click="btnDown_Click">
+                -
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

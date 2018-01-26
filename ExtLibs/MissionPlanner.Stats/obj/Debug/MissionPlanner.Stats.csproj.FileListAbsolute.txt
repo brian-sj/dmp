@@ -5,3 +5,10 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\MissionPlanner.Stats\obj\Debug\MissionPlanner.
 D:\DronProject\DMP\DMP_v1\ExtLibs\MissionPlanner.Stats\obj\Debug\MissionPlanner.Stats.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\MissionPlanner.Stats\obj\Debug\MissionPlanner.Stats.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\MissionPlanner.Stats\obj\Debug\MissionPlanner.Stats.pdb
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\MissionPlanner.Stats.dll.config
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\MissionPlanner.Stats.dll
+D:\DronProject\DMP\GitDMP\bin\Debug\plugins\MissionPlanner.Stats.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Stats\obj\Debug\MissionPlanner.Stats.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Stats\obj\Debug\MissionPlanner.Stats.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Stats\obj\Debug\MissionPlanner.Stats.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\MissionPlanner.Stats\obj\Debug\MissionPlanner.Stats.pdb

@@ -1,0 +1,32 @@
+﻿<Page x:Class="DMP.PagePlay"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:controls="clr-namespace:DMP.Controls"
+      mc:Ignorable="d" 
+      Title="Play">
+
+    <Grid  >
+        
+        <Image Source="/Resources/imgs/02pageGuide_02misson.jpg" />
+        <Border Background="Black" Opacity=".9" Width="{StaticResource SUBMENUSIZE}" HorizontalAlignment="Left">
+            <StackPanel Margin="10 50 10 0" >
+                <TextBlock Text="Play" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeXXXLarge}" FontWeight="ExtraBold"/>
+                <TextBlock Text="정확한 높이 측정을 위해 최소 2분간 워밍업이 필요합니다." Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" TextWrapping="Wrap" FontSize="{StaticResource FontSizeRegular}" FontWeight="ExtraBold" Margin="0 10 0 40"/>
+                <TextBlock Text="● Auto Tilt를 통해 짐볼의 미세조정을 할 수 있습니다." TextWrapping="Wrap"  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeLarge}" />
+                <Button Name="btnSave" Click="btnSave_Click" Margin="40">Launch</Button>
+
+                <!--  멈춤 버튼 재개 버튼 -->
+                
+                <Border Style="{StaticResource MENU_BORDER}" Height="1"/>
+
+                <Button Name="btnStart" Click="btnSave_Click" >시작</Button>
+                <Button Name="btnStop"  >멈춤</Button>
+                <Button Name="btnPause"   >일시중지</Button>
+                
+            </StackPanel>
+        </Border>
+        <controls:flDashBoard Panel.ZIndex="100" Margin="135,0,10,0" HorizontalAlignment="Right" />
+    </Grid>
+</Page>

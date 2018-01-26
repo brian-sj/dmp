@@ -43,7 +43,9 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brian\\.nuget\\packages\\": {}
+    "C:\\Users\\brian\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -51,16 +53,21 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\MAVLink.csproj",
+      "projectUniqueName": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\Mavlink\\MAVLink.csproj",
       "projectName": "MAVLink",
-      "projectPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\MAVLink.csproj",
+      "projectPath": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\Mavlink\\MAVLink.csproj",
       "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
-      "outputPath": "D:\\DronProject\\DMP\\DMP_v1\\ExtLibs\\Mavlink\\obj\\",
+      "outputPath": "D:\\DronProject\\DMP\\GitDMP\\ExtLibs\\Mavlink\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "D:\\DronProject\\DMP\\DMP_v1\\.nuget\\NuGet.Config",
+        "D:\\DronProject\\DMP\\GitDMP\\.nuget\\NuGet.Config",
         "C:\\Users\\brian\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "net461"
@@ -73,6 +80,11 @@
         "net461": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
@@ -80,7 +92,7 @@
         "dependencies": {
           "log4net": {
             "target": "Package",
-            "version": "2.0.8"
+            "version": "[2.0.8, )"
           }
         }
       }

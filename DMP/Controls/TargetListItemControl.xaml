@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="DMP.Controls.TargetListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DMP.Controls"
+             xmlns:con="clr-namespace:DMP"
+             xmlns:model="clr-namespace:DMP.DataModels"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+
+        <ResourceDictionary >
+            <Style x:Key="ContentStyle"  TargetType="{x:Type ContentControl}" > 
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border x:Name="background" Background="{StaticResource ForegroundLightBrush}" > 
+                            <Grid x:Name="container" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <!--  New Message Indicator  -->
+                                <!--  Profile Picture  -->
+                                <ColumnDefinition Width="Auto" />
+                                <!--  Main Content  -->
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  New Message Indicator  -->
+                                <Border
+                                    Grid.Column="0"
+                                    Width="4"
+                                    HorizontalAlignment="Left"
+                                    Background="Red"
+                                    Visibility="{Binding IsActive, Converter={con:BooleanToVisibilityConverter}, ConverterParameter=False}" />
+                                <!--  Main Content  -->
+                            <Border Grid.Column="1" Padding="0,0,0,0">
+                                <StackPanel VerticalAlignment="Center">
+                                            <Border Style="{StaticResource MENU_BORDER}" >
+                                            <DockPanel >
+                                                <Label Content="NO"  Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" DockPanel.Dock="Left" />
+                                                <Label Content="{Binding Path=Index,Mode=TwoWay}" />
+                                                </DockPanel>
+                                        </Border>
+                                            <Border Style="{StaticResource MENU_BORDER}" >
+                                            <DockPanel LastChildFill="True">
+                                                <Label Content="Name"  Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" DockPanel.Dock="Left" />
+                                                <TextBox Style="{StaticResource SUB_MENU_TB_ROUND}"  Name="Name"  Text="{Binding Path=Name,Mode=TwoWay}" />
+                                            </DockPanel>
+                                        </Border>
+                                            <Border Style="{StaticResource MENU_BORDER}" >
+                                            <DockPanel LastChildFill="True">
+                                                <Label Content="위도" Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" DockPanel.Dock="Left" />
+                                                    <TextBox Style="{StaticResource SUB_MENU_TB_ROUND}" Name="Latitude" Text="{Binding Path=Latitude , Mode=TwoWay}"/>
+                                                </DockPanel>
+                                        </Border>
+                                            <Border Style="{StaticResource MENU_BORDER}" >
+                                            <DockPanel LastChildFill="True">
+                                                <Label Content="경도"  Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" DockPanel.Dock="Left" />
+                                                <TextBox Style="{StaticResource SUB_MENU_TB_ROUND}" Name="Longitude" Text="{Binding Path=Longitude , Mode=TwoWay}"/>
+                                                </DockPanel>
+                                        </Border>
+                                            <Border Style="{StaticResource MENU_BORDER}" >
+                                            <DockPanel LastChildFill="True">
+                                                <Label Content="고도"  Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" DockPanel.Dock="Left" />
+                                                <TextBox Name="Height" Style="{StaticResource SUB_MENU_TB_ROUND}" Text="{Binding Path=Height , Mode=TwoWay}"/>
+                                                </DockPanel>
+                                        </Border>
+                                    
+                                    <Border Style="{StaticResource MENU_BORDER}" >
+                                        <DockPanel LastChildFill="True">
+                                            
+                                                    <Button Name="btnUp"  Content="Up" Width="80" Click="btnUp_Click" Tag="{Binding}"/>
+                                                    <Button Name="btnDown"  Content="Down" Width="80" Click="btnDown_Click" Tag="{Binding}"/>
+                                                </DockPanel>
+                                    </Border>
+                                    </StackPanel>
+                            </Border>
+                            </Grid>
+                        </Border>
+                        <!--        Control Template Trigger   -->
+                        <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation
+                                            Storyboard.TargetName="container"
+                                            Storyboard.TargetProperty="Background.Color"
+                                            To="{StaticResource WordVeryVeryLightBlue}"
+                                            Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation
+                                            Storyboard.TargetName="container"
+                                            Storyboard.TargetProperty="Background.Color"
+                                            To="Transparent"
+                                            Duration="0:0:0.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter TargetName="background" Property="Background" Value="#cccccc" />
+                        </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    
+                    </ControlTemplate>
+                </Setter.Value>                
+            </Setter>
+        </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ContentControl  Style="{StaticResource ContentStyle}" />
+</UserControl>

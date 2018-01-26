@@ -1,0 +1,250 @@
+﻿<Page x:Class="DMP.PageReady"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DMP"
+      xmlns:model="clr-namespace:DMP.DataModels"
+      xmlns:controls="clr-namespace:DMP.Controls"
+      mc:Ignorable="d" 
+      
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:util="clr-namespace:DMP.util"
+      Title="Ready">
+
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="AntiqueWhite" />
+            <Setter Property="FontSize" Value="{StaticResource FontSizeSmallest}" />
+        </Style>
+        
+        <Style TargetType="ComboBox"   >
+            <Setter Property="Margin" Value="-2" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Height" Value="14" />
+        </Style>
+        
+        <Style TargetType="Border" x:Key="MENU_BORDER" >
+            <Setter Property="Margin" Value="1,1,1,1" />
+            <Setter Property="Padding" Value="4,4,4,4" />
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Gray" />
+        </Style>
+    </Page.Resources>
+
+    <DockPanel DataContext="{x:Static model:GvarDesignModel.Instance }" >
+        <StackPanel DockPanel.Dock="Left" Width="{StaticResource SUBMENUSIZE}">
+            <Border Style="{StaticResource MENU_BORDER}"  >
+                <DockPanel >
+                    <Label Content="Mission" Width="60"  />
+                    <Button  Width="40"  Content="OPEN"  HorizontalAlignment="Right" Command="{Binding LoadXmlFileCommand}" />
+                    <TextBlock Margin="5,0,0,0"  Name="tbFilename" Text="{Binding FlightFilename}" /> 
+                </DockPanel>
+            </Border>
+
+
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel >
+                    <Label Content="원점높이형태" Width="60"  />
+                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <ComboBox Name="cmbInitialHeightType" SelectedValuePath="Key" DisplayMemberPath="Value"
+                      ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdInitialHeightType }" SelectedValue="{Binding InitialHeightType}"
+                      />
+                    </Border>
+                </DockPanel>
+            </Border>
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel >
+                    <Label Content="원점높이" Width="60"  />
+                    <TextBox Width="100" Name="initialHeight"  
+                                 Style="{StaticResource SUB_MENU_TB_ROUND}" 
+                                 Text="{Binding InitialHeight}"/>
+                    
+                </DockPanel>
+            </Border>
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel>
+                    <Label DockPanel.Dock="Left" Content="속도" Width="60"/>
+                    <TextBox Name="nsSpeed" 
+                             Style="{StaticResource SUB_MENU_TB_ROUND}" 
+                             Text="{Binding Path=Speed , Mode=TwoWay}" />
+                </DockPanel>
+            </Border>
+
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel>
+                    <Label Content="착륙방법" Width="60"  />
+                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        
+                        <ComboBox Name="cmbLandingStyle" Grid.Column="1" Grid.Row="8"  
+                      SelectedValuePath="Key" 
+                                  ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdLandingType }"
+                      DisplayMemberPath="Value" 
+                      SelectedValue="{Binding Landing_style}"
+                      />
+                    </Border>
+                </DockPanel>
+            </Border>
+
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel>
+                    <Label Content="착륙높이" Width="60"  />
+                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                        <TextBox Name="landingHeight" 
+                                    Text="{Binding Path=Landing_height , Mode=TwoWay}" />
+                    </Border>
+                </DockPanel>
+            </Border>
+
+
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel>
+                    <Label Content="신호끊김시" Width="60"  />
+                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                        <ComboBox Name="cmbDoWhenError" 
+                                  SelectedValuePath="Key" DisplayMemberPath="Value"  
+                                  ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdDoWhenError }"
+                                  SelectedValue="{Binding Dowhenerror}" 
+                         />
+                    </Border>
+                </DockPanel>
+            </Border>
+
+
+
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel>
+                    <Label Content="코너" Width="60"  />
+                    <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                        <ComboBox Name="cmbCornerStyle"  
+                      SelectedValuePath="Key" DisplayMemberPath="Value"  
+                      ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdCornerType}"
+                      SelectedValue="{Binding Path=CornerType , Mode=TwoWay}"/>
+                    </Border>
+                </DockPanel>
+            </Border>
+            
+
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel>
+                    <Label Content="높이표시" Width="60"  />
+                    <ToggleButton Style="{StaticResource AnimatedSwitch}" Name="showHeightButton"  IsChecked="{Binding ShowHeight}" VerticalAlignment="Center" Height="14"/>
+                </DockPanel>
+            </Border>
+            <Border Style="{StaticResource MENU_BORDER}" >
+                <DockPanel>
+                    <Label Content="거리표시" Width="60"  />
+                    <ToggleButton Style="{StaticResource AnimatedSwitch}" Name="showDistanceButton" Height="14"  IsChecked="{Binding ShowDistance}" />
+                </DockPanel>
+            </Border>
+        </StackPanel>
+
+        <Grid DockPanel.Dock="Top" Margin="10,0,0,0">
+            <Border BorderBrush="Bisque" BorderThickness="3">
+                <StackPanel>
+                    <Label Name="lblCompID" Content="Component ID" />
+                    <Label Name="lblSysID"  Content="System ID" />
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Grid DockPanel.Dock="Right" Margin="10,0,0,0">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Button Name="btnConnect" Content="Connect" Click="btnConnect_Click"  Width="150"/>
+                        <Button Name="btnLogMonStart" Content="LogMonStart" Click="btnLogMonStart_Click"  Width="150"/>
+                        <Button Name="btnLogMonEnd" Content="LogMonEnd" Click="btnLogMonEnd_Click"  Width="150"/>
+                        <StackPanel>
+                            <TextBlock Text="Connect" />
+
+                        </StackPanel>
+                    </StackPanel>
+                    <Border BorderThickness="2" BorderBrush="BlanchedAlmond">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Button Content="MotorTest All" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" />
+                            <Button Name="btnMotorTest1" Content="MotorTest 1" Grid.Row="0" Grid.Column="1" Click="btnMotorTest1_Click" />
+                            <Button Name="btnMotorTest2" Content="MotorTest 2" Grid.Row="0" Grid.Column="2" Click="btnMotorTest2_Click" />
+                            <Button Name="btnMotorTest3" Content="MotorTest 3" Grid.Row="1" Grid.Column="1" Click="btnMotorTest3_Click" />
+                            <Button Name="btnMotorTest4" Content="MotorTest 4" Grid.Row="1" Grid.Column="2" Click="btnMotorTest4_Click" />
+                            <StackPanel Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2">
+                                <TextBlock >MotorSpeed</TextBlock>
+                            <!-- <controls:NumericUpDown  MinValue="10" MaxValue="95" Value="{Binding Path=TestThroattle}"  /> -->
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                <StackPanel Orientation="Horizontal">
+                    <Border BorderThickness="2" Padding="4 4 4 4">
+                        <Label Name="_nouse" Content=" magnetic calibration "  />
+                    </Border>
+                    <Label Name="lbl_obmagresult"  />
+                    <ProgressBar Name="progressBar1" Width="90" />
+                    <ProgressBar Name="progressBar2" Width="90"/>
+                    <ProgressBar Name="progressBar3" Width="90"/>
+
+                </StackPanel>
+                <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                            <Label Width="100">AirSpeed(FDSpeed)</Label>
+                            <Label Content="{Binding FDspeed}" />
+                        </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                        <Label>Throattle</Label>
+                        <Label Content="{Binding FDthroattle , Mode=TwoWay}" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                            <Label>Battery</Label>
+                            <Label Content="{Binding FDbattery}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                            <Label>Heading</Label>
+                            <Label Content="{Binding FDheading}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                            <Label>Temp</Label>
+                            <Label Content="{Binding FDtemperature  , Mode=TwoWay}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                            <Label>Pressure</Label>
+                        <Label Content="{Binding FDpressAbs  , Mode=TwoWay}" />
+                        <ToggleButton Style="{StaticResource AnimatedSwitch}" Height="16"/>
+                    </StackPanel>
+                    </Grid>
+                    <StackPanel>
+                    
+                </StackPanel>
+                
+            </StackPanel>
+            
+        </Grid>
+    </DockPanel>
+</Page>

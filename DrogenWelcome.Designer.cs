@@ -55,13 +55,22 @@
             this.btnCameraShot = new System.Windows.Forms.Button();
             this.serialPort1 = new MissionPlanner.Comms.SerialPort();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage1_setup = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCalcBearing = new System.Windows.Forms.Button();
             this.lblDistance = new System.Windows.Forms.Label();
             this.btnCalcDistance = new System.Windows.Forms.Button();
             this.btnYaw = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage2_target = new System.Windows.Forms.TabPage();
+            this.btnMotorTest4 = new System.Windows.Forms.Button();
+            this.btnMotorTest3 = new System.Windows.Forms.Button();
+            this.btnMotorTest2 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtMotorSpeed = new System.Windows.Forms.TextBox();
+            this.btnMotorTest1 = new System.Windows.Forms.Button();
+            this.tabPage3_wp = new System.Windows.Forms.TabPage();
+            this.tabPage4_review = new System.Windows.Forms.TabPage();
+            this.tabPage5_fly = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.lblAlt = new System.Windows.Forms.Label();
             this.lblGroundSpeed = new System.Windows.Forms.Label();
@@ -85,10 +94,29 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblThrottle = new System.Windows.Forms.Label();
             this.btnSetHome = new System.Windows.Forms.Button();
+            this.btnMagCalib = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAccCalibInit = new System.Windows.Forms.Button();
+            this.lblAccCalib = new System.Windows.Forms.Label();
+            this.btnAccCalibrate = new System.Windows.Forms.Button();
+            this.lbl_obmagresult = new System.Windows.Forms.Label();
+            this.btnCalcMagCali = new System.Windows.Forms.Button();
+            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btnMagcali_Accept = new System.Windows.Forms.Button();
+            this.btnMagcali_cancel = new System.Windows.Forms.Button();
+            this.btnTimerStop = new System.Windows.Forms.Button();
+            this.btnTimerStart = new System.Windows.Forms.Button();
+            this.btnToggleLog = new System.Windows.Forms.Button();
+            this.pgsBattery = new System.Windows.Forms.ProgressBar();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPage1_setup.SuspendLayout();
+            this.tabPage2_target.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtLog
@@ -99,6 +127,7 @@
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtLog.Size = new System.Drawing.Size(1302, 149);
             this.txtLog.TabIndex = 0;
+            this.txtLog.TextChanged += new System.EventHandler(this.txtLog_TextChanged);
             // 
             // btnGetHomePosition
             // 
@@ -340,28 +369,31 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1_setup);
+            this.tabControl1.Controls.Add(this.tabPage2_target);
+            this.tabControl1.Controls.Add(this.tabPage3_wp);
+            this.tabControl1.Controls.Add(this.tabPage4_review);
+            this.tabControl1.Controls.Add(this.tabPage5_fly);
             this.tabControl1.Location = new System.Drawing.Point(712, 334);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(363, 205);
             this.tabControl1.TabIndex = 13;
             // 
-            // tabPage1
+            // tabPage1_setup
             // 
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.btnCalcBearing);
-            this.tabPage1.Controls.Add(this.lblDistance);
-            this.tabPage1.Controls.Add(this.btnCalcDistance);
-            this.tabPage1.Controls.Add(this.btnYaw);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(355, 179);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "방향전환";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1_setup.Controls.Add(this.label5);
+            this.tabPage1_setup.Controls.Add(this.btnCalcBearing);
+            this.tabPage1_setup.Controls.Add(this.lblDistance);
+            this.tabPage1_setup.Controls.Add(this.btnCalcDistance);
+            this.tabPage1_setup.Controls.Add(this.btnYaw);
+            this.tabPage1_setup.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1_setup.Name = "tabPage1_setup";
+            this.tabPage1_setup.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1_setup.Size = new System.Drawing.Size(355, 179);
+            this.tabPage1_setup.TabIndex = 0;
+            this.tabPage1_setup.Text = "SETUP";
+            this.tabPage1_setup.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -411,15 +443,105 @@
             this.btnYaw.UseVisualStyleBackColor = true;
             this.btnYaw.Click += new System.EventHandler(this.btnYaw_Click);
             // 
-            // tabPage2
+            // tabPage2_target
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(355, 179);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2_target.Controls.Add(this.btnMotorTest4);
+            this.tabPage2_target.Controls.Add(this.btnMotorTest3);
+            this.tabPage2_target.Controls.Add(this.btnMotorTest2);
+            this.tabPage2_target.Controls.Add(this.label8);
+            this.tabPage2_target.Controls.Add(this.txtMotorSpeed);
+            this.tabPage2_target.Controls.Add(this.btnMotorTest1);
+            this.tabPage2_target.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2_target.Name = "tabPage2_target";
+            this.tabPage2_target.Size = new System.Drawing.Size(355, 179);
+            this.tabPage2_target.TabIndex = 2;
+            this.tabPage2_target.Text = "타겟";
+            this.tabPage2_target.UseVisualStyleBackColor = true;
+            // 
+            // btnMotorTest4
+            // 
+            this.btnMotorTest4.Location = new System.Drawing.Point(97, 90);
+            this.btnMotorTest4.Name = "btnMotorTest4";
+            this.btnMotorTest4.Size = new System.Drawing.Size(88, 36);
+            this.btnMotorTest4.TabIndex = 11;
+            this.btnMotorTest4.Text = "모터 테스트4";
+            this.btnMotorTest4.UseVisualStyleBackColor = true;
+            this.btnMotorTest4.Click += new System.EventHandler(this.btnMotorTest4_Click);
+            // 
+            // btnMotorTest3
+            // 
+            this.btnMotorTest3.Location = new System.Drawing.Point(7, 90);
+            this.btnMotorTest3.Name = "btnMotorTest3";
+            this.btnMotorTest3.Size = new System.Drawing.Size(84, 36);
+            this.btnMotorTest3.TabIndex = 10;
+            this.btnMotorTest3.Text = "모터 테스트3";
+            this.btnMotorTest3.UseVisualStyleBackColor = true;
+            this.btnMotorTest3.Click += new System.EventHandler(this.btnMotorTest3_Click);
+            // 
+            // btnMotorTest2
+            // 
+            this.btnMotorTest2.Location = new System.Drawing.Point(97, 50);
+            this.btnMotorTest2.Name = "btnMotorTest2";
+            this.btnMotorTest2.Size = new System.Drawing.Size(88, 36);
+            this.btnMotorTest2.TabIndex = 9;
+            this.btnMotorTest2.Text = "모터 테스트2";
+            this.btnMotorTest2.UseVisualStyleBackColor = true;
+            this.btnMotorTest2.Click += new System.EventHandler(this.btnMotorTest2_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(60, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(189, 12);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "스피드 값을 입력하세요. 5_20사이";
+            // 
+            // txtMotorSpeed
+            // 
+            this.txtMotorSpeed.Location = new System.Drawing.Point(7, 10);
+            this.txtMotorSpeed.Name = "txtMotorSpeed";
+            this.txtMotorSpeed.Size = new System.Drawing.Size(46, 21);
+            this.txtMotorSpeed.TabIndex = 7;
+            this.txtMotorSpeed.Text = "6";
+            // 
+            // btnMotorTest1
+            // 
+            this.btnMotorTest1.Location = new System.Drawing.Point(7, 50);
+            this.btnMotorTest1.Name = "btnMotorTest1";
+            this.btnMotorTest1.Size = new System.Drawing.Size(84, 36);
+            this.btnMotorTest1.TabIndex = 6;
+            this.btnMotorTest1.Text = "모터 테스트1";
+            this.btnMotorTest1.UseVisualStyleBackColor = true;
+            this.btnMotorTest1.Click += new System.EventHandler(this.btnMotorTest_Click);
+            // 
+            // tabPage3_wp
+            // 
+            this.tabPage3_wp.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3_wp.Name = "tabPage3_wp";
+            this.tabPage3_wp.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3_wp.Size = new System.Drawing.Size(355, 179);
+            this.tabPage3_wp.TabIndex = 1;
+            this.tabPage3_wp.Text = "WP";
+            this.tabPage3_wp.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4_review
+            // 
+            this.tabPage4_review.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4_review.Name = "tabPage4_review";
+            this.tabPage4_review.Size = new System.Drawing.Size(355, 179);
+            this.tabPage4_review.TabIndex = 3;
+            this.tabPage4_review.Text = "Review";
+            this.tabPage4_review.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5_fly
+            // 
+            this.tabPage5_fly.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5_fly.Name = "tabPage5_fly";
+            this.tabPage5_fly.Size = new System.Drawing.Size(355, 179);
+            this.tabPage5_fly.TabIndex = 4;
+            this.tabPage5_fly.Text = "Fly";
+            this.tabPage5_fly.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -643,9 +765,193 @@
             this.btnSetHome.UseVisualStyleBackColor = true;
             this.btnSetHome.Click += new System.EventHandler(this.btnSetHome_Click);
             // 
+            // btnMagCalib
+            // 
+            this.btnMagCalib.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnMagCalib.ForeColor = System.Drawing.Color.Coral;
+            this.btnMagCalib.Location = new System.Drawing.Point(11, 18);
+            this.btnMagCalib.Name = "btnMagCalib";
+            this.btnMagCalib.Size = new System.Drawing.Size(50, 34);
+            this.btnMagCalib.TabIndex = 6;
+            this.btnMagCalib.Text = "Calib";
+            this.btnMagCalib.UseVisualStyleBackColor = false;
+            this.btnMagCalib.Click += new System.EventHandler(this.btnMagCalib_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnAccCalibInit);
+            this.groupBox3.Controls.Add(this.lblAccCalib);
+            this.groupBox3.Controls.Add(this.btnAccCalibrate);
+            this.groupBox3.Controls.Add(this.lbl_obmagresult);
+            this.groupBox3.Controls.Add(this.btnCalcMagCali);
+            this.groupBox3.Controls.Add(this.progressBar3);
+            this.groupBox3.Controls.Add(this.progressBar2);
+            this.groupBox3.Controls.Add(this.progressBar1);
+            this.groupBox3.Controls.Add(this.btnMagcali_Accept);
+            this.groupBox3.Controls.Add(this.btnMagcali_cancel);
+            this.groupBox3.Controls.Add(this.btnMagCalib);
+            this.groupBox3.Location = new System.Drawing.Point(1, 374);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(669, 181);
+            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "조정";
+            // 
+            // btnAccCalibInit
+            // 
+            this.btnAccCalibInit.Location = new System.Drawing.Point(579, 21);
+            this.btnAccCalibInit.Name = "btnAccCalibInit";
+            this.btnAccCalibInit.Size = new System.Drawing.Size(71, 31);
+            this.btnAccCalibInit.TabIndex = 39;
+            this.btnAccCalibInit.Text = "Acc초기화";
+            this.btnAccCalibInit.UseVisualStyleBackColor = true;
+            this.btnAccCalibInit.Click += new System.EventHandler(this.btnAccCalibInit_Click);
+            // 
+            // lblAccCalib
+            // 
+            this.lblAccCalib.AutoSize = true;
+            this.lblAccCalib.ForeColor = System.Drawing.Color.Maroon;
+            this.lblAccCalib.Location = new System.Drawing.Point(419, 63);
+            this.lblAccCalib.Name = "lblAccCalib";
+            this.lblAccCalib.Size = new System.Drawing.Size(77, 12);
+            this.lblAccCalib.TabIndex = 38;
+            this.lblAccCalib.Text = "시작 하세요. ";
+            // 
+            // btnAccCalibrate
+            // 
+            this.btnAccCalibrate.Location = new System.Drawing.Point(421, 21);
+            this.btnAccCalibrate.Name = "btnAccCalibrate";
+            this.btnAccCalibrate.Size = new System.Drawing.Size(152, 31);
+            this.btnAccCalibrate.TabIndex = 37;
+            this.btnAccCalibrate.Text = "Calibration";
+            this.btnAccCalibrate.UseVisualStyleBackColor = true;
+            this.btnAccCalibrate.Click += new System.EventHandler(this.btnAccCalibrate_Click);
+            // 
+            // lbl_obmagresult
+            // 
+            this.lbl_obmagresult.AutoSize = true;
+            this.lbl_obmagresult.ForeColor = System.Drawing.Color.Maroon;
+            this.lbl_obmagresult.Location = new System.Drawing.Point(100, 153);
+            this.lbl_obmagresult.Name = "lbl_obmagresult";
+            this.lbl_obmagresult.Size = new System.Drawing.Size(27, 12);
+            this.lbl_obmagresult.TabIndex = 36;
+            this.lbl_obmagresult.Text = "Cali";
+            // 
+            // btnCalcMagCali
+            // 
+            this.btnCalcMagCali.Location = new System.Drawing.Point(11, 63);
+            this.btnCalcMagCali.Name = "btnCalcMagCali";
+            this.btnCalcMagCali.Size = new System.Drawing.Size(88, 81);
+            this.btnCalcMagCali.TabIndex = 6;
+            this.btnCalcMagCali.Text = "진행도 계산. 스텝 진행.";
+            this.btnCalcMagCali.UseVisualStyleBackColor = true;
+            this.btnCalcMagCali.Click += new System.EventHandler(this.btnCalcMagCali_Click);
+            // 
+            // progressBar3
+            // 
+            this.progressBar3.Location = new System.Drawing.Point(105, 124);
+            this.progressBar3.Name = "progressBar3";
+            this.progressBar3.Size = new System.Drawing.Size(219, 23);
+            this.progressBar3.TabIndex = 11;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(105, 95);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(219, 23);
+            this.progressBar2.TabIndex = 10;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(105, 66);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(219, 23);
+            this.progressBar1.TabIndex = 9;
+            // 
+            // btnMagcali_Accept
+            // 
+            this.btnMagcali_Accept.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnMagcali_Accept.ForeColor = System.Drawing.Color.Coral;
+            this.btnMagcali_Accept.Location = new System.Drawing.Point(67, 18);
+            this.btnMagcali_Accept.Name = "btnMagcali_Accept";
+            this.btnMagcali_Accept.Size = new System.Drawing.Size(105, 34);
+            this.btnMagcali_Accept.TabIndex = 8;
+            this.btnMagcali_Accept.Text = "Calib Accept";
+            this.btnMagcali_Accept.UseVisualStyleBackColor = false;
+            this.btnMagcali_Accept.Click += new System.EventHandler(this.btnMagcali_Accept_Click);
+            // 
+            // btnMagcali_cancel
+            // 
+            this.btnMagcali_cancel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnMagcali_cancel.ForeColor = System.Drawing.Color.Coral;
+            this.btnMagcali_cancel.Location = new System.Drawing.Point(178, 18);
+            this.btnMagcali_cancel.Name = "btnMagcali_cancel";
+            this.btnMagcali_cancel.Size = new System.Drawing.Size(108, 34);
+            this.btnMagcali_cancel.TabIndex = 7;
+            this.btnMagcali_cancel.Text = "Calib Cancel";
+            this.btnMagcali_cancel.UseVisualStyleBackColor = false;
+            this.btnMagcali_cancel.Click += new System.EventHandler(this.btnMagcali_cancel_Click);
+            // 
+            // btnTimerStop
+            // 
+            this.btnTimerStop.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTimerStop.ForeColor = System.Drawing.Color.Coral;
+            this.btnTimerStop.Location = new System.Drawing.Point(492, 192);
+            this.btnTimerStop.Name = "btnTimerStop";
+            this.btnTimerStop.Size = new System.Drawing.Size(67, 34);
+            this.btnTimerStop.TabIndex = 37;
+            this.btnTimerStop.Text = "ReadStop";
+            this.btnTimerStop.UseVisualStyleBackColor = false;
+            this.btnTimerStop.Click += new System.EventHandler(this.btnTimerStop_Click);
+            // 
+            // btnTimerStart
+            // 
+            this.btnTimerStart.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTimerStart.ForeColor = System.Drawing.Color.Coral;
+            this.btnTimerStart.Location = new System.Drawing.Point(422, 192);
+            this.btnTimerStart.Name = "btnTimerStart";
+            this.btnTimerStart.Size = new System.Drawing.Size(73, 34);
+            this.btnTimerStart.TabIndex = 38;
+            this.btnTimerStart.Text = "ReadStart";
+            this.btnTimerStart.UseVisualStyleBackColor = false;
+            this.btnTimerStart.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnToggleLog
+            // 
+            this.btnToggleLog.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnToggleLog.Location = new System.Drawing.Point(1306, 63);
+            this.btnToggleLog.Name = "btnToggleLog";
+            this.btnToggleLog.Size = new System.Drawing.Size(84, 28);
+            this.btnToggleLog.TabIndex = 6;
+            this.btnToggleLog.Text = "log";
+            this.btnToggleLog.UseVisualStyleBackColor = false;
+            this.btnToggleLog.Click += new System.EventHandler(this.btnToggleLog_Click);
+            // 
+            // pgsBattery
+            // 
+            this.pgsBattery.Location = new System.Drawing.Point(1306, 495);
+            this.pgsBattery.Name = "pgsBattery";
+            this.pgsBattery.Size = new System.Drawing.Size(100, 23);
+            this.pgsBattery.TabIndex = 40;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(1308, 480);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(71, 12);
+            this.label22.TabIndex = 41;
+            this.label22.Text = "battery 잔량";
+            // 
             // DrogenWelcome
             // 
             this.ClientSize = new System.Drawing.Size(1418, 569);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.pgsBattery);
+            this.Controls.Add(this.btnToggleLog);
+            this.Controls.Add(this.btnTimerStop);
+            this.Controls.Add(this.btnTimerStart);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnSetHome);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblThrottle);
@@ -690,8 +996,12 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabPage1_setup.ResumeLayout(false);
+            this.tabPage1_setup.PerformLayout();
+            this.tabPage2_target.ResumeLayout(false);
+            this.tabPage2_target.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -726,9 +1036,9 @@
         private System.Windows.Forms.Button btnSetSpeed;
         private System.Windows.Forms.Button btnRTL;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage1_setup;
         private System.Windows.Forms.Button btnYaw;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3_wp;
         private System.Windows.Forms.Button btnCalcDistance;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnCalcBearing;
@@ -756,5 +1066,31 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblThrottle;
         private System.Windows.Forms.Button btnSetHome;
+        private System.Windows.Forms.Button btnMagCalib;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button btnMagcali_Accept;
+        private System.Windows.Forms.Button btnMagcali_cancel;
+        private System.Windows.Forms.ProgressBar progressBar3;
+        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Button btnCalcMagCali;
+        private System.Windows.Forms.Label lbl_obmagresult;
+        private System.Windows.Forms.Button btnTimerStop;
+        private System.Windows.Forms.Button btnTimerStart;
+        private System.Windows.Forms.Button btnToggleLog;
+        private System.Windows.Forms.TabPage tabPage2_target;
+        private System.Windows.Forms.TabPage tabPage4_review;
+        private System.Windows.Forms.TabPage tabPage5_fly;
+        private System.Windows.Forms.Button btnAccCalibrate;
+        private System.Windows.Forms.Label lblAccCalib;
+        private System.Windows.Forms.Button btnAccCalibInit;
+        private System.Windows.Forms.Button btnMotorTest1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtMotorSpeed;
+        private System.Windows.Forms.Button btnMotorTest4;
+        private System.Windows.Forms.Button btnMotorTest3;
+        private System.Windows.Forms.Button btnMotorTest2;
+        private System.Windows.Forms.ProgressBar pgsBattery;
+        private System.Windows.Forms.Label label22;
     }
 }

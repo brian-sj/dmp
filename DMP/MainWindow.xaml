@@ -1,0 +1,56 @@
+﻿<Window x:Class="DMP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:DMP"
+        xmlns:c="clr-namespace:DMP.Controls"
+        xmlns:b="clr-namespace:DMP.Controls.button"
+        mc:Ignorable="d" 
+        Icon="/Resources/imgs/logo.png" 
+        xmlns:sys ="clr-namespace:System;assembly=mscorlib"
+        WindowState="Maximized"
+        Title="Drogen Mission Planner" 
+                      Height="900"
+         >
+    <DockPanel>
+
+        <DockPanel DockPanel.Dock="Left" Background="Azure" Width="80">
+            <StackPanel Orientation="Vertical"  Margin="0"  MinWidth="{StaticResource MMainNavButton_WIDTH}" DockPanel.Dock="Top">
+                <b:MenuButton Content="Ready"  Style="{StaticResource MMainNavButton}" Click="Button_ready" />
+                <b:MenuButton Content="Target"  Style="{StaticResource MMainNavButton}" Click="Button_target" />
+                <b:MenuButton Content="Waypoint" Style="{StaticResource MMainNavButton}" Click="Button_wp" />
+                <b:MenuButton Content="Review"  Style="{StaticResource MMainNavButton}" Click="Button_review" />
+                <b:MenuButton Content="Play"   Style="{StaticResource MMainNavButton}" Click="Button_play" />
+            </StackPanel>
+            <StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" MinWidth="{StaticResource MMainNavButton_WIDTH}" DockPanel.Dock="Bottom" Height="340" VerticalAlignment="Bottom">
+                <Button Style="{StaticResource MainButtonSmall}" >Play</Button>
+                <b:MenuButton x:Name="getWPs" Content="WayPoint 읽어 오기"  Style="{StaticResource MMainNavButton}" Click="getWP_Click" />
+                <b:MenuButton x:Name="temp" Content="Save Way Point to Flight"  Style="{StaticResource MMainNavButton}" Click="temp_Click" />
+                <b:MenuButton Content="?"  Style="{StaticResource MMainNavButton}" Click="Button_help" />
+                <b:MenuButton Content="Setting"  Style="{StaticResource MMainNavButton}" Click="Button_setting" />
+            </StackPanel>
+        </DockPanel>
+
+        <StackPanel  DockPanel.Dock="Right" >
+            <Frame x:Name="Main" Margin="0,0,0,0" 
+                   Background="RosyBrown"
+                   NavigationUIVisibility="Hidden" 
+                   Navigated="Main_Navigated"
+                   HorizontalAlignment="Stretch" 
+                   VerticalAlignment="Stretch" 
+                   Source="pages/page_connect.xaml"
+                   />
+
+        </StackPanel>
+
+    </DockPanel>
+</Window>
+
+    
+    

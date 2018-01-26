@@ -1161,7 +1161,7 @@
             The splitter control supports in difference to the <see cref="T:System.Windows.Forms.Splitter"/> the using
             of a transparent backcolor.
             </remarks>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -1262,7 +1262,7 @@
             <summary>
             Base class for the panel or xpanderpanel control. 
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -1742,7 +1742,7 @@
             <summary>
             Specifies constants that define the style of the caption in a XPanderPanel.
             </summary>
-            <copyright>Copyright ⢬2008 Uwe Eichkorn
+            <copyright>Copyright ?2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -1764,7 +1764,7 @@
             <summary>
             Contains information for the drawing of panels or xpanderpanels in a xpanderpanellist. 
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -1786,7 +1786,7 @@
             <summary>
             Provides data for the ColorSchemeChange event.
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -1901,7 +1901,7 @@
             <summary>
             Specifies constants that define the hoverstate at the captionbar or a part of it on a Panel or XPanderPanel.
             </summary>
-            <copyright>Copyright ⢬2008 Uwe Eichkorn
+            <copyright>Copyright ?2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -1946,7 +1946,7 @@
             <summary>
             Provide black theme colors for a Panel or XPanderPanel display element.
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -1975,7 +1975,7 @@
             <summary>
             Provide black theme colors for a Panel or XPanderPanel display element.
             </summary>
-            <copyright>Copyright ⢬2008 Uwe Eichkorn
+            <copyright>Copyright ?2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -2072,7 +2072,7 @@
             <summary>
             Provide Office 2007 Blue Theme colors
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -2101,7 +2101,7 @@
             <summary>
             Provide Office 2007 Black theme colors
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -2130,7 +2130,7 @@
             <summary>
             Provide Office 2007 silver theme colors
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -2159,7 +2159,7 @@
             <summary>
             Used to group collections of controls. 
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -2205,7 +2205,7 @@
             You can use a Panel to group collections of controls such as the XPanderPanelList control.
             On top of the Panel there is the captionbar. This captionbar may contain an image and text.
             According to it's dockstyle and properties the panel is collapsable and/or closable.</remarks>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -2471,7 +2471,7 @@
             <summary>
             Provides <see cref="T:System.Drawing.Color"/> structures that are colors of a Panel or XPanderPanel display element.
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -2929,7 +2929,7 @@
              }
              </code>
              </example>
-             <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+             <copyright>Copyright ?2006-2008 Uwe Eichkorn
              THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
              KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
              IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -2979,7 +2979,7 @@
             <summary>
             Contains information about the style of the panels or xpanderpanels
             </summary>
-            <copyright>Copyright ⢬2007-2008 Uwe Eichkorn
+            <copyright>Copyright ?2007-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -3001,7 +3001,7 @@
             <summary>
             Provides data for the PanelStyleChange event.
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -3090,7 +3090,7 @@
             On top of the XPanderPanel there is the captionbar.
             This captionbar may contain an image and text. According to it's properties the panel is closable.
             </remarks>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -3289,7 +3289,7 @@
             <summary>
             Provides data for the XPanderStateChange event.
             </summary>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
@@ -3318,7 +3318,7 @@
             The order of XPanderPanel objects reflects the order the xpanderpanels appear
             in the XPanderPanelList control.
             </remarks>
-            <copyright>Copyright ⢬2006-2008 Uwe Eichkorn
+            <copyright>Copyright ?2006-2008 Uwe Eichkorn
             THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
             KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
             IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR

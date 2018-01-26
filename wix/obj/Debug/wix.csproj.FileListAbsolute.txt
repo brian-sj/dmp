@@ -4,6 +4,15 @@ D:\DronProject\DMP\DMP_v1\Msi\wix.pdb
 D:\DronProject\DMP\DMP_v1\wix\obj\Debug\wix.csprojResolveAssemblyReference.cache
 D:\DronProject\DMP\DMP_v1\wix\obj\Debug\wix.Properties.Resources.resources
 D:\DronProject\DMP\DMP_v1\wix\obj\Debug\wix.csproj.GenerateResource.Cache
-D:\DronProject\DMP\DMP_v1\wix\obj\Debug\wix.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\wix\obj\Debug\wix.exe
 D:\DronProject\DMP\DMP_v1\wix\obj\Debug\wix.pdb
+D:\DronProject\DMP\DMP_v1\wix\obj\Debug\wix.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\Msi\licence.rtf
+D:\DronProject\DMP\GitDMP\Msi\wix.exe
+D:\DronProject\DMP\GitDMP\Msi\wix.pdb
+D:\DronProject\DMP\GitDMP\wix\obj\Debug\wix.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\wix\obj\Debug\wix.Properties.Resources.resources
+D:\DronProject\DMP\GitDMP\wix\obj\Debug\wix.csproj.GenerateResource.Cache
+D:\DronProject\DMP\GitDMP\wix\obj\Debug\wix.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\wix\obj\Debug\wix.exe
+D:\DronProject\DMP\GitDMP\wix\obj\Debug\wix.pdb
