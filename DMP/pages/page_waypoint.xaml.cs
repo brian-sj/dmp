@@ -130,6 +130,7 @@ namespace DMP
             wp.Latitude  = latlong.Latitude;
             wp.Longitude = latlong.Longitude;
             wp.Name      = pin.Name;
+            pin.PositionOrigin = PositionOrigin.Center;
 
             //pin.MouseDown += new MouseButtonEventHandler(pin_MouseDown);
             pin.Idx = wp.Index;

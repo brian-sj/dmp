@@ -81,7 +81,9 @@ namespace DMP.DataModels
                 hpin.Location = new Location(GvarDesignModel.Instance.HomePosition.Latitude, GvarDesignModel.Instance.HomePosition.Longitude);
                 hpin.Template = Htemplate;
                 hpin.Idx = 0;
+                hpin.PositionOrigin = PositionOrigin.Center;
                 hpin.Content = "";
+                
                 hpin.WPM = GvarDesignModel.Instance.HomePosition;
                 DmlPushpin.Children.Add(hpin);
                 DPushpins.Add(hpin);
@@ -98,6 +100,7 @@ namespace DMP.DataModels
                 pin.Idx = item.Index;
                 pin.Alt = item.Height;
                 pin.WPM = item;
+                pin.PositionOrigin = PositionOrigin.Center;
                 //pin.MouseDown += new MouseButtonEventHandler(pushpinHighlight);
                 DmlPushpin.Children.Add(pin);
                 DPushpins.Add(pin);
@@ -112,6 +115,7 @@ namespace DMP.DataModels
                 pin.Alt = item.Height;
                 pin.Idx = item.Index;
                 pin.PointType = (int)PointType.TARGET;
+                pin.PositionOrigin = PositionOrigin.Center;
                 pin.WPM = item;
                 DmlPushpin.Children.Add(pin);// MapWithEvents.Children.Add(pin);
                 DPushpins.Add(pin);

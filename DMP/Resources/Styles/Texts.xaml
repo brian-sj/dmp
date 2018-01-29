@@ -129,8 +129,6 @@
         </Setter>
     </Style>
 
-    
-
     <Style TargetType="TextBox" x:Key="LIST_MENU_BORDER_TEXTBOX">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmallest}" />
@@ -140,7 +138,6 @@
     </Style>
     
     <!--    TEXT BLOCK -->
-
     <Style TargetType="TextBlock" x:Key="REVIEW_TEXTBLOCK_STYLE">
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
         <Setter Property="Padding" Value="20 4 4 4" />
@@ -160,9 +157,7 @@
         <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
     </Style>
-
-    
-    
+   
     <!-- #### DashBoard  ####   -->
     <Style TargetType="TextBlock" x:Key="DASHBOARD_H1">
         <Setter Property="FontSize" Value="{StaticResource FontSizeXXXLarge}" />

@@ -20,8 +20,14 @@ namespace DMP.Controls.pushpin
         private bool isDragging = false;
         Location _center;
 
+
+        public static readonly DependencyProperty IdxProperty =
+            DependencyProperty.Register("Idx", typeof(int), typeof(DMPPushpin)
+                , new UIPropertyMetadata(0));
+        
         public DMPPushpin(Map map){
             _map = map;
+            DataContext = this;
         }
 
         public DMPPushpin(ref Map map ,ref MapPolyline mpl , ref MapLayer ml )
@@ -45,7 +51,8 @@ namespace DMP.Controls.pushpin
         }
         public int Idx
         {
-            get; set;
+            get { return (int)GetValue(IdxProperty); }
+            set { SetValue(IdxProperty, value); }
         }
         public int PointType
         {

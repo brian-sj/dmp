@@ -45,7 +45,7 @@
                         </StackPanel>
                     </Canvas>
                 </m:MapLayer>
-                <m:MapLayer x:Name="DmapPushPinLayer" >
+                <m:MapLayer x:Name="DmapPushPinLayer"  >
                     
                 </m:MapLayer>
             </m:Map>

@@ -9,6 +9,23 @@ namespace DMP.util
 {
     public class GeoCalculate
     {
+
+        public static double CalculateBearing( Location latlng1 , Location latlng2)
+        {
+            var lat1 = deg2rad(latlng1.Latitude);
+            var lon1 = latlng1.Longitude;
+
+            var lat2 = deg2rad(latlng2.Latitude);
+            var lon2 = latlng2.Longitude;
+            var dLon = deg2rad(lon2 - lon1);
+
+            var y = Math.Sin(dLon) * Math.Cos(lat2);
+            var x = Math.Cos(lat1) * Math.Sin(lat2) - Math.Sin(lat1) * Math.Cos(lat2) * Math.Cos(dLon);
+
+            var brng = ( rad2deg(Math.Atan2(y, x)) + 360) % 360;
+            return brng;
+        }
+
         public static double Distance(double lat1, double lon1, double lat2, double lon2, string unit = "m")
         {
             double theta = lon1 - lon2;

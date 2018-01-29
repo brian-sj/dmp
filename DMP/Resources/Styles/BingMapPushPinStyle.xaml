@@ -1,10 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ucp="clr-namespace:DMP.Controls.pushpin"
                     xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
                      >
-    
+
     <ControlTemplate x:Key="CustomPushpinTemplate" TargetType="m:Pushpin" >
-        <StackPanel Margin="-10 -10 -10 -10" Width="30" Height="30">
+        <Grid Margin="-10 -10 -10 -10" Width="30" Height="40">
                 <Canvas Width="20" Height="20" >
                     <Polygon Fill="Red"
                         Points="0,10 10,30 20,10">
@@ -12,15 +13,28 @@
                             <RotateTransform Angle="0" />
                         </Polygon.LayoutTransform>
                     </Polygon>
-                    <Ellipse  Fill="Yellow" 
+                <Grid Width="20" Height="20">
+                    <Ellipse x:Name="Pointer"  Fill="Yellow" 
                              Height="20" Width="20">
                     </Ellipse>
-                    <Canvas.LayoutTransform>
+                </Grid>
+                <Canvas.LayoutTransform>
                         <RotateTransform Angle="310" />
-                    </Canvas.LayoutTransform>
+                 </Canvas.LayoutTransform>
                 </Canvas>
-            <TextBlock Margin="2 2 2 2 " Background="Gray" Text="11" Opacity="0.4"/>
-        </StackPanel>
+            <StackPanel>
+                <TextBlock Margin="0 9 0 0" Foreground="Blue" Text="{Binding Idx}" HorizontalAlignment="Center"/>
+                <TextBlock FontSize="10" Background="Black" Text="{Binding Alt}" Opacity="0.7" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True" >
+                
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="False">
+                
+            </Trigger>
+        </ControlTemplate.Triggers>
     </ControlTemplate>
     <ControlTemplate x:Key="CustomPushpinTemplateActive" TargetType="m:Pushpin">
         <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -38,7 +52,6 @@
                 </Canvas>
                 
                 <Grid Margin="0" Width="33" Height="33">
-                    
                     <Rectangle HorizontalAlignment="Left" Margin="-0.208,13.238,0,-0.146" Width="10.555" Fill="#FF005167" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
@@ -50,12 +63,14 @@
                         </Rectangle.RenderTransform>
                     </Rectangle>
                     <Rectangle Fill="Gray" Stroke="#FF555167" RadiusX="5" RadiusY="5" />
+                    <!--
                     <ContentPresenter HorizontalAlignment="Center"
                                                                 VerticalAlignment="Center"
                                                                 Content="{TemplateBinding Content}"
                                                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                                                 Margin="0" TextBlock.FontFamily="Segoe UI" TextBlock.FontWeight="Bold" TextBlock.Foreground="#FFB8D30B">
                     </ContentPresenter>
+                    -->
                 </Grid>
             </StackPanel>
 
@@ -63,34 +78,34 @@
     </ControlTemplate>
     <!--      Target 용 Push Pin  -->
     <ControlTemplate x:Key="CustomTPushpinTemplate" TargetType="m:Pushpin">
-        <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel>
-                <Grid Margin="0" Width="33" Height="33">
-                    <Rectangle HorizontalAlignment="Left" Margin="-0.208,13.238,0,-0.146" Width="10.555" Fill="#FFff0000" RenderTransformOrigin="0.5,0.5">
-                        <Rectangle.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform AngleX="-23"/>
-                                <RotateTransform Angle="-12.944"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Rectangle.RenderTransform>
-                    </Rectangle>
-
-                    <Rectangle Fill="Gray" Stroke="#FFFF0000" RadiusX="5" RadiusY="5"/>
-                    <ContentPresenter HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center"
-                                                                Content="{TemplateBinding Content}"
-                                                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                Margin="0" TextBlock.FontFamily="Segoe UI" TextBlock.FontWeight="Bold" TextBlock.Foreground="#FFB8D30B">
-                    </ContentPresenter>
+        <Grid Margin="-10 -10 -10 -10" Width="30" Height="40">
+            <Canvas Width="20" Height="20" >
+                <Grid Width="20" Height="20">
+                    <Ellipse  Fill="Red" 
+                             Height="20" Width="20">
+                    </Ellipse>
                 </Grid>
+            </Canvas>
+            <StackPanel>
+                <TextBlock Margin="0 9 0 0" Foreground="Yellow" Text="{Binding Idx}" HorizontalAlignment="Center"/>
+                <TextBlock FontSize="10" Background="Black" Text="{Binding Alt}" Opacity="0.7" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
 
     </ControlTemplate>
     <ControlTemplate x:Key="CustomHPushpinTemplate" TargetType="m:Pushpin">
-        
+        <Grid Margin="-10 -10 -10 -10" Width="30" Height="40">
+            <Canvas Width="20" Height="20" >
+                <Grid Width="20" Height="20">
+                    <Ellipse  Fill="Green" 
+                             Height="20" Width="20">
+                    </Ellipse>
+                </Grid>
+            </Canvas>
+            <StackPanel>
+                <TextBlock Margin="0 9 0 0" Foreground="Yellow" Text="H" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
 
     </ControlTemplate>
     
