@@ -129,11 +129,10 @@
     <Compile Include="Attached Properties\NoFrameHistory.cs" />
     <Compile Include="Attached Properties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="Attached Properties\TextAttachedProperties.cs" />
-    <Compile Include="Controls\button\MenuButton.cs" />
-    <Compile Include="Controls\LabeledControl.xaml.cs">
+    <Compile Include="Controls\notyet\LabeledControl.xaml.cs">
       <DependentUpon>LabeledControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\LabeledLabel.xaml.cs">
+    <Compile Include="Controls\notyet\LabeledLabel.xaml.cs">
       <DependentUpon>LabeledLabel.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Commands\MapClickCommand.cs" />
@@ -141,7 +140,7 @@
     <Compile Include="Controls\HUD.xaml.cs">
       <DependentUpon>HUD.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\LabeledTextBox.xaml.cs">
+    <Compile Include="Controls\notyet\LabeledTextBox.xaml.cs">
       <DependentUpon>LabeledTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\NumericUpDown.xaml.cs">
@@ -231,7 +230,7 @@
     <Compile Include="Properties\page_help.xaml.cs">
       <DependentUpon>page_help.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\slideMenuReady.xaml.cs">
+    <Compile Include="Controls\notyet\slideMenuReady.xaml.cs">
       <DependentUpon>slideMenuReady.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Strings.cs" />
@@ -338,15 +337,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\LabeledControl.xaml">
+    <Page Include="Controls\notyet\LabeledControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\LabeledLabel.xaml">
+    <Page Include="Controls\notyet\LabeledLabel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\LabeledTextBox.xaml">
+    <Page Include="Controls\notyet\LabeledTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -485,10 +484,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\page_play.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="pages\page_review.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -497,11 +492,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\page_target.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\slideMenuReady.xaml">
+    <Page Include="Controls\notyet\slideMenuReady.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -510,17 +501,11 @@
     <Compile Include="pages\page_ready.xaml.cs">
       <DependentUpon>page_ready.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\page_play.xaml.cs">
-      <DependentUpon>page_play.xaml</DependentUpon>
-    </Compile>
     <Compile Include="pages\page_review.xaml.cs">
       <DependentUpon>page_review.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\page_waypoint.xaml.cs">
       <DependentUpon>page_waypoint.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pages\page_target.xaml.cs">
-      <DependentUpon>page_target.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

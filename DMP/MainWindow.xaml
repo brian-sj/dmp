@@ -6,7 +6,6 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:DMP"
         xmlns:c="clr-namespace:DMP.Controls"
-        xmlns:b="clr-namespace:DMP.Controls.button"
         mc:Ignorable="d" 
         Icon="/Resources/imgs/logo.png" 
         xmlns:sys ="clr-namespace:System;assembly=mscorlib"

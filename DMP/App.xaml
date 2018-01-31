@@ -3,16 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DMP"
              xmlns:util="clr-namespace:DMP.util"
-             xmlns:b="clr-namespace:DMP.Controls.button"
              xmlns:system ="clr-namespace:System;assembly=mscorlib"
              StartupUri="MainWindow.xaml">
-
-
     <Application.Resources>
-        
-
         <ResourceDictionary >
-           
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/Styles/Colours.xaml" />
                 <ResourceDictionary Source="/Resources/Styles/Fonts.xaml" />
@@ -25,7 +19,6 @@
             
             <Color x:Key="AccentColor">#CC000000</Color>
             <Color x:Key="MainButtonGray">#FFADADAD</Color>
-
             <system:Double x:Key="SUBMENUSIZE">292</system:Double>
             <system:Double x:Key="SUB_MENU_ITEM_RIGHT_SIZE">140</system:Double>
             <system:Double x:Key="SUB_MENU_ITEM_LEFT_SIZE">60</system:Double>
