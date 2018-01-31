@@ -65,9 +65,6 @@ namespace DMP
             _vm = new ToastViewModel();
             Unloaded += OnUnload;
 
-           
-
-            
             //ShowMessage(_vm.ShowInformation, "Information");
         }
 
@@ -160,7 +157,6 @@ namespace DMP
 
         private void Button_play(object sender, RoutedEventArgs e)
         {
-            //Main.Content = new PagePlay();
             _vm.ShowInformation("ddd");
             var pagename = Main.Content.GetType();
             GvarDesignModel.Instance.CurrentMenuName = "PLAY";
@@ -174,15 +170,12 @@ namespace DMP
         {
             Main.Content = new PageHelp();
         }
-
         private void Button_setting(object sender, RoutedEventArgs e)
         {
             Main.Content = new PageSetting();
         }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
             /**** ####  홈정보를 입력한후   */
             Locationwp home = new Locationwp();
             try
@@ -253,7 +246,6 @@ namespace DMP
                             a++;
                             continue;
                         }
-
                         //MAVLink.mavlink_mission_item_t temp = DataViewtoLocationwp(a);
                         MAVLink.mavlink_mission_item_t temp = WPModeltoLocationwp(a);
 

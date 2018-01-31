@@ -135,6 +135,10 @@
 
                 <Border Style="{StaticResource MENU_BORDER}" Height="1"/>
 
+                <Button Name="btnConnect" Command="{Binding ConnectCommand}" >연결</Button>
+                <Button Name="btnWriteWp" Command="{Binding WriteWPCommand}">WP 쓰기</Button>
+                <Button Name="btnReadWp" Command="{Binding ReadWPCommand}">WP 읽기</Button>
+                
                 <Button Name="btnStart" Click="btnStart_Click" >시작</Button>
                 <Button Name="btnStop" Click="btnStop_Click" >멈춤</Button>
                 <Button Name="btnPause" Click="btnPause_Click" >일시중지</Button>

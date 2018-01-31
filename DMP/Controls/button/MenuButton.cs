@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace DMP.Controls.button
 {
-    class MenuButton : Button
+    class MenuButton : RadioButton
     {
         public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register("IsSelected", typeof(bool),
         typeof(MenuButton), new FrameworkPropertyMetadata(false));

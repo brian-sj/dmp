@@ -38,7 +38,7 @@ namespace DMP.Controls
         /// <param name="e"></param>
         private void TargetListItemControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var selecteditem = ((TargetListItemControl)sender).Tag as TargetPointModel;
+            var selecteditem = ((TargetListItemControl)sender).Tag as WayPointModel;
             
             /// 나머지 애들은 모두 비 활성화 체크 한다. 
             foreach (var item in GvarDesignModel.Instance.TPList)

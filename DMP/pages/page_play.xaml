@@ -21,6 +21,10 @@
                 
                 <Border Style="{StaticResource MENU_BORDER}" Height="1"/>
 
+                <Button Name="btnConnect" Command="{Binding }">시작</Button>
+                <Button Name="btnWriteWP" >시작</Button>
+                
+                
                 <Button Name="btnStart" Click="btnSave_Click" >시작</Button>
                 <Button Name="btnStop"  >멈춤</Button>
                 <Button Name="btnPause"   >일시중지</Button>

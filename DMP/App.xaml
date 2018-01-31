@@ -26,17 +26,15 @@
             <Color x:Key="AccentColor">#CC000000</Color>
             <Color x:Key="MainButtonGray">#FFADADAD</Color>
 
-
-
             <system:Double x:Key="SUBMENUSIZE">292</system:Double>
             <system:Double x:Key="SUB_MENU_ITEM_RIGHT_SIZE">140</system:Double>
             <system:Double x:Key="SUB_MENU_ITEM_LEFT_SIZE">60</system:Double>
             <system:Double x:Key="SUB_MENU_ITEM_HEIGHT">26</system:Double>
             <system:Double x:Key="MMainNavButton_WIDTH">80</system:Double>
             <system:Double x:Key="MMainNavButton_HEIGHT">80</system:Double>
-            
-            <!--  #####################Style ...   -->
-            <Style x:Key="MMainNavButton" TargetType="b:MenuButton">
+
+            <!--  #####################Style ...  TargetType="b:MenuButton" -->
+            <Style x:Key="MMainNavButton" TargetType="RadioButton">
                 <Setter Property="Margin" Value="0,0,0,0" />
                 <Setter Property="Width" Value="80" />
                 <Setter Property="MinWidth" Value="80" />
@@ -46,7 +44,7 @@
                 <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Lato-Regular" />
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type b:MenuButton}" >
+                        <ControlTemplate TargetType="{x:Type RadioButton}" >
                             <Border
                         x:Name="border"
                         Background="{TemplateBinding Background}"
@@ -54,6 +52,18 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="3"
                         SnapsToDevicePixels="True">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualState x:Name="Checked">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" To="{StaticResource BackDarkGray}"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unchecked">
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+
                                 <Grid>
                                     <TextBlock
                                 Margin="{TemplateBinding Padding}"
@@ -91,10 +101,12 @@
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>
-                                <Trigger Property="IsSelected" Value="True">
+                                <Trigger Property="IsChecked" Value="True">
                                     <Setter TargetName="border" Property="Background" Value="{StaticResource BackLightBlueBrush}" />
                                 </Trigger>
+                                
                             </ControlTemplate.Triggers>
+                            
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>

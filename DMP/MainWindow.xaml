@@ -18,11 +18,11 @@
 
         <DockPanel DockPanel.Dock="Left" Background="Azure" Width="80">
             <StackPanel Orientation="Vertical"  Margin="0"  MinWidth="{StaticResource MMainNavButton_WIDTH}" DockPanel.Dock="Top">
-                <b:MenuButton Content="Ready"  Style="{StaticResource MMainNavButton}" Click="Button_ready" />
-                <b:MenuButton Content="Target"  Style="{StaticResource MMainNavButton}" Click="Button_target" />
-                <b:MenuButton Content="Waypoint" Style="{StaticResource MMainNavButton}" Click="Button_wp" />
-                <b:MenuButton Content="Review"  Style="{StaticResource MMainNavButton}" Click="Button_review" />
-                <b:MenuButton Content="Play"   Style="{StaticResource MMainNavButton}" Click="Button_play" />
+                <RadioButton GroupName="rbtngMainNavMenu" Content="Ready"  Style="{StaticResource MMainNavButton}" Click="Button_ready" />
+                <RadioButton GroupName="rbtngMainNavMenu" Content="Target"  Style="{StaticResource MMainNavButton}" Click="Button_target" />
+                <RadioButton GroupName="rbtngMainNavMenu" Content="Waypoint" Style="{StaticResource MMainNavButton}" Click="Button_wp" />
+                <RadioButton GroupName="rbtngMainNavMenu" Content="Review"  Style="{StaticResource MMainNavButton}" Click="Button_review" />
+                <RadioButton GroupName="rbtngMainNavMenu" Content="Play"   Style="{StaticResource MMainNavButton}" Click="Button_play" />
             </StackPanel>
             <StackPanel>
 
@@ -30,10 +30,10 @@
 
             <StackPanel Orientation="Vertical" MinWidth="{StaticResource MMainNavButton_WIDTH}" DockPanel.Dock="Bottom" Height="340" VerticalAlignment="Bottom">
                 <Button Style="{StaticResource MainButtonSmall}" >Play</Button>
-                <b:MenuButton x:Name="getWPs" Content="WayPoint 읽어 오기"  Style="{StaticResource MMainNavButton}" Click="getWP_Click" />
-                <b:MenuButton x:Name="temp" Content="Save Way Point to Flight"  Style="{StaticResource MMainNavButton}" Click="temp_Click" />
-                <b:MenuButton Content="?"  Style="{StaticResource MMainNavButton}" Click="Button_help" />
-                <b:MenuButton Content="Setting"  Style="{StaticResource MMainNavButton}" Click="Button_setting" />
+                <RadioButton GroupName="rbtngMainNavMenu" x:Name="getWPs" Content="WayPoint 읽어 오기"  Style="{StaticResource MMainNavButton}" Click="getWP_Click" />
+                <RadioButton GroupName="rbtngMainNavMenu" x:Name="temp" Content="Save Way Point to Flight"  Style="{StaticResource MMainNavButton}" Click="temp_Click" />
+                <RadioButton GroupName="rbtngMainNavMenu" Content="?"  Style="{StaticResource MMainNavButton}" Click="Button_help" />
+                <RadioButton GroupName="rbtngMainNavMenu" Content="Setting"  Style="{StaticResource MMainNavButton}" Click="Button_setting" />
             </StackPanel>
         </DockPanel>
 
@@ -46,9 +46,7 @@
                    VerticalAlignment="Stretch" 
                    Source="pages/page_connect.xaml"
                    />
-
         </StackPanel>
-
     </DockPanel>
 </Window>
 
