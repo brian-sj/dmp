@@ -4,7 +4,7 @@
                     xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
                      >
     <ControlTemplate x:Key="CustomPushpinTemplate" TargetType="m:Pushpin" >
-        <Grid Margin="-10 -10 -10 -10" Width="30" Height="40">
+        <Grid Margin="-10 -10 -10 -10" Width="30" Height="50">
                 <Canvas Width="20" Height="20" >
                     <Polygon Fill="Red"
                         Points="0,10 10,30 20,10">
@@ -18,11 +18,11 @@
                     </Ellipse>
                 </Grid>
                 <Canvas.LayoutTransform>
-                        <RotateTransform Angle="310" />
+                        <RotateTransform Angle="{Binding Bearing}" />
                  </Canvas.LayoutTransform>
                 </Canvas>
             <StackPanel>
-                <TextBlock Margin="0 9 0 0" Foreground="Blue" Text="{Binding Idx}" HorizontalAlignment="Center"/>
+                <TextBlock Margin="0 9 0 0" Foreground="Blue" Text="{Binding Index}" HorizontalAlignment="Center"/>
                 <TextBlock FontSize="10" Background="Black" Text="{Binding Alt}" Opacity="0.7" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
@@ -86,7 +86,7 @@
                 </Grid>
             </Canvas>
             <StackPanel>
-                <TextBlock Margin="0 9 0 0" Foreground="Yellow" Text="{Binding Idx}" HorizontalAlignment="Center"/>
+                <TextBlock Margin="0 9 0 0" Foreground="Yellow" Text="{Binding Index}" HorizontalAlignment="Center"/>
                 <TextBlock FontSize="10" Background="Black" Text="{Binding Alt}" Opacity="0.7" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>

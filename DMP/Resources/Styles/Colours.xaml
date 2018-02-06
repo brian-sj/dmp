@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system ="clr-namespace:System;assembly=mscorlib"
     xmlns:local="clr-namespace:DMP">
 
 <!--   Kate Style -->
@@ -68,6 +69,14 @@
     <Color x:Key="PopupButtonDarkBorder">#808080</Color>
     <SolidColorBrush x:Key="PopupButtonDarkBorderBrush" Color="{StaticResource PopupButtonDarkBorder}" />
 
+    <Color x:Key="AccentColor">#CC000000</Color>
+    <Color x:Key="MainButtonGray">#FFADADAD</Color>
+    <system:Double x:Key="SUBMENUSIZE">292</system:Double>
+    <system:Double x:Key="SUB_MENU_ITEM_RIGHT_SIZE">140</system:Double>
+    <system:Double x:Key="SUB_MENU_ITEM_LEFT_SIZE">100</system:Double>
+    <system:Double x:Key="SUB_MENU_ITEM_HEIGHT">26</system:Double>
+    <system:Double x:Key="MMainNavButton_WIDTH">80</system:Double>
+    <system:Double x:Key="MMainNavButton_HEIGHT">80</system:Double>
     <!-- Kate Style 완료. -->
     <Color x:Key="BackgroundLight">#adadad</Color>
     <!--

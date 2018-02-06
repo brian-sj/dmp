@@ -42,70 +42,14 @@ namespace DMP
             ControlTemplate ttemplate = (ControlTemplate)this.FindResource("CustomTPushpinTemplate");
             ControlTemplate wtemplate = (ControlTemplate)this.FindResource("CustomPushpinTemplate");
             ControlTemplate htemplate = (ControlTemplate)this.FindResource("CustomHPushpinTemplate");
-
             mapModel.Ttemplate = ttemplate;
             mapModel.Wtemplate = wtemplate;
             mapModel.Htemplate = htemplate;
             mapModel.DmlPolyline = DmapPolylineLayer; 
             mapModel.DmlPushpin = DmapPushPinLayer;
             mapModel.DmlFlight = DmapFlightLayer;
-
             /// 잠깐 멈춤 
             mapModel.LoadPushpinFromWaypointList();
-
-            /*
-            var hpin = new DMPPushpin(ref MapWithEvents , ref polyline , ref DmapPushPinLayer);
-            var hp  = GvarDesignModel.Instance.HomePosition;
-            hpin.Template = htemplate;
-            hpin.Content = String.Format("WP{0}({1})", hp.Index, hp.Height);
-            hpin.PointType = (int)PointType.HOME;
-            hpin.Idx = hp.Index;
-            hpin.Alt = hp.Height;
-            hpin.WPM = hp;
-            hpin.MouseDown += new MouseButtonEventHandler(pushpinHighlight);
-            polyline.Locations.Add(hpin.Location);
-            pushpins.Add(hpin);
-            */
-
-
-            /*
-            /// way point 를 찍어 주자... 
-            foreach (var item in GvarDesignModel.Instance.WPList )
-            {
-                var pin = new DMPPushpin(ref MapWithEvents , ref polyline , ref DmapPushPinLayer);
-                pin.Location = new Location(item.Latitude, item.Longitude);
-                pin.Template = wtemplate;
-                pin.Content = String.Format("WP{0}({1})" , item.Index , item.Height) ;
-                pin.PointType = (int)PointType.WAYPOINT;
-                pin.Idx = item.Index;
-                pin.Alt = item.Height;
-                pin.WPM = item;
-                pin.MouseDown += new MouseButtonEventHandler(pushpinHighlight);
-                MapWithEvents.Children.Add(pin);
-                pushpins.Add( pin );
-            }
-            //DmapLayer.Children.Add(polyline);
-            //MapWithEvents.Children.Add(DmapLayer);
-
-            /// target Point를 찍어 주자.
-            foreach (var item in GvarDesignModel.Instance.TPList)
-            {
-                var pin = new DMPPushpin(ref MapWithEvents , ref polyline , ref DmapPushPinLayer);
-                pin.Location = new Location( item.Latitude , item.Longitude );
-                pin.Template = ttemplate;
-                pin.Content = String.Format("TP{0}({1})", item.Index, item.Height);
-                pin.Alt = item.Height;
-                pin.Idx = item.Index;
-                pin.PointType = (int)PointType.TARGET;
-                pin.WPM = item;
-                MapWithEvents.Children.Add( pin );
-                pushpins.Add(pin);
-            }
-            MapDesignModel.Instance.DrawPolyLine();
-            GvarDesignModel.Instance.CalculationEachDistance();
-              */
-            //// home point 찍기... 
-            ////relay Point 찍기
         }
 
         private void MapWithEvents_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -133,7 +77,7 @@ namespace DMP
             pin.PositionOrigin = PositionOrigin.Center;
 
             //pin.MouseDown += new MouseButtonEventHandler(pin_MouseDown);
-            pin.Idx = wp.Index;
+            pin.Index = wp.Index;
             pin.Location = latlong;
             pin.Template = template;
             
@@ -165,7 +109,7 @@ namespace DMP
             {
                 MapLayer.SetPosition(ContentPopup, pin.Location);
                 MapLayer.SetPositionOffset(ContentPopup, new Point(15, -50));
-                ContentPopupText.Text = String.Format("{0}-{1:0.00}" , pin.Idx, pin.WPM.DistanceFromPrev);//"MyPush" + pin.Idx.ToString() + pin.WPM.DistanceFromPrev +":";
+                ContentPopupText.Text = String.Format("{0}-{1:0.00}" , pin.Index, pin.WPM.DistanceFromPrev);//"MyPush" + pin.Idx.ToString() + pin.WPM.DistanceFromPrev +":";
                 ContentPopup.Visibility = Visibility.Visible;
             }
         }

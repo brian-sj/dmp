@@ -12,9 +12,10 @@ namespace DMP.util
 
         public static double CalculateBearing( Location latlng1 , Location latlng2)
         {
+            /*
             var lat1 = deg2rad(latlng1.Latitude);
             var lon1 = latlng1.Longitude;
-
+            
             var lat2 = deg2rad(latlng2.Latitude);
             var lon2 = latlng2.Longitude;
             var dLon = deg2rad(lon2 - lon1);
@@ -24,6 +25,20 @@ namespace DMP.util
 
             var brng = ( rad2deg(Math.Atan2(y, x)) + 360) % 360;
             return brng;
+            */
+
+            double latFrom = latlng1.Latitude * (Math.PI / 180.0);
+            double longFrom = latlng1.Longitude * (Math.PI / 180.0);
+            double latTo = latlng2.Latitude * (Math.PI / 180.0);
+            double longTo = latlng2.Longitude * (Math.PI / 180.0);
+
+            double y = Math.Sin(longTo - longFrom) * Math.Cos(latTo);
+            double x = (Math.Cos(latFrom) * Math.Sin(latTo)) -
+                (Math.Sin(latFrom) * Math.Cos(latTo) * Math.Cos(longFrom - longTo));
+
+            double rval = Math.Atan2(y, x) ;
+            double angle = (rval * (180.0 / Math.PI) + 360) % 360;
+            return angle;// back to degrees
         }
 
         public static double Distance(double lat1, double lon1, double lat2, double lon2, string unit = "m")

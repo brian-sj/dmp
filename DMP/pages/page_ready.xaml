@@ -46,7 +46,7 @@
 
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel >
-                    <Label Content="원점높이형태" Width="60"  />
+                    <Label Content="원점높이형태" Width="{StaticResource SUB_MENU_ITEM_LEFT_SIZE}"  />
                         <ComboBox Name="cmbInitialHeightType" SelectedValuePath="Key" 
                                 
                                 DisplayMemberPath="Value"
@@ -57,7 +57,7 @@
             </Border>
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel >
-                    <Label Content="원점높이" Width="60"  />
+                    <Label Content="원점높이" Width="{StaticResource SUB_MENU_ITEM_LEFT_SIZE}"  />
                     <TextBox Width="100" Name="initialHeight"  
                                  Style="{StaticResource SUB_MENU_TB_ROUND}" 
                                  Text="{Binding InitialHeight}"/>
@@ -66,7 +66,7 @@
             </Border>
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
-                    <Label DockPanel.Dock="Left" Content="속도" Width="60"/>
+                    <Label DockPanel.Dock="Left" Content="속도" Width="{StaticResource SUB_MENU_ITEM_LEFT_SIZE}"/>
                     <TextBox Name="nsSpeed" 
                              Style="{StaticResource SUB_MENU_TB_ROUND}" 
                              Text="{Binding Path=Speed , Mode=TwoWay}" />
@@ -75,7 +75,7 @@
 
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
-                    <Label DockPanel.Dock="Left" Content="착륙방법" Width="60"  />
+                    <Label DockPanel.Dock="Left" Content="착륙방법" Width="{StaticResource SUB_MENU_ITEM_LEFT_SIZE}"  />
                     <ComboBox Name="cmbLandingStyle" Grid.Column="1" Grid.Row="8"  
                               Background="Gray" Width="80"
                               Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
@@ -89,7 +89,7 @@
 
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
-                    <Label Content="착륙높이" Width="60"  />
+                    <Label Content="착륙높이" Width="{StaticResource SUB_MENU_ITEM_LEFT_SIZE}"  />
 
                     <TextBox Name="landingHeight" Style="{StaticResource SUB_MENU_TB_ROUND}" 
                                     Text="{Binding Path=Landing_height , Mode=TwoWay}" />
@@ -99,7 +99,7 @@
 
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
-                    <Label Content="신호끊김시" Width="60"  />
+                    <Label Content="신호끊김시" Width="{StaticResource SUB_MENU_ITEM_LEFT_SIZE}" />
                     <ComboBox Name="cmbDoWhenError" 
                               Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
                                   SelectedValuePath="Key" DisplayMemberPath="Value"  
@@ -112,7 +112,7 @@
 
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel>
-                    <Label Content="코너" Width="60"  />
+                    <Label Content="코너" Width="{StaticResource SUB_MENU_ITEM_LEFT_SIZE}"  />
                     <ComboBox Name="cmbCornerStyle"  
                       Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
                       Background="Brown"
@@ -149,9 +149,10 @@
         <Grid DockPanel.Dock="Right" Margin="10,0,0,0">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" >
-                        <Button Name="btnConnect" Content="Connect" Click="btnConnect_Click"  Width="150"/>
-                        <Button Name="btnLogMonStart" Content="LogMonStart" Click="btnLogMonStart_Click"  Width="150"/>
-                        <Button Name="btnLogMonEnd" Content="LogMonEnd" Click="btnLogMonEnd_Click"  Width="150"/>
+                        <Button Name="btnConnect" Content="Connect" Command="{Binding ConnectCommand}"  Width="100"/>
+                        <Button Name="btnDisConnect" Content="DisConnect" Command="{Binding DisConnectCommand}"  Width="100"/>
+                        <Button Name="btnLogMonStart" Content="LogMonStart" Click="btnLogMonStart_Click"  Width="100"/>
+                        <Button Name="btnLogMonEnd" Content="LogMonEnd" Click="btnLogMonEnd_Click"  Width="100"/>
                         <StackPanel>
                             <TextBlock Text="Connect" />
 
@@ -188,7 +189,17 @@
                     <ProgressBar Name="progressBar1" Width="90" />
                     <ProgressBar Name="progressBar2" Width="90"/>
                     <ProgressBar Name="progressBar3" Width="90"/>
-
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="SetHome" Click="SetHome_Click">SetHome(4444444)</Button>
+                        <Button Name="GetHome" Click="GetHome_Click" >GetHome</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="SetWP1" Click="SetWP1_Click">Set WP 1 </Button>
+                        <Button Name="SetWP2" Click="SetWP2_Click">Set WP 2 </Button>
+                        <Button Name="GetWP" Command="{Binding ReadWPCommand}">GetWp</Button>
+                    </StackPanel>
                 </StackPanel>
                 <Grid>
                         <Grid.ColumnDefinitions>

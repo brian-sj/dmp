@@ -16,6 +16,7 @@ using DMP.Resources;
 using DMP.DataModels;
 using System.Collections;
 using ToastNotifications.Core;
+using DMP.util;
 
 namespace DMP
 {
@@ -68,7 +69,7 @@ namespace DMP
             //ShowMessage(_vm.ShowInformation, "Information");
         }
 
-        void ShowMessage(Action<string, MessageOptions> action, string name)
+        public void ShowMessage(Action<string, MessageOptions> action, string name)
         {
             MessageOptions opts = new MessageOptions
             {
@@ -520,6 +521,18 @@ namespace DMP
         private void temp_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Locationwp home = MainV2.comPort.getHomePosition();
+                WayPointModel wp = WayPointConvertUtility.LocationwpToWayPoint(home);
+                GvarDesignModel.Instance.HomePosition = wp;
+            }
+            catch (Exception ee ) { Dialogs.CustomMessageBox.Show("ERROR", "HomePoint를 읽을 수 없습니다."); }
+            
         }
     }
 }

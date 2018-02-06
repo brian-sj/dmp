@@ -172,12 +172,14 @@
     <Compile Include="DataModels\EnumListDictionaryDesignModel.cs" />
     <Compile Include="DataModels\MapDesignModel.cs" />
     <Compile Include="DataModels\MapModel.cs" />
+    <Compile Include="DataModels\MavLinkAction.cs" />
     <Compile Include="DataModels\ToastViewModel.cs" />
     <Compile Include="DataModels\UIDesignModel.cs" />
     <Compile Include="DataModels\GvarDesignModel.cs" />
     <Compile Include="DataModels\GvarModel.cs" />
     <Compile Include="DataModels\StaticComboOptionDesignModel.cs" />
     <Compile Include="DataModels\StaticComboOptions.cs" />
+    <Compile Include="util\WayPointConvertUtility.cs" />
     <Compile Include="Dialogs\CustomMessageBox.xaml.cs">
       <DependentUpon>CustomMessageBox.xaml</DependentUpon>
     </Compile>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -80,10 +81,10 @@ namespace DMP.DataModels
                 var hpin = new DMPPushpin(DMap);
                 hpin.Location = new Location(GvarDesignModel.Instance.HomePosition.Latitude, GvarDesignModel.Instance.HomePosition.Longitude);
                 hpin.Template = Htemplate;
-                hpin.Idx = 0;
+
                 hpin.PositionOrigin = PositionOrigin.Center;
                 hpin.Content = "";
-                
+
                 hpin.WPM = GvarDesignModel.Instance.HomePosition;
                 DmlPushpin.Children.Add(hpin);
                 DPushpins.Add(hpin);
@@ -93,13 +94,30 @@ namespace DMP.DataModels
             foreach (var item in GvarDesignModel.Instance.WPList)
             {
                 var pin = new DMPPushpin( DMap ); // ref MapWithEvents, ref polyline, ref DmapPushPinLayer);
-                pin.Location = new Location(item.Latitude, item.Longitude);
+                
+                Binding lbinding = new Binding("Location");
+                Binding hbinding = new Binding("Height");
+                Binding ibinding = new Binding("Index");
+                Binding bbinding = new Binding("Bearing");
+                lbinding.Source = item;
+                lbinding.Mode = BindingMode.TwoWay;
+                
+                hbinding.Source = item;
+                ibinding.Source = item;
+                bbinding.Source = item;
+
+                pin.SetBinding(Pushpin.LocationDependencyProperty, lbinding);
+                pin.SetBinding(DMPPushpin.IndexProperty, ibinding);
+                pin.SetBinding(DMPPushpin.AltProperty, hbinding);
+                pin.SetBinding(DMPPushpin.BearingProperty, bbinding);
+                //pin.Location = new Location(item.Latitude, item.Longitude);
+
+
                 pin.Template = Wtemplate;
-                pin.Content = String.Format("{0}({1})", item.Index, item.Height);
+                pin.Content = String.Format("{0}m",  item.Height);
                 pin.PointType = (int)PointType.WAYPOINT;
-                pin.Idx = item.Index;
-                pin.Alt = item.Height;
                 pin.WPM = item;
+
                 pin.PositionOrigin = PositionOrigin.Center;
                 //pin.MouseDown += new MouseButtonEventHandler(pushpinHighlight);
                 DmlPushpin.Children.Add(pin);
@@ -109,11 +127,21 @@ namespace DMP.DataModels
             foreach (var item in GvarDesignModel.Instance.TPList)
             {
                 var pin = new DMPPushpin(DMap); // ref MapWithEvents, ref polyline, ref DmapPushPinLayer);
-                pin.Location = new Location(item.Latitude, item.Longitude);
+                
                 pin.Template = Ttemplate;
                 pin.Content = String.Format("{0}({1})", item.Index, item.Height);
-                pin.Alt = item.Height;
-                pin.Idx = item.Index;
+                Binding lbinding = new Binding("Location");
+                Binding hbinding = new Binding("Height");
+                Binding ibinding = new Binding("Index");
+                lbinding.Source = item;
+                lbinding.Mode = BindingMode.TwoWay;
+                hbinding.Source = item;
+                ibinding.Source = item;
+
+                pin.SetBinding(Pushpin.LocationDependencyProperty, lbinding);
+                pin.SetBinding(DMPPushpin.IndexProperty, ibinding);
+                pin.SetBinding(DMPPushpin.AltProperty, hbinding);
+
                 pin.PointType = (int)PointType.TARGET;
                 pin.PositionOrigin = PositionOrigin.Center;
                 pin.WPM = item;

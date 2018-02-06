@@ -28,59 +28,21 @@ namespace DMP.Controls
         }
         private void btnUp_Click(object sender, RoutedEventArgs e)
         {
-            var selecteditem = ((Button)sender).Tag as TargetPointModel;
+            var selecteditem = ((Button)sender).Tag as WayPointModel;
             int selectedi = selecteditem.Index;
             SortingTargetPoint( true , selectedi );
         }
 
         private void btnDown_Click(object sender, RoutedEventArgs e )
         {
-            var selecteditem = ((Button)sender).Tag as TargetPointModel;
+            var selecteditem = ((Button)sender).Tag as WayPointModel;
             int selectedi = selecteditem.Index;
             SortingTargetPoint(false , selectedi);
         }
         private void SortingTargetPoint( bool up , int selectedIndex )
         {
-            //Sorting 시작과 끝에 한번씩 해주자... 
-            GvarDesignModel.Instance.TPList 
-                = (ObservableCollection<WayPointModel>)GvarDesignModel.Instance.TPList.OrderBy(f => f.Index);
-
-            // 업을 할때 1번째는 업이 안된다. 
-            if (up && selectedIndex == 1) return;
-
-            // 다운일때 맨 마지막은 다운이 않된다. 
-            if (!up && selectedIndex == DMP.DataModels.GvarDesignModel.Instance.TPList.Count) return;
-
-            /// 순서를 바꾸어 보자... 
-            int i = 0;
-            foreach (var item in DMP.DataModels.GvarDesignModel.Instance.TPList)
-            {
-                i++;
-                if ( up )
-                {
-                    if (item.Index == selectedIndex - 1)
-                    {
-                        item.Index = i + 1;
-                    }
-                    else if (item.Index == selectedIndex)
-                    {
-                        item.Index = i - 1;
-                    }
-                }
-                else   // Down 
-                {
-                    if (item.Index == selectedIndex )
-                    {
-                        item.Index = i + 1;
-                    }
-                    else if (item.Index == selectedIndex +1 )
-                    {
-                        item.Index = i - 1;
-                    }
-                }
-            }
-            DMP.DataModels.GvarDesignModel.Instance.TPList 
-                = (ObservableCollection<WayPointModel>)DMP.DataModels.GvarDesignModel.Instance.TPList.OrderBy(f => f.Index) ;
+            GvarDesignModel.Instance.ChangeTargetPointOrder(up, selectedIndex);
+            GvarDesignModel.Instance.SortAllKindWayPoint();
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Media;
 using DMP;
 using DMP.DataModels.Commands;
+using Microsoft.Maps.MapControl.WPF;
 using MissionPlanner.Utilities;
 
 namespace DMP.DataModels
@@ -142,6 +143,8 @@ namespace DMP.DataModels
                 var p = sender as WayPointModel;
                 GvarDesignModel.Instance.WPList.Remove(p);
             }
+
+            GvarDesignModel.Instance.SortAllKindWayPoint();
         }
 
         /// <summary>
@@ -249,19 +252,8 @@ namespace DMP.DataModels
             } }
         public float Bearing { get => _bearing; set
             {
-                if (value > Constants.BEARING_MAX)
-                {
-                    _bearing = Constants.BEARING_MAX;
-                }
-                else if (value < Constants.BEARING_MIN)
-                {
-                    _bearing = Constants.BEARING_MIN;
-                }
-                else
-                {
-                    _bearing = value;
-                }
-
+                
+                _bearing = value;
                 OnPropertyChanged();
             }
         }
@@ -277,7 +269,11 @@ namespace DMP.DataModels
         public float TimeFromPrev { get => _timeFromPrev; set { _timeFromPrev = value; OnPropertyChanged(); } }
         public bool IsActive { get => _isActive; set { _isActive = value; OnPropertyChanged(); } }
 
-
+        public Location Location
+        {
+            get { return new Location(Latitude , Longitude); }
+            set { Latitude = value.Latitude; Longitude = value.Longitude; OnPropertyChanged(); }
+        }
         public Locationwp GetLocationwp()
         {
             

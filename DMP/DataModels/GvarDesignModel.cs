@@ -427,6 +427,7 @@ namespace DMP.DataModels
         {
             WayPointModel pwp = null;
             double totalDistance = 0.0;
+            
             foreach (var wp in GvarDesignModel.Instance.WPList)
             {
                 if (pwp == null)
@@ -436,6 +437,8 @@ namespace DMP.DataModels
                     pwp.Longitude = GvarDesignModel.Instance.HomePosition.Longitude;
                 }
                 wp.DistanceFromPrev = GeoCalculate.Distance(pwp.Latitude, pwp.Longitude, wp.Latitude, wp.Longitude);
+
+                pwp.Bearing = (float)Math.Round(GeoCalculate.CalculateBearing( wp.Location , pwp.Location) ,2) ;
                 pwp = wp;
                 totalDistance += wp.DistanceFromPrev;
             }
@@ -458,28 +461,39 @@ namespace DMP.DataModels
                 var wplist = GvarDesignModel.Instance.WPList;
 
                 /// 여기서 wplist를   MainV2.comPort.MAV.wps.Values
-
-
-
                 if (!port.BaseStream.IsOpen)
                 {
                     throw new Exception("Pls connect first");
                 }
                 MainV2.comPort.giveComport = true;
                 int a = 0;
-
                 Locationwp home = new Locationwp();
+
+                MavLinkAction.WriteHomePosition(); 
+
                 /// 홈포지션은 waypoints에서 가지고 와서 타입이 home인 애를 가져온다. 
                 try
                 {
-                    home.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
-                    var homeposition = GvarDesignModel.Instance.HomePosition;
-                    home.lat = (double)homeposition.Latitude;// home 정보 넣어 주라..  ;
-                    home.alt = (float)homeposition.Height;
-                    home.lng = (double)homeposition.Longitude;
-                }
-                catch { throw new Exception("Your Home location is invalid "); }
+                    
+                    var homeposition = MainV2.comPort.getHomePosition(); //GvarDesignModel.Instance.HomePosition;
 
+                    home.lat = (double)homeposition.lat;// home 정보 넣어 주라..  ;
+                    home.alt = (float)homeposition.alt;
+                    home.lng = (double)homeposition.lng;
+
+
+                    
+
+                }
+                catch {
+                    Dialogs.CustomMessageBox.Show("ERROR", "HOMEPOSITION이 지정되지 않았습니다. 대신 임의로 47.4444 로 정합니다. ");
+
+                    //****************테스트로 홈포지션을
+                    home.id = (ushort)MAVLink.MAV_CMD.DO_SET_HOME;
+                    home.lat = 47.4444444;
+                    home.lng = 126.444444;
+                    home.alt = 5f;
+                }
                 // log
                 log.Info("wps values " + MainV2.comPort.MAV.wps.Values.Count);
                 log.Info("cmd rows " + (wplist.Count + 1)); // + home
@@ -487,7 +501,14 @@ namespace DMP.DataModels
                 // check for changes / future mod to send just changed wp's
                 // 지금은 비교를 하고도 일단 다 집어 넣는 구조다.... 
                 // 나중에 수정을 해 보자 테스트도 많이 필요하다...
-                if (MainV2.comPort.MAV.wps.Values.Count == (wplist.Count + 1))
+
+
+                //#### 일단 받은 waypoint를 잘 정리해서 넣어 보자. 
+                //#### 주의 해야한다... waypoint뿐아니라 
+                //#### homeposition , targetpoint, action 까지 순차적으로 넣어야 한다. 
+                WayPointConvertUtility.WayPointListToMavwps(); 
+                if (true)  // 숫자를 맞출 필요가 없다... 전에 왜 이런 비교가 있었는지 궁금하다... 2018.1.31
+                //if( MainV2.comPort.MAV.wps.Values.Count == (wplist.Count + 1))
                 {
                     Hashtable wpstoupload = new Hashtable();
                     a = -1;
@@ -500,7 +521,7 @@ namespace DMP.DataModels
                             continue;
                         }
 
-                        MAVLink.mavlink_mission_item_t temp = WPModeltoLocationwp(a);
+                        MAVLink.mavlink_mission_item_t temp = item;// WayPointConvertUtility.WPModeltoLocationwp(a);
                         //MAVLink.mavlink_mission_item_t temp = new MAVLink.mavlink_mission_item_t();
 
                         if (temp.command == item.command &&
@@ -526,13 +547,16 @@ namespace DMP.DataModels
                 }
                 /// 일단 위에까지는 안쓸거지만... 다른것이 있는지 확은은 했다... 
 
+                //int type으로 할지... 아니라면 float 타입니다... 
                 bool use_int = (port.MAV.cs.capabilities & (uint)MAVLink.MAV_PROTOCOL_CAPABILITY.MISSION_INT) > 0;
 
                 // set wp total
-                ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(0, "Set total wps ");
+                //((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(0, "Set total wps ");
 
                 ushort totalwpcountforupload = (ushort)(wplist.Count + 1);
 
+
+                /// 일단 우리꺼는 ArduinoMEGA라고 나온다. 
                 if (port.MAV.apname == MAVLink.MAV_AUTOPILOT.PX4)
                 {
                     totalwpcountforupload--;
@@ -541,11 +565,15 @@ namespace DMP.DataModels
                 port.setWPTotal(totalwpcountforupload); // + home
 
                 // set home location - overwritten/ignored depending on firmware.
-                ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(0, "Set home");
+                //((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(0, "Set home");
 
                 // upload from wp0
                 a = 0;
 
+
+                //####  이 부분은 왜 있는지 모르겠다.... 
+                //일단 넘어가자 홈은 위에서 정해 주었으니 
+                /*
                 if (port.MAV.apname != MAVLink.MAV_AUTOPILOT.PX4)
                 {
                     try
@@ -582,6 +610,7 @@ namespace DMP.DataModels
                 {
                     use_int = false;
                 }
+                */
 
                 // define the default frame.
                 MAVLink.MAV_FRAME frame = MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT;
@@ -594,8 +623,7 @@ namespace DMP.DataModels
                 {
                     var temp = commandlist[a - 1];
 
-                    ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(a * 100 / wplist.Count,
-                        "Setting WP " + a);
+                    //((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(a * 100 / wplist.Count, "Setting WP " + a);
 
                     // make sure we are using the correct frame for these commands
                     if (temp.id < (ushort)MAVLink.MAV_CMD.LAST || temp.id == (ushort)MAVLink.MAV_CMD.DO_SET_HOME)
@@ -670,7 +698,7 @@ namespace DMP.DataModels
                 }
 
                 port.setWPACK();
-                ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(95, "Setting params");
+                //((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(95, "Setting params");
 
                 // m    이거 원래 화면에서 받는것인데... 없으니까. 일단 그냥넣어 봅시다. 
                 port.setParam("WP_RADIUS", GvarDesignModel.Instance.FDRAD / CurrentState.multiplierdist);
@@ -687,7 +715,7 @@ namespace DMP.DataModels
                 {
 
                 }
-                           ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(100, "Done.");
+                           //((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(100, "Done.");
             }
             catch (Exception ex)
             {
@@ -710,9 +738,10 @@ namespace DMP.DataModels
             try
             {
                 int total = port.getWPCount();   // 신기하게도 Home position을 포함하는지 꼭 한개가 추가가 된다. 
-                for (ushort i = 1; i < total; i++)
+                for (ushort i = 0; i < total; i++)
                 {
                     wp = port.getWP(i);
+                    Console.WriteLine( "######"+wp.lat +":" +wp.lng );
                 }
                 port.setWPACK();
             }
@@ -730,45 +759,19 @@ namespace DMP.DataModels
         }
         /// <summary>
         /// WP 리스트에서 locationwp 구조체 형태를 가져오는 함수 이다. 
+        /// WayPointConvertUtility로 옮겨 갔다. 
         /// </summary>
         /// <param name="a"></param>
         /// <returns></returns>
+        /// 
+        /*
         private Locationwp WPModeltoLocationwp(int a)
         {
-            try
-            {
-                Locationwp temp = new Locationwp();
-                WayPointModel data = null;//= GvarDesignModel.Instance.WaypointList.Where(wp => ((WayPointModel)wp).Index == a );
-                foreach (var item in GvarDesignModel.Instance.WPList)
-                {
-                    if (item.Index == a)
-                    {
-                        data = item;
-                        break;
-                    }
-                }
-                if (data == null)
-                    throw new FormatException("invalid number of wp's list " + (a + 1).ToString(), null);
-
-                temp.lat = data.Latitude;
-                temp.lng = data.Longitude;
-                temp.alt = data.Height;
-                temp.id = data.command_id;
-                temp.p1 = data.p1;
-                temp.p2 = data.p2;
-                temp.p3 = data.p3;
-                temp.p4 = data.p4;  /// 총 7개 파라메터가 있는데 나머지 세개가 lat , lng , alt 이다. 
-                temp.Tag = data.Name;
-
-                return temp;
-            }
-            catch (Exception e)
-            {
-                throw new FormatException("invalid number of wp's list " + (a + 1).ToString(), e);
-            }
         }
-        #endregion
+        */
+#endregion
 
 
-    }
 }
+}
+

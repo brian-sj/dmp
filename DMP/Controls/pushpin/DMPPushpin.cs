@@ -21,10 +21,18 @@ namespace DMP.Controls.pushpin
         Location _center;
 
 
-        public static readonly DependencyProperty IdxProperty =
-            DependencyProperty.Register("Idx", typeof(int), typeof(DMPPushpin)
+        public static readonly DependencyProperty IndexProperty =
+            DependencyProperty.Register("Index", typeof(int), typeof(DMPPushpin)
                 , new UIPropertyMetadata(0));
-        
+
+        public static readonly DependencyProperty AltProperty =
+            DependencyProperty.Register("Alt", typeof(float), typeof(DMPPushpin)
+        , new UIPropertyMetadata(0f));
+
+        public static readonly DependencyProperty BearingProperty =
+            DependencyProperty.Register("Bearing", typeof(float), typeof(DMPPushpin)
+        , new UIPropertyMetadata(0f));
+
         public DMPPushpin(Map map){
             _map = map;
             DataContext = this;
@@ -49,10 +57,10 @@ namespace DMP.Controls.pushpin
         {
             get; set;
         }
-        public int Idx
+        public int Index
         {
-            get { return (int)GetValue(IdxProperty); }
-            set { SetValue(IdxProperty, value); }
+            get { return (int)GetValue(IndexProperty); }
+            set { SetValue(IndexProperty, value); }
         }
         public int PointType
         {
@@ -60,8 +68,15 @@ namespace DMP.Controls.pushpin
         }
         public float Alt
         {
-            get;set;
+            get { return (int)GetValue(AltProperty); }
+            set { SetValue(AltProperty, value); }
         }
+
+        public float Bearing
+        {
+            get { return (float)GetValue(BearingProperty); }
+        }
+
         #endregion
 
         #region 드래거블 
@@ -70,12 +85,7 @@ namespace DMP.Controls.pushpin
         {
             Console.WriteLine("MouseDown... : heigh light");
 
-            var ContentPopup = (Canvas)_map.FindName("ContentPopup");
-            var ContentPopupText = (TextBlock)_map.FindName("ContentPopupText");
-            MapLayer.SetPosition(ContentPopup, Location);
-            MapLayer.SetPositionOffset(ContentPopup, new Point(15, -50));
-            ContentPopupText.Text = String.Format("{0}-{1:0.00}", Idx,  WPM.DistanceFromPrev);//"MyPush" + pin.Idx.ToString() + pin.WPM.DistanceFromPrev +":";
-            ContentPopup.Visibility = Visibility.Visible;
+
             //base.OnMouseDown(e);
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -158,7 +168,17 @@ namespace DMP.Controls.pushpin
 
                 /// MapPolyLine을 다시 그린다.
                 MapDesignModel.Instance.DrawPolyLine();
+                GvarDesignModel.Instance.CalculationEachDistance();
                 //ReDrawMapPolyLine();
+
+                if (WPM.PointType == (int)DMP.PointType.WAYPOINT) {
+                    var ContentPopup = (Canvas)_map.FindName("ContentPopup");
+                    var ContentPopupText = (TextBlock)_map.FindName("ContentPopupText");
+                    MapLayer.SetPosition(ContentPopup, Location);
+                    MapLayer.SetPositionOffset(ContentPopup, new Point(15, -50));
+                    ContentPopupText.Text = String.Format("{0:0.00}", WPM.DistanceFromPrev);//"MyPush" + pin.Idx.ToString() + pin.WPM.DistanceFromPrev +":";
+                    ContentPopup.Visibility = Visibility.Visible;
+                }
             }
 
             this.isDragging = false;

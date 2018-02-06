@@ -92,7 +92,6 @@ namespace MissionPlanner.Mavlink
 
         public TerrainFollow Terrain;
 
-         
 
         public event ProgressEventHandler Progress;
 
@@ -2244,6 +2243,8 @@ Please check the following
                     }
                     giveComport = false;
                     //return (byte)int.Parse(param["WP_TOTAL"].ToString());
+                    //DMP.Dialogs.CustomMessageBox.Show("Error","[GetHomePosition] HomePosition을 읽어 올 수가 없습니다.");
+                    //return null;
                     throw new TimeoutException("Timeout on read - getHomePosition");
                 }
 
@@ -2363,8 +2364,8 @@ Please check the following
                         loc.lat = ((wp.x));
                         loc.lng = ((wp.y));
 
-                        log.InfoFormat("getWP {0} {1} {2} {3} {4} opt {5}", loc.id, loc.p1, loc.alt, loc.lat, loc.lng,
-                            loc.options);
+                        log.InfoFormat("getWP [index:{6}] {0} {1} {2} {3} {4} opt {5}", loc.id, loc.p1, loc.alt, loc.lat, loc.lng,
+                            loc.options , index );
 
                         break;
                     }
@@ -2789,8 +2790,10 @@ Please check the following
 
             ushort index = req.seq;
 
-            log.InfoFormat("setWP {7}:{8} {6} frame {0} cmd {1} p1 {2} x {3} y {4} z {5}", req.frame, req.command, req.param1,
-                req.x, req.y, req.z, index, req.target_system,req.target_component);
+            log.InfoFormat("setWP [com:{0}] [sys:{1}] [index:{2}] [frame:{3}] [cmd:{4}] [p1:{5}] [x:{6}] [y:{7}] [z:{8}]"
+                ,req.target_component, req.target_system , index,
+                req.frame, req.command, req.param1,
+                req.x, req.y, req.z);
 
             // request
             generatePacket((byte) MAVLINK_MSG_ID.MISSION_ITEM, req);
@@ -2884,7 +2887,6 @@ Please check the following
                     }
                 }
             }
-
             // return MAV_MISSION_RESULT.MAV_MISSION_INVALID;
         }
 

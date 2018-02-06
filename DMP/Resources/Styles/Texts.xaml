@@ -95,7 +95,7 @@
            TargetType="TextBox">
         <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
         <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="Width" Value="60" />
+        <Setter Property="Width" Value="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}" />
         <Setter Property="Margin" Value="2 2 2 2" />
         <Setter Property="Template">
             <Setter.Value>

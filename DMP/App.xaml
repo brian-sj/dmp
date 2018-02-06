@@ -7,6 +7,8 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary >
+            
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/Styles/Colours.xaml" />
                 <ResourceDictionary Source="/Resources/Styles/Fonts.xaml" />
@@ -17,14 +19,7 @@
                 <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
             </ResourceDictionary.MergedDictionaries>
             
-            <Color x:Key="AccentColor">#CC000000</Color>
-            <Color x:Key="MainButtonGray">#FFADADAD</Color>
-            <system:Double x:Key="SUBMENUSIZE">292</system:Double>
-            <system:Double x:Key="SUB_MENU_ITEM_RIGHT_SIZE">140</system:Double>
-            <system:Double x:Key="SUB_MENU_ITEM_LEFT_SIZE">60</system:Double>
-            <system:Double x:Key="SUB_MENU_ITEM_HEIGHT">26</system:Double>
-            <system:Double x:Key="MMainNavButton_WIDTH">80</system:Double>
-            <system:Double x:Key="MMainNavButton_HEIGHT">80</system:Double>
+            
 
             <!--  #####################Style ...  TargetType="b:MenuButton" -->
             <Style x:Key="MMainNavButton" TargetType="RadioButton">
@@ -56,7 +51,6 @@
                                         </VisualState>
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>
-
                                 <Grid>
                                     <TextBlock
                                 Margin="{TemplateBinding Padding}"

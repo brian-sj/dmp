@@ -21,6 +21,8 @@ using MissionPlanner.Comms;
 using MissionPlanner;
 using log4net;
 using System.Reflection;
+using MissionPlanner.Utilities;
+using MissionPlanner.Mavlink;
 
 namespace DMP
 {
@@ -169,7 +171,175 @@ namespace DMP
         {
             MainV2.comPort.doMotorTest(3, MAVLink.MOTOR_TEST_THROTTLE_TYPE.MOTOR_TEST_THROTTLE_PERCENT, GvarDesignModel.Instance.TestThroattle, 3, 0);
         }
-        #endregion 
-        
+        #endregion
+
+        private void SetHome_Click(object sender, RoutedEventArgs e)
+        {
+            Locationwp wp = new Locationwp();
+            
+            wp.id = (ushort)MAVLink.MAV_CMD.DO_SET_HOME;
+            wp.lat = 37.444456789;// 37.379210;  //37.3865258,126.6460668,15.75z
+            wp.lng = 126.44445678;// 126.6723221;
+            wp.alt = 4f;
+
+            int hometype = 2; // 총 8개중  param1 1 현재 위치를 홈으로 | 2 아래 주소지값을 홈으로
+
+            bool ret = false;
+            //var ret = MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_HOME, 0, 0, 0, 0, (float)wp.lat, (float)wp.lng, wp.alt);
+            
+            ret = MainV2.comPort.doCommand( MAVLink.MAV_CMD.DO_SET_HOME, hometype, 0, 0, 0, (float)wp.lat, (float)wp.lng, wp.alt);
+            if (ret)
+            {
+                Dialogs.CustomMessageBox.Show( String.Format("Success -> {0} : {1}: {2}m", wp.lat , wp.lng , wp.alt) );
+            }
+            else
+            {
+                Dialogs.CustomMessageBox.Show("Fail");
+            }
+        }
+
+        private void GetHome_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Locationwp wp = MainV2.comPort.getHomePosition();
+                Dialogs.CustomMessageBox.Show("lat=" + wp.lat + " : lng=" + wp.lng + " : id=" + wp.id + " : alt=" + wp.alt);
+            }
+            catch (Exception ee ) { DMP.Dialogs.CustomMessageBox.Show("Error", "[GetHomePosition] HomePosition을 읽어 올 수가 없습니다."); }
+            
+        }
+
+        private void SetWP1_Click(object sender, RoutedEventArgs e)
+        {
+            ushort totalCnt = 0;// GetCommandList().Count;
+            ushort cnt = 0;
+            MAVLinkInterface port = MainV2.comPort;
+            
+            try
+            {
+                MainV2.comPort.giveComport = true;
+                cnt = port.getWPCount();
+            }catch(Exception) { Console.WriteLine("getWPCount Timeout");  }
+            
+            
+
+            log.Debug("########## 현재 가지고 있는  wp 수는 "+ cnt );
+            //ushort a = (ushort) (cnt );
+            
+            //a = 3; // 일단 3개를 집어 넣는다. 
+           
+            bool use_int = false;
+            
+            MAVLink.MAV_FRAME frame = MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT;
+
+            //MainV2.comPort.setWPTotal(2);
+            ushort uploadwpno = 0;
+
+            var commandlist = GetCommandList();
+            totalCnt = (ushort)commandlist.Count;
+            totalCnt++;
+
+
+            try
+            {
+                port.setWPTotal(totalCnt);
+
+                // home은 0번에다가 넣는다. 
+                int homeindex = 0;
+                var home = getHomeLocationwp();
+                /* Brian HomePosition을 먼저 넣어야 한다. */
+                var homeans = port.setWP(home, (ushort)homeindex, MAVLink.MAV_FRAME.GLOBAL, 0, 1, use_int);
+                
+                for (int a = 1; a <= commandlist.Count ; a++ )
+                {
+                    if(a == 0)
+                    {
+                        Console.WriteLine("RequestNo를 가져 오지 못했네...");
+                        a++;
+                    }
+                    var wp = commandlist[a-1];
+                    uploadwpno = (ushort)a;
+                    var ans = port.setWP(wp, (ushort)uploadwpno, frame, 0, 1, use_int);
+                    if (ans == MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ERROR)
+                    {
+                        // resend for partial upload
+                        port.setWPPartialUpdate((ushort)(uploadwpno), totalCnt );
+                        // reupload this point.
+                        ans = port.setWP(wp, (ushort)(uploadwpno), frame, 0, 1, use_int);
+                        Console.WriteLine(" ERROR RETRY " + ans);
+                    }
+                    else if (ans == MAVLink.MAV_MISSION_RESULT.MAV_MISSION_INVALID_SEQUENCE)
+                    {
+                        a = port.getRequestedWPNo() - 1;
+                    Console.WriteLine("@@@@@@@  invalid sequence retry ");
+                        continue;
+                    }else if ( ans != MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ACCEPTED )
+                    {
+                        Dialogs.CustomMessageBox.Show("Error", "WP를 전송할 수 없습니다.");
+                        break;
+                    }
+                }
+                port.setWPACK();
+                MainV2.comPort.giveComport = false;
+            }catch (Exception ee) { Dialogs.CustomMessageBox.Show("Error" , ee.ToString() ); }
+        }
+
+        private void SetWP2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+        private Locationwp getHomeLocationwp()
+        {
+            Locationwp wp = new Locationwp();
+            wp.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
+            wp.alt = (float)100.0;
+            wp.lng = (double)126.44444123456;
+            wp.lat = (double)37.44444123456;
+            wp.p1 = 0;
+            wp.p2 = 0;
+            wp.p3 = 0;
+            return wp;
+        }
+        /// <summary>
+        /// Test로 넣는다.. GetCommandList는 다른곳에 있다. 
+        /// </summary>
+        /// <returns></returns>
+        private List<Locationwp> GetCommandList()
+        {
+            List<Locationwp> commands = new List<Locationwp>();
+            Locationwp wp = new Locationwp();
+            wp.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
+            wp.alt = (float)100.0;
+            wp.lng = (double)126.111111111;
+            wp.lat = (double)37.11111111;
+            wp.p1 = 1;
+            wp.p2 = 1;
+            wp.p3 = 1;
+
+            Locationwp wp2 = new Locationwp();
+            wp2.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
+            wp2.alt = (float)102.0;
+            wp2.lng = (double)126.22222222221;
+            wp2.lat = (double)37.22222222222;
+            wp2.p1 = 2;
+            wp2.p2 = 2;
+            wp2.p3 = 2;
+
+            Locationwp wp3 = new Locationwp();
+            wp3.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
+            wp3.alt = (float)103.0;
+            wp3.lng = (double)126.3333333333;
+            wp3.lat = (double)37.3333333333;
+            wp3.p1 = 3;
+            wp3.p2 = 3;
+            wp3.p3 = 3;
+            commands.Add( wp );
+            commands.Add(wp2);
+            commands.Add(wp3);
+            return commands;
+        }
     }
 }
