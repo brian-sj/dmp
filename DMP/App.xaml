@@ -98,27 +98,6 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            <Style x:Key="MainButtonRound" TargetType="Button">
-                <Setter Property="Margin" Value="0,0,0,0" />
-                <Setter Property="Height" Value="40" />
-                <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" /> 
-                <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Lato-Regular" />
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border CornerRadius="20" Background="{TemplateBinding Background}">
-                                <ContentPresenter x:Name="contentPresenter" 
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}" 
-                                                  Content="{TemplateBinding Content}" 
-                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                                  Margin="{TemplateBinding Padding}" 
-                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
             <Style x:Key="MainButtonSmall" TargetType="Button">
                 <Setter Property="Margin" Value="1" />
                 <Setter Property="Height" Value="24" />
