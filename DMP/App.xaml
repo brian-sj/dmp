@@ -21,7 +21,7 @@
             
             
 
-            <!--  #####################Style ...  TargetType="b:MenuButton" -->
+            <!--  #####################Style ...  TargetType="b:MenuButton" MainButtonRound삭제-->
             <Style x:Key="MMainNavButton" TargetType="RadioButton">
                 <Setter Property="Margin" Value="0,0,0,0" />
                 <Setter Property="Width" Value="80" />
@@ -97,7 +97,7 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-            </Style>
+            </Style> 
             <Style x:Key="MainButtonSmall" TargetType="Button">
                 <Setter Property="Margin" Value="1" />
                 <Setter Property="Height" Value="24" />
