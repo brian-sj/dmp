@@ -334,7 +334,7 @@ namespace DMP
                 MAVLink.MAV_FRAME frame = MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT;
 
                 // get the command list from the datagrid
-                var commandlist = GetCommandList();
+                var commandlist = WayPointConvertUtility.GetCommandList(); //GetCommandList();
 
                 // process commandlist to the mav
                 for (a = 1; a <= commandlist.Count; a++)
@@ -446,22 +446,6 @@ namespace DMP
             MainV2.comPort.giveComport = false;
         }
 
-
-        /// <summary>
-        /// commmand 즉 Waypoint 배열을 locationwp 구조체 목록으로 바꾸어 준다.
-        /// </summary>
-        /// <returns></returns>
-        private List<Locationwp> GetCommandList()
-        {
-            List<Locationwp> commands = new List<Locationwp>() ;
-            foreach ( var data in GvarDesignModel.Instance.WPList)
-            {
-                //var temp = WPModeltoLocationwp( data.Index);
-                var temp = data.GetLocationwp();
-                commands.Add(temp);
-            }
-            return commands;
-        }
         /// <summary>
         /// WP 리스트에서 locationwp 구조체 형태를 가져오는 함수 이다. 
         /// </summary>

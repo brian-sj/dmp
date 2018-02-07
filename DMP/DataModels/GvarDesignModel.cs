@@ -314,17 +314,35 @@ namespace DMP.DataModels
         #endregion
 
         #region Sorting and Change Order Function 
-        // Way Point , TargetPoint를 지우는 일을 한다. 지우면 true , 못지우면 false ;
+        
+
+        /// <summary>
+        /// Way Point , TargetPoint를 지우는 일을 한다. 지우면 true , 못지우면 false ;
+        /// 지운다면 각자의 거리 계산 각도 계산을 다시 해야한다. 
+        /// </summary>
+        /// <param name="pt"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public bool DeleteWayPoint(int pt , int index  )
         {
+
             if( pt ==(int)PointType.WAYPOINT)
             {
                 DMP.DataModels.GvarDesignModel.Instance.WPList.RemoveAt( index );
                 return true;
             }
-            else if ( pt == (int) PointType.TARGET)
+            else if ( pt == (int) PointType.TARGET) 
             {
+                // 만약 Target 일경우 Target을 포함하는 Waypoint의 Target 정보를 삭제해야함
+                var list = DMP.DataModels.GvarDesignModel.Instance.WPList;
                 DMP.DataModels.GvarDesignModel.Instance.TPList.RemoveAt(index);
+                for ( int i=0; i< list.Count; i++ )
+                {
+                    if(index == list[i].Target)
+                    {
+                        list[i].Target = 0;
+                    }
+                }
                 return true;
             }
             return false;

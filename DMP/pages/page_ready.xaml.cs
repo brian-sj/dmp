@@ -235,7 +235,7 @@ namespace DMP
             //MainV2.comPort.setWPTotal(2);
             ushort uploadwpno = 0;
 
-            var commandlist = GetCommandList();
+            var commandlist = WayPointConvertUtility.GetCommandList();// GetCommandList();
             totalCnt = (ushort)commandlist.Count;
             totalCnt++;
 
@@ -303,43 +303,6 @@ namespace DMP
             wp.p3 = 0;
             return wp;
         }
-        /// <summary>
-        /// Test로 넣는다.. GetCommandList는 다른곳에 있다. 
-        /// </summary>
-        /// <returns></returns>
-        private List<Locationwp> GetCommandList()
-        {
-            List<Locationwp> commands = new List<Locationwp>();
-            Locationwp wp = new Locationwp();
-            wp.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
-            wp.alt = (float)100.0;
-            wp.lng = (double)126.111111111;
-            wp.lat = (double)37.11111111;
-            wp.p1 = 1;
-            wp.p2 = 1;
-            wp.p3 = 1;
-
-            Locationwp wp2 = new Locationwp();
-            wp2.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
-            wp2.alt = (float)102.0;
-            wp2.lng = (double)126.22222222221;
-            wp2.lat = (double)37.22222222222;
-            wp2.p1 = 2;
-            wp2.p2 = 2;
-            wp2.p3 = 2;
-
-            Locationwp wp3 = new Locationwp();
-            wp3.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
-            wp3.alt = (float)103.0;
-            wp3.lng = (double)126.3333333333;
-            wp3.lat = (double)37.3333333333;
-            wp3.p1 = 3;
-            wp3.p2 = 3;
-            wp3.p3 = 3;
-            commands.Add( wp );
-            commands.Add(wp2);
-            commands.Add(wp3);
-            return commands;
-        }
+        
     }
 }
