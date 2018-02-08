@@ -23,6 +23,7 @@ using log4net;
 using System.Reflection;
 using MissionPlanner.Utilities;
 using MissionPlanner.Mavlink;
+using DMP.Resources;
 
 namespace DMP
 {
@@ -175,27 +176,7 @@ namespace DMP
 
         private void SetHome_Click(object sender, RoutedEventArgs e)
         {
-            Locationwp wp = new Locationwp();
-            
-            wp.id = (ushort)MAVLink.MAV_CMD.DO_SET_HOME;
-            wp.lat = 37.444456789;// 37.379210;  //37.3865258,126.6460668,15.75z
-            wp.lng = 126.44445678;// 126.6723221;
-            wp.alt = 4f;
-
-            int hometype = 2; // 총 8개중  param1 1 현재 위치를 홈으로 | 2 아래 주소지값을 홈으로
-
-            bool ret = false;
-            //var ret = MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_HOME, 0, 0, 0, 0, (float)wp.lat, (float)wp.lng, wp.alt);
-            
-            ret = MainV2.comPort.doCommand( MAVLink.MAV_CMD.DO_SET_HOME, hometype, 0, 0, 0, (float)wp.lat, (float)wp.lng, wp.alt);
-            if (ret)
-            {
-                Dialogs.CustomMessageBox.Show( String.Format("Success -> {0} : {1}: {2}m", wp.lat , wp.lng , wp.alt) );
-            }
-            else
-            {
-                Dialogs.CustomMessageBox.Show("Fail");
-            }
+            MavLinkAction.WriteHomePosition();
         }
 
         private void GetHome_Click(object sender, RoutedEventArgs e)
@@ -206,7 +187,7 @@ namespace DMP
                 Dialogs.CustomMessageBox.Show("lat=" + wp.lat + " : lng=" + wp.lng + " : id=" + wp.id + " : alt=" + wp.alt);
             }
             catch (Exception ee ) { DMP.Dialogs.CustomMessageBox.Show("Error", "[GetHomePosition] HomePosition을 읽어 올 수가 없습니다."); }
-            
+
         }
 
         private void SetWP1_Click(object sender, RoutedEventArgs e)
@@ -214,22 +195,21 @@ namespace DMP
             ushort totalCnt = 0;// GetCommandList().Count;
             ushort cnt = 0;
             MAVLinkInterface port = MainV2.comPort;
-            
+
             try
             {
                 MainV2.comPort.giveComport = true;
                 cnt = port.getWPCount();
             }catch(Exception) { Console.WriteLine("getWPCount Timeout");  }
-            
-            
 
-            log.Debug("########## 현재 가지고 있는  wp 수는 "+ cnt );
+
+            log.InfoFormat("########## 현재 가지고 있는  wp 수는 {0}개", cnt );
             //ushort a = (ushort) (cnt );
-            
+
             //a = 3; // 일단 3개를 집어 넣는다. 
-           
+
             bool use_int = false;
-            
+
             MAVLink.MAV_FRAME frame = MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT;
 
             //MainV2.comPort.setWPTotal(2);
@@ -247,8 +227,8 @@ namespace DMP
                 // home은 0번에다가 넣는다. 
                 int homeindex = 0;
                 var home = getHomeLocationwp();
-                /* Brian HomePosition을 먼저 넣어야 한다. */
-                var homeans = port.setWP(home, (ushort)homeindex, MAVLink.MAV_FRAME.GLOBAL, 0, 1, use_int);
+                /* Brian :: HomePosition을 먼저 넣어야 한다. */
+            var homeans = port.setWP(home, (ushort)homeindex, MAVLink.MAV_FRAME.GLOBAL, 0, 1, use_int);
                 
                 for (int a = 1; a <= commandlist.Count ; a++ )
                 {
@@ -276,6 +256,7 @@ namespace DMP
                     }else if ( ans != MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ACCEPTED )
                     {
                         Dialogs.CustomMessageBox.Show("Error", "WP를 전송할 수 없습니다.");
+                        log.InfoFormat("WP 전송실패 {0}번째 index:{1}",a , wp.lat );
                         break;
                     }
                 }

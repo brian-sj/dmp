@@ -111,7 +111,7 @@
                         <Trigger Property="UIElement.IsEnabled">
                             <Setter Property="Panel.Background" TargetName="Bd">
                                 <Setter.Value>
-                                    <DynamicResource ResourceKey="{StaticResource BackDarkGray}" />
+                                    <DynamicResource ResourceKey="{StaticResource BackgroundVeryLight}" />
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="TextElement.Foreground">

@@ -277,15 +277,22 @@ namespace DMP.DataModels
         public Locationwp GetLocationwp()
         {
             
-                var temp = new Locationwp();
+                Locationwp temp = new Locationwp();
                 temp.lat = Latitude;
                 temp.lng = Longitude;
                 temp.alt = Height;
 
             if (PointType == (int)DMP.PointType.TARGET)
-                temp.id = (ushort)MAVLink.MAV_CMD.MAV_CMD_DO_SET_ROI_LOCATION;
-            else 
+            {
+                // 새로운 버전에서는 이것을 사용해야하지만 아직 아래것을 쓴다. 2018.2.7 일
+                //temp.id = (ushort)MAVLink.MAV_CMD.MAV_CMD_DO_SET_ROI_LOCATION;
+                temp.id = (ushort)MAVLink.MAV_CMD.DO_SET_ROI;
+            }   
+            else if (PointType == (int)DMP.PointType.HOME)
+                temp.id = (ushort)MAVLink.MAV_CMD.DO_SET_HOME;
+            else
                 temp.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
+
 
 
                 temp.p1 = p1;

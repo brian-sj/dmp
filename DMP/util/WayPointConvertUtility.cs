@@ -81,10 +81,12 @@ namespace DMP.util
         {
             ConcurrentDictionary<int, mavlink_mission_item_t> wps = new ConcurrentDictionary<int, mavlink_mission_item_t>();
             int i = 0;
-            foreach (var item in GvarDesignModel.Instance.WPList)
+
+            List<Locationwp> list = GetCommandList();
+            foreach (var item in list)
             {
-                Locationwp data = WayPointConvertUtility.WPModeltoLocationwp( item );
-                wps.TryAdd( i, (MAVLink.mavlink_mission_item_t)data );
+                //Locationwp data = WayPointConvertUtility.WPModeltoLocationwp( item );
+                wps.TryAdd( i, (MAVLink.mavlink_mission_item_t)item);
                 i++;
             }
             MainV2.comPort.MAV.wps = wps;
@@ -97,11 +99,29 @@ namespace DMP.util
         public static  List<Locationwp> GetCommandList()
         {
             List<Locationwp> commands = new List<Locationwp>();
-            foreach (var data in GvarDesignModel.Instance.WPList)
+            var inst = GvarDesignModel.Instance;
+            int temp_target_index = 0;
+            // ## 1. HomePosition을 생략한다. 이것은 필요하지가 않다.  
+            //Locationwp home = inst.HomePosition.GetLocationwp();
+            //commands.Add(home);
+
+            // ## 2. WayPoint를 입력한다.  만약 TargetPoint를 가지고 있다면 먼저 입력해 줘야 한다. 
+            foreach (var data in inst.WPList)
             {
+                // 만약 Target이 0 이 아님서 앞서서 입력한 Target이 아닌경우는 command 목록에 입력해 줘야한다.
+                if( data.Target != 0 && data.Target != temp_target_index )
+                {
+                    var targetPoint = inst.TPList.Single( i => i.Index == data.Target  );
+                    commands.Add( targetPoint.GetLocationwp());
+                    temp_target_index = data.Target; // 최근 Target포인트를 기록한다. 
+                }
                 var temp = data.GetLocationwp();
                 commands.Add(temp);
             }
+
+            //  ## 아직액션은 없다. 생기면 넣어 줘야지...
+
+
             return commands;
         }
     }
