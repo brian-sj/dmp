@@ -68,7 +68,7 @@ namespace DMP.Controls.pushpin
         }
         public float Alt
         {
-            get { return (int)GetValue(AltProperty); }
+            get { return (float)GetValue(AltProperty); }
             set { SetValue(AltProperty, value); }
         }
 
@@ -166,9 +166,20 @@ namespace DMP.Controls.pushpin
                 _map.MouseMove -= ParentMap_MouseMove;
                 _map.TouchMove -= _map_TouchMove;
 
-                /// MapPolyLine을 다시 그린다.
-                MapDesignModel.Instance.DrawPolyLine();
-                GvarDesignModel.Instance.CalculationEachDistance();
+                /// MapPolyLine을 다시 그린다. WAYPoint 일때만 상로가 그려진다. 
+                if(WPM.PointType == (int)DMP.PointType.WAYPOINT)
+                {
+                    MapDesignModel.Instance.DrawPolyLine();
+                }
+
+                // Home 과 WayPoint일때만 거리를 재 측정한다. 
+                if(WPM.PointType == (int) DMP.PointType.WAYPOINT 
+                    || WPM.PointType == (int)DMP.PointType.WAYPOINT)
+                {
+                    MapDesignModel.Instance.CalculationEachDistance();
+                }
+                
+                
                 //ReDrawMapPolyLine();
 
                 if (WPM.PointType == (int)DMP.PointType.WAYPOINT) {
@@ -176,6 +187,7 @@ namespace DMP.Controls.pushpin
                     var ContentPopupText = (TextBlock)_map.FindName("ContentPopupText");
                     MapLayer.SetPosition(ContentPopup, Location);
                     MapLayer.SetPositionOffset(ContentPopup, new Point(15, -50));
+                    ToolTip = String.Format("{0:0.00}", WPM.DistanceFromPrev);
                     ContentPopupText.Text = String.Format("{0:0.00}", WPM.DistanceFromPrev);//"MyPush" + pin.Idx.ToString() + pin.WPM.DistanceFromPrev +":";
                     ContentPopup.Visibility = Visibility.Visible;
                 }

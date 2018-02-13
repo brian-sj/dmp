@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace=System,assembly=mscorlib"
       xmlns:local="clr-namespace:DMP"
       xmlns:dm="clr-namespace:DMP.DataModels"
       xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
@@ -52,15 +53,16 @@
 
         </Border>
 
-        <Border Height="800" Width="{StaticResource SUBMENUSIZE}" Opacity=".9" HorizontalAlignment="Left" Margin="4 2 4 2" Name="WPListMenu" Visibility="{Binding Path=CurrentMenuName, Converter={local:StringParamToVisibilityConverter} , ConverterParameter={StaticResource WAYPOINT}}">
+        <Button Content="ClearPoints" Command="{Binding ClearPointCommand}" CommandParameter="{Binding ElementName=ContentPopup}" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Border Height="800" Width="{StaticResource SUBMENUSIZE}" Opacity=".9" HorizontalAlignment="Left" Margin="4 2 4 2" Name="WPListMenu" Visibility="{Binding Path=CurrentMenuName, Converter={local:StringParamToVisibilityConverter} , ConverterParameter={x:Static local:CurrentMenuName.WAYPOINT}}">
             <uc:WPListControl  Panel.ZIndex="101"  HorizontalAlignment="Left"  />
         </Border>
 
-        <Border Height="800" Width="{StaticResource SUBMENUSIZE}" HorizontalAlignment="Left"  Margin="4 2 4 2" Name="TPListMenu" Visibility="{Binding Path=CurrentMenuName, Converter={local:StringParamToVisibilityConverter} , ConverterParameter={StaticResource TARGETPOINT}}">
+        <Border Height="800" Width="{StaticResource SUBMENUSIZE}" HorizontalAlignment="Left"  Margin="4 2 4 2" Name="TPListMenu" Visibility="{Binding Path=CurrentMenuName, Converter={local:StringParamToVisibilityConverter} , ConverterParameter={x:Static local:CurrentMenuName.TARGET}}">
             <uc:TargetListControl x:Name="targetListControl"></uc:TargetListControl>
         </Border>
 
-        <Border Height="800" Width="{StaticResource SUBMENUSIZE}" Panel.ZIndex="101" Background="Black" Opacity=".9"  HorizontalAlignment="Left"  Margin="4 2 4 2" Name="ReviewMenu" Visibility="{Binding Path=CurrentMenuName, Converter={local:StringParamToVisibilityConverter} , ConverterParameter={StaticResource REVIEW}}">
+        <Border Height="800" Width="{StaticResource SUBMENUSIZE}" Panel.ZIndex="101" Background="Black" Opacity=".9"  HorizontalAlignment="Left"  Margin="4 2 4 2" Name="ReviewMenu" Visibility="{Binding Path=CurrentMenuName, Converter={local:StringParamToVisibilityConverter} , ConverterParameter={x:Static local:CurrentMenuName.REVIEW}}">
             <StackPanel Margin="10 50 10 0" >
             <TextBlock Text="Review" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeXXXLarge}" FontWeight="ExtraBold" />
             <TextBlock Text="지도에서 모든 목표, 웨이포인트 및 여행 / 시간 / 배터리의 예비계산을 검토하십시오" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" TextWrapping="Wrap" FontSize="{StaticResource FontSizeRegular}" FontWeight="ExtraBold" Margin="0 10 0 40"/>
@@ -124,7 +126,7 @@
 
         <Border Height="800" Width="{StaticResource SUBMENUSIZE}" Panel.ZIndex="101" 
                 Background="Black" Opacity=".9"  HorizontalAlignment="Left"  Margin="4 2 4 2" 
-                Name="PlayMenu" Visibility="{Binding Path=CurrentMenuName, Converter={local:StringParamToVisibilityConverter} , ConverterParameter={StaticResource PLAY}}">
+                Name="PlayMenu" Visibility="{Binding Path=CurrentMenuName, Converter={local:StringParamToVisibilityConverter} , ConverterParameter={x:Static local:CurrentMenuName.PLAY}}">
             <StackPanel Margin="10 20 10 0" >
                 <TextBlock Text="Play" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeXXXLarge}" FontWeight="ExtraBold"/>
                 <TextBlock Text="정확한 높이 측정을 위해 최소 2분간 워밍업이 필요합니다." Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" TextWrapping="Wrap" FontSize="{StaticResource FontSizeRegular}" FontWeight="ExtraBold" Margin="0 10 0 40"/>

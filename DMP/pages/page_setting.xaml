@@ -4,101 +4,69 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DMP"
+      xmlns:dm="clr-namespace:DMP.DataModels"
       mc:Ignorable="d" 
-      xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
       d:DesignHeight="300" 
       d:DesignWidth="300"
       
       Title="page_setting">
 
     <Page.Resources>
-        <ControlTemplate x:Key="CustomPushpinTemplate" TargetType="m:Pushpin">
-            <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel>
-                    <Grid Margin="0" Width="33" Height="33">
-                        <Rectangle HorizontalAlignment="Left" Margin="-0.208,13.238,0,-0.146" Width="10.555" Fill="#FF005167" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform AngleX="-23"/>
-                                    <RotateTransform Angle="-12.944"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-
-                        <Rectangle Fill="White" Stroke="#FF005167" RadiusX="5" RadiusY="5"/>
-
-                        <ContentPresenter HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center"
-                                                                Content="{TemplateBinding Content}"
-                                                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                Margin="0" TextBlock.FontFamily="Segoe UI" TextBlock.FontWeight="Bold" TextBlock.Foreground="#FFB8D30B">
-                        </ContentPresenter>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-
-        </ControlTemplate>
-        <!--      Target 용 Push Pin  -->
-        <ControlTemplate x:Key="CustomTPushpinTemplate" TargetType="m:Pushpin">
-            <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel>
-                    <Grid Margin="0" Width="33" Height="33">
-                        <Rectangle HorizontalAlignment="Left" Margin="-0.208,13.238,0,-0.146" Width="10.555" Fill="#FF0000ff" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform AngleX="-23"/>
-                                    <RotateTransform Angle="-12.944"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-
-                        <Rectangle Fill="White" Stroke="#FFFF0000" RadiusX="5" RadiusY="5"/>
-
-                        <ContentPresenter HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center"
-                                                                Content="{TemplateBinding Content}"
-                                                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                Margin="0" TextBlock.FontFamily="Segoe UI" TextBlock.FontWeight="Bold" TextBlock.Foreground="#FFB8D30B">
-                        </ContentPresenter>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-
-        </ControlTemplate>
-        
-        
-
+        <dm:CalibrationDataModel x:Key="cdm" />
     </Page.Resources>
-    
-    <Grid Background="{StaticResource WordOrangeBrush}" Height="1000" MinHeight="800">
-        <!--    brian@zero2.me 로 받은 계정입니다.       -->
-        <m:Map x:Name="MapWithEvents" 
-               CredentialsProvider="At7hRwCD3E_9oRFHn1geVrHct2_eN0EXzxYRVBW-Q6yxnG3wvBDDjqFEqU-K8ljL" 
-               Mode="Aerial"
-               ViewChangeOnFrame="MapWithEvents_ViewChangeOnFrame" 
-               TargetViewChanged="MapWithEvents_TargetViewChanged"
-               ViewChangeStart="MapWithEvents_ViewChangeStart"
-               ModeChanged="MapWithEvents_ModeChanged"
-               MouseDoubleClick="MapWithEvents_MouseDoubleClick"
-               MouseDown="MapWithEvents_MouseDown"
-               MouseMove="MapWithEvents_MouseMove"
-               Center="37.3844168105,126.65596369" 
-               ZoomLevel="16"
-               />
- 
-<!--        
-        <Grid>
-            <gmaps:GMapControl x:Name="mapView" Loaded="mapView_Loaded" />
-        </Grid>
--->
+    <Grid DataContext="{StaticResource cdm}">
+        <TabControl>
+            <TabItem >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Blue" Foreground="Blue" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration" Name="btnAccCali"/>
+                    <TextBlock Text="{Binding AccCalibrateMsg}"  />
+                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration Continue" Name="btnAccCalicontinue"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Red" Foreground="Red" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration" Name="btnCompassCali"/>
+                    <TextBlock Text="{Binding AccCalibrateMsg}" />
+                    
+                    <TextBlock Text="콤패스가요... 3개네요." />
 
+                    <ProgressBar Name="pgMagcali1" Value="{Binding Mag1_cali_pct}"  />
+                    <ProgressBar Name="pgMagcali2" Value="{Binding Mag2_cali_pct}" />
+                    <ProgressBar Name="pgMagcali3" Value="{Binding Mag3_cali_pct}" />
 
-        <Border Background="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Opacity="0.8" BorderBrush="White" BorderThickness="2" CornerRadius="5">
-            <StackPanel x:Name="eventsPanel" IsHitTestVisible="False" Canvas.Left="0" Canvas.Top="0"/>
-        </Border>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Green" Foreground="Green" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration" Name="btnRCCompassCali"/>
+                    <TextBlock Text="{Binding AccCalibrateMsg}" />
+
+                    <TextBlock Text="RC Control Calibration " />
+
+                    <TextBlock Text="좌우" />
+                    <ProgressBar Name="pgRCcali1" Value="{Binding Mag1_cali_pct}" Width="100" />
+                    <TextBlock Text="앞뒤" />
+                    <ProgressBar Name="pgRCcali2" Value="{Binding Mag2_cali_pct}" Width="100" />
+                    <TextBlock Text="쓰로틀 위아래" />
+                    <ProgressBar Name="pgRCcali3" Value="{Binding Mag3_cali_pct}" Height="100" Orientation="Vertical"/>
+
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Page>

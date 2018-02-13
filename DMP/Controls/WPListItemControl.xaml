@@ -41,48 +41,46 @@
                                         <Border Style="{StaticResource MENU_BORDER}" >
                                             <DockPanel LastChildFill="True">
                                                 <Label Content="NO" Width="60" Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" DockPanel.Dock="Left" />
-                                                <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0"
-                                                    HorizontalAlignment="Left" VerticalAlignment="Center"  Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"  Height="{StaticResource SUB_MENU_ITEM_HEIGHT}">
-                                                    <Label Content="{Binding Path=Index,Mode=TwoWay}" />
-                                                </Border>
+                                                <Label Content="{Binding Path=Index,Mode=TwoWay}" />
                                             </DockPanel>
                                         </Border>
                                         <Border Style="{StaticResource MENU_BORDER}" >
                                             <DockPanel LastChildFill="True">
                                                 <Label Content="Height" Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" DockPanel.Dock="Left" />
-                                                <TextBox Style="{StaticResource SUB_MENU_TB_ROUND}" PreviewTextInput="initialHeight_PreviewTextInput" Name="initialHeight"  Text="{Binding Path=Height,Mode=TwoWay}" />
+                                                <TextBox Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}" Style="{StaticResource SUB_MENU_TB_ROUND}" PreviewTextInput="initialHeight_PreviewTextInput" Name="initialHeight"  Text="{Binding Path=Height,Mode=TwoWay}" />
                                             </DockPanel>
                                         </Border>
 
                                         <Border Style="{StaticResource MENU_BORDER}" >
                                             <DockPanel LastChildFill="True">
                                                 <Label Content="Heading" Width="60" Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" DockPanel.Dock="Left"  />
-                                                <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0"
-                                                    HorizontalAlignment="Center" VerticalAlignment="Center" Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}" Height="{StaticResource SUB_MENU_ITEM_HEIGHT}">
-                                                    <ComboBox Name="cmbHeading" SelectedValuePath="Key" DisplayMemberPath="Value" 
+                                                <ComboBox Name="cmbHeading" Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}" Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
+                                                              SelectedValuePath="Key" DisplayMemberPath="Value" 
                                                         ItemsSource="{Binding Source={StaticResource DPHeading}}"
                                                               Foreground="Black" FontWeight="ExtraBold"/>
-                                                </Border>
+                                                
                                             </DockPanel>
                                         </Border>
                                         <Border Style="{StaticResource MENU_BORDER}" >
                                             <DockPanel >
                                                 <Label Content="Bearing" Width="60"  Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" />
-                                                <TextBox Name="cmbBearing" Style="{StaticResource SUB_MENU_TB_ROUND}" Text="{Binding Path=Bearing , Mode=TwoWay}"/>
+                                                <TextBox Name="cmbBearing"
+                                                         Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"
+                                                         Style="{StaticResource SUB_MENU_TB_ROUND}" Text="{Binding Path=Bearing , Mode=TwoWay}"/>
                                             </DockPanel>
                                         </Border>
 
                                         <Border Style="{StaticResource MENU_BORDER}" >
                                             <DockPanel >
                                                 <Label Content="위도"  Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" />
-                                                <TextBox Style="{StaticResource SUB_MENU_TB_ROUND}" Name="Latitude" Text="{Binding Path=Latitude , Mode=TwoWay}"/>
+                                                <TextBox Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}" Style="{StaticResource SUB_MENU_TB_ROUND}" Name="Latitude" Text="{Binding Path=Latitude , Mode=TwoWay}"/>
                                             </DockPanel>
                                         </Border>
 
                                         <Border Style="{StaticResource MENU_BORDER}" >
                                             <DockPanel >
                                                 <Label Content="경도" Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" />
-                                                <TextBox Name="Longitude"
+                                                <TextBox Name="Longitude" Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"
                                                          Style="{StaticResource SUB_MENU_TB_ROUND}"
                                                          Text="{Binding Path=Longitude , Mode=TwoWay}"/>
                                                 
@@ -92,22 +90,15 @@
                                         <Border Style="{StaticResource MENU_BORDER}" >
                                             <DockPanel >
                                                 <Label Content="Action" Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" />
-                                                <Border BorderThickness="4" BorderBrush="WhiteSmoke" CornerRadius="3" Padding="0,0,0,0" 
-                                                    HorizontalAlignment="Center" VerticalAlignment="Center" Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}" Height="{StaticResource SUB_MENU_ITEM_HEIGHT}">
-                                                    <ComboBox Name="cmbAction"
-                                                              Margin="-1"
-                                                             Padding="2"
-                                                              BorderThickness="0"
-                                                              SelectedValuePath="Key" DisplayMemberPath="Value" 
-                                                        ItemsSource="{Binding Source={StaticResource DPAction}}"
-                                                          Foreground="Black" FontWeight="ExtraBold"
-                                                              />
-                                                </Border>
-                                            </DockPanel>
-                                        </Border>
-                                        <Border Style="{StaticResource MENU_BORDER}" >
-                                            <DockPanel >
-                                                <local:LabeledTextBox Label="dd" Text="ddd" Margin="4 0 4 0"/> 
+                                                <ComboBox Name="cmbAction" Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}" Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
+                                                        Margin="-1"
+                                                        Padding="2"
+                                                        BorderThickness="0"
+                                                        SelectedValuePath="Key" DisplayMemberPath="Value" 
+                                                ItemsSource="{Binding Source={StaticResource DPAction}}"
+                                                    Foreground="Black" FontWeight="ExtraBold"
+                                                        />
+                                                
                                             </DockPanel>
                                         </Border>
                                         <Border Style="{StaticResource MENU_BORDER}" >

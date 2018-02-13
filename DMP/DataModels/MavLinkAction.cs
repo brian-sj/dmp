@@ -17,13 +17,21 @@ namespace DMP.DataModels
     public class MavLinkAction
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+        public bool CompassCalComplete = false;
+        public bool AccelCalComplete = false;
+        public bool RcCalComplete = false;
+
+        // accel cali 할때 단계를 보여줘야 한다. 
+        byte count = 0;
+
+
         public static void doReadWP()
         {
 
         }
         public static void doWriteWP()
         {
-
         }
         public static Locationwp ReadHomePosition()
         {
@@ -34,8 +42,19 @@ namespace DMP.DataModels
         {
             Locationwp wp = new Locationwp();
             MAVLinkInterface port = MainV2.comPort;
-            port.giveComport = true;
 
+            if ( !port.BaseStream.IsOpen)
+            {
+                Dialogs.CustomMessageBox.Show("기체와 연결을 확인해 주세요.");
+                return;
+            }
+
+            port.giveComport = true;
+            if (GvarDesignModel.Instance.HomePosition ==null)
+            {
+                Dialogs.CustomMessageBox.Show("Home Position이 없습니다. 확인 바랍니다.");
+                return;
+            }
             wp = GvarDesignModel.Instance.HomePosition.GetLocationwp();
             wp.id = (ushort)MAVLink.MAV_CMD.DO_SET_HOME;
             
@@ -49,20 +68,21 @@ namespace DMP.DataModels
             bool use_int = false;
             int a = 0;
 
-            ret = MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_HOME, hometype, 0, 0, 0, (float)wp.lat, (float)wp.lng, wp.alt);
-            if (ret)
-            {
-                Dialogs.CustomMessageBox.Show(String.Format("Success -> {0} : {1}: {2}m", wp.lat, wp.lng, wp.alt));
-            }
-            else
-            {
-                Dialogs.CustomMessageBox.Show("Fail");
-            }
+            try { 
+                ret = MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_SET_HOME, hometype, 0, 0, 0, (float)wp.lat, (float)wp.lng, wp.alt);
+                if (ret)
+                {
+                    Dialogs.CustomMessageBox.Show(String.Format("Success -> {0} : {1}: {2}m", wp.lat, wp.lng, wp.alt));
+                }
+                else
+                {
+                    Dialogs.CustomMessageBox.Show("Fail");
+                }
 
-            port.giveComport = false;
-            port.setWPACK();
+                port.giveComport = false;
+                port.setWPACK();
+            }catch (Exception) { Dialogs.CustomMessageBox.Show("명령을 수행할 수 없습니다. "); }
         }
-
         public static void WriteWPToDrone()
         {
             ushort totalCnt = 0;// GetCommandList().Count;
@@ -129,5 +149,9 @@ namespace DMP.DataModels
             }
             catch (Exception ee) { Dialogs.CustomMessageBox.Show("Error", ee.ToString()); }
         }
+
+
+
+
     }
 }

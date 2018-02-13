@@ -72,8 +72,8 @@
     <Color x:Key="AccentColor">#CC000000</Color>
     <Color x:Key="MainButtonGray">#FFADADAD</Color>
     <system:Double x:Key="SUBMENUSIZE">292</system:Double>
-    <system:Double x:Key="SUB_MENU_ITEM_RIGHT_SIZE">160</system:Double>
-    <system:Double x:Key="SUB_MENU_ITEM_LEFT_SIZE">100</system:Double>
+    <system:Double x:Key="SUB_MENU_ITEM_RIGHT_SIZE">170</system:Double>
+    <system:Double x:Key="SUB_MENU_ITEM_LEFT_SIZE">110</system:Double>
     <system:Double x:Key="SUB_MENU_ITEM_HEIGHT">26</system:Double>
     <system:Double x:Key="MMainNavButton_WIDTH">80</system:Double>
     <system:Double x:Key="MMainNavButton_HEIGHT">80</system:Double>

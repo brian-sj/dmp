@@ -12,8 +12,8 @@ namespace DMP
                 return Visibility.Collapsed;
             else
             {
-                Visibility i = (string)value == (string)parameter ? Visibility.Visible : System.Windows.Visibility.Collapsed;
-                return (string)value == (string)parameter ? Visibility.Visible : System.Windows.Visibility.Collapsed;
+                Visibility i = (int)value == (int)parameter ? Visibility.Visible : System.Windows.Visibility.Collapsed;
+                return (int)value == (int)parameter ? Visibility.Visible : System.Windows.Visibility.Collapsed;
             }
                 
         }

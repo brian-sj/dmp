@@ -87,7 +87,11 @@ namespace DMP.Resources
         public static string GettingParamsD = "GettingParamsD";
         public static string GettingParams = " 파라메터를 얻어옵니다. ";
         public static string ErrorRejectedByMAV = "ErrorRejectedByMAV";
-        
+
+        public static String Click_when_Done = " 작업을 하셨으면 버튼을 눌러주세요.";
+
+        public const String CommandFailed = "명령 수행을 실패 하였습니다.";
+
         //DetectingBoardVersion
     }
 }

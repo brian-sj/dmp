@@ -110,57 +110,51 @@ namespace DMP
         {
 
         }
-
         private void Button_target(object sender, RoutedEventArgs e)
         {
             var pagename = Main.Content.GetType();
-            GvarDesignModel.Instance.CurrentMenuName = "TARGETPOINT";
+            GvarDesignModel.Instance.CurrentMenuName = (int)CurrentMenuName.TARGET;
+            GvarDesignModel.Instance.PointType = (int)DMP.PointType.TARGET;
             if (pagename.Name != "PageWp")
             {
-                Main.Content = new PageWp();
+                Main.Content = new PageWp(); 
             }
-            //Main.Content = new PageTarget();
-            
-
-            //PageWp.Tp
-            //TPListMenu
-            //ReviewMenu
-            //PlayMenu
-
-
         }
 
         private void Button_ready(object sender, RoutedEventArgs e)
         {
+            GvarDesignModel.Instance.CurrentMenuName = (int)CurrentMenuName.READY;
             Main.Content = new PageReady();
         }
 
         private void Button_wp(object sender, RoutedEventArgs e)
         {
             var pagename = Main.Content.GetType();
-            GvarDesignModel.Instance.CurrentMenuName = "WAYPOINT";
+            GvarDesignModel.Instance.CurrentMenuName = (int)CurrentMenuName.WAYPOINT;
+            GvarDesignModel.Instance.PointType = (int)DMP.PointType.WAYPOINT;
             if (pagename.Name != "PageWp")
             {
-                Main.Content = new PageWp();
+                Main.Content = new PageWp( );
             }
-
+            else
+            {
+                
+            }
         }
-
         private void Button_review(object sender, RoutedEventArgs e)
         {
             var pagename = Main.Content.GetType();
-            GvarDesignModel.Instance.CurrentMenuName = "REVIEW";
+            GvarDesignModel.Instance.CurrentMenuName = (int)CurrentMenuName.REVIEW;
             if (pagename.Name != "PageWp")
             {
                 Main.Content = new PageWp();
             }
         }
-
         private void Button_play(object sender, RoutedEventArgs e)
         {
             _vm.ShowInformation("ddd");
             var pagename = Main.Content.GetType();
-            GvarDesignModel.Instance.CurrentMenuName = "PLAY";
+            GvarDesignModel.Instance.CurrentMenuName = (int)CurrentMenuName.PLAY;
             if (pagename.Name != "PageWp")
             {
                 Main.Content = new PageWp();

@@ -24,11 +24,12 @@ namespace DMP.DataModels
         private static int _headingtype = (int)Heading.WAYPOINT; // true : Heading  false : RC 
         private WayPointModel _homePosition;
         private WayPointModel _langdingPosition;
+        private int _pointType = (int)DMP.PointType.WAYPOINT;
 
         /// <summary>
         ///  현재 액션이 어느 메뉴에서 일어나고 있는지. 
         /// </summary>
-        private String _currentMenuName;
+        private int _currentMenuName;
 
 
 
@@ -52,6 +53,10 @@ namespace DMP.DataModels
         private float _fdbattery;
         private float _fdradius = 0; //roiter rad or spline rad 를 적는다. 
         private float _fd_loiter_radius = 0; //roiter rad or spline rad 를 적는다. 
+        private float _fdLon = 0;
+        private float _fdLat = 0;
+        //Battery voltage of cells, in millivolts (1 = 1 millivolt).
+        private int _fdvoltage = 0;
 
         public float FDpressAbs { get { return _fdpress_abs; } set { _fdpress_abs = value; OnPropertyChanged(); } }
         public float FDtemperature { get => _fdtemperature; set { _fdtemperature = value; OnPropertyChanged(); } }
@@ -63,6 +68,9 @@ namespace DMP.DataModels
         public float FDbattery { get => _fdbattery; set { _fdbattery = value; OnPropertyChanged(); } }
         public float FDRAD { get => _fdradius; set { _fdradius = value; OnPropertyChanged(); } }
         public float FDLoiterRad { get => _fd_loiter_radius; set { _fd_loiter_radius = value; OnPropertyChanged(); } }
+        public float FDLon { get => _fdLon; set { _fdLon = value; OnPropertyChanged(); } }
+        public float FDLat { get => _fdLat; set { _fdLat = value; OnPropertyChanged(); } }
+        public int FDvoltage { get => _fdvoltage; set { _fdvoltage = value; OnPropertyChanged(); }  }
         #endregion
 
         public string Name { get; set; }
@@ -86,7 +94,6 @@ namespace DMP.DataModels
         //private int _totalTargetCount = 0;    안쓴다. 
         //private int _totalWPCount = 0;        안쓴다. 
 
-
         /// <summary>
         /// Way Point 들 
         /// </summary>
@@ -107,8 +114,8 @@ namespace DMP.DataModels
         /// <summary>
         /// 이 부분은 통계를 내서 보여 줘야함. 
         /// </summary>
-        public int ITotalWPCount { get { return wpList.Where(x => x.PointType == (int)PointType.WAYPOINT).Count<WayPointModel>(); } }  // set 은 없다. 
-        public int ITotalTPCount { get { return wpList.Where(x => x.PointType == (int)PointType.TARGET).Count<WayPointModel>(); } }
+        public int ITotalWPCount { get { return wpList.Where(x => x.PointType == (int)DMP.PointType.WAYPOINT).Count<WayPointModel>(); } }  // set 은 없다. 
+        public int ITotalTPCount { get { return wpList.Where(x => x.PointType == (int)DMP.PointType.TARGET).Count<WayPointModel>(); } }
         public float IAvgSpeed
         {
             get => _avgSpeed; set
@@ -172,6 +179,7 @@ namespace DMP.DataModels
         public int TestThroattle { get => _testThroattle; set { _testThroattle = value; OnPropertyChanged(); } }
         public string FlightFilename { get => _flightFilename; set { _flightFilename = value; OnPropertyChanged(); } }
         public WayPointModel HomePosition { get => _homePosition; set { _homePosition = value; OnPropertyChanged(); } }
+        public int PointType { get => _pointType; set { _pointType = value; OnPropertyChanged(); } }
         /*
         public WayPointModel LangdingPosition
         {
@@ -181,10 +189,12 @@ namespace DMP.DataModels
         /// <summary>
         /// 현재의 페이지가 waypoint인지 TargetPoint인지, Ready 등등인지.. 저장한다...
         /// </summary>
-        public String CurrentMenuName
+        public int CurrentMenuName
         {
             get=>_currentMenuName ; set { _currentMenuName = value; OnPropertyChanged(); }
         }
+
+        
         #endregion
 
 

@@ -77,29 +77,27 @@
                             <ColumnDefinition MaxWidth="18"/>
                         </Grid.ColumnDefinitions>
                         <TextBox Name="PART_EditableTextBox"  
-                Style="{StaticResource ComboBoxTextBoxStyle}"  
-                Padding="5,0,0,0" 
-                                 IsEnabled="False"
-                Height="{TemplateBinding Height}"/>
+                            Style="{StaticResource ComboBoxTextBoxStyle}"  Padding="5,0,0,0" 
+                                 IsEnabled="False" Height="{TemplateBinding Height}"/>
                         <ToggleButton Grid.Column="1" Margin="0"  
-               Height="{TemplateBinding Height}"  
-               Style="{StaticResource ComboBoxButtonStyle}"  
-               Focusable="False"  
-               IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"  
-               ClickMode="Press">
+                           Height="{TemplateBinding Height}"  
+                           Style="{StaticResource ComboBoxButtonStyle}"  
+                           Focusable="False"  
+                           IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"  
+                           ClickMode="Press">
                             <Path Grid.Column="1"  
-                  HorizontalAlignment="Center"  
-                  VerticalAlignment="Center"  
-                  Data="M 0 0 L 4 4 L 8 0 Z"  
-                  Fill="DodgerBlue" />
+                              HorizontalAlignment="Center"  
+                              VerticalAlignment="Center"  
+                              Data="M 0 0 L 4 4 L 8 0 Z"  
+                              Fill="DodgerBlue" />
                         </ToggleButton>
                         <ContentPresenter Name="ContentSite"  
-               Content="{TemplateBinding SelectionBoxItem}" 
-               ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"  
-               ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"  
-               VerticalAlignment="Center"  
-               HorizontalAlignment="Left"  
-               Margin="5,0,0,0">
+                           Content="{TemplateBinding SelectionBoxItem}" 
+                           ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"  
+                           ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"  
+                           VerticalAlignment="Center"  
+                           HorizontalAlignment="Left"  
+                           Margin="5,0,0,0">
                             <ContentPresenter.Resources>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="TextBlock.Foreground" Value="Black" />

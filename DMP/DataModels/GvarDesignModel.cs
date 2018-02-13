@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Xml.Linq;
 
 namespace DMP.DataModels
@@ -96,12 +97,15 @@ namespace DMP.DataModels
 
             LoadXmlFileCommand = new RelayCommand(LoadXmlFile, LoadXmlFileCanUse);
             SaveXmlFileCommand = new RelayCommand(SaveXmlFile, SaveXmlFileCanUse);
+
+            ClearPointCommand = new RelayCommand(ClearPoint, ClearPointCanUse);
+
             ConnectCommand = new RelayCommand(Connect , ConnectCanUse);
             DisConnectCommand = new RelayCommand(DisConnect, DisConnectCanUse);
 
 
-            StartMonitoringCommand = new RelayCommand(Connect, ConnectCanUse);
-            EndMonitoringCommand = new RelayCommand(Connect, ConnectCanUse);
+            StartMonitoringCommand = new RelayCommand(StartMonitoring, StartMonitoringCanUse);
+            EndMonitoringCommand = new RelayCommand(EndMonitoring, EndMonitoringCanUse);
 
             ReadWPCommand = new RelayCommand(ReadWP, ReadWPCanUse);
             WriteWPCommand = new RelayCommand(WriteWP, WriteWPCanUse);
@@ -117,6 +121,7 @@ namespace DMP.DataModels
         public RelayCommand DisConnectCommand { get; private set; }
         public RelayCommand StartMonitoringCommand { get; private set; }
         public RelayCommand EndMonitoringCommand { get; private set; }
+        public RelayCommand ClearPointCommand { get; private set; }
 
         #endregion
 
@@ -172,6 +177,29 @@ namespace DMP.DataModels
                 xml.Save(dlg.FileName);
             }
         }
+
+        public void ClearPoint(object sender)
+        {
+
+            GvarDesignModel.Instance.WPList.Clear();
+            ((Canvas)sender).Visibility = Visibility.Collapsed;
+            GvarDesignModel.Instance.TPList.Clear();
+            GvarDesignModel.Instance.HomePosition = null;
+            MapDesignModel.Instance.DmlPushpin.Children.Clear();
+            MapDesignModel.Instance.DmlPolyline.Children.Clear();
+            //var ContentPopup = (Map)_map.FindName("MapWithEvents");
+            //ContentPopup.Visibility = Visibility.Collapsed;
+        }
+        public bool ClearPointCanUse( object sender)
+        {
+            return true;
+        }
+
+        public void EndMonitoring( object sender)
+        {
+
+        }
+
 
         /// <summary>
         /// 일단 무조건 활성화 됨.... 
@@ -314,8 +342,6 @@ namespace DMP.DataModels
         #endregion
 
         #region Sorting and Change Order Function 
-        
-
         /// <summary>
         /// Way Point , TargetPoint를 지우는 일을 한다. 지우면 true , 못지우면 false ;
         /// 지운다면 각자의 거리 계산 각도 계산을 다시 해야한다. 
@@ -325,12 +351,14 @@ namespace DMP.DataModels
         /// <returns></returns>
         public bool DeleteWayPoint(int pt , int index  )
         {
-            if( pt ==(int)PointType.WAYPOINT)
+            Dialogs.CustomMessageBox.Show("이창이 보이면 않됨.....GvarDesignmodel -> WayPointModel로 옮겼음. ");
+
+            if( pt ==(int)DMP.PointType.WAYPOINT)
             {
                 DMP.DataModels.GvarDesignModel.Instance.WPList.RemoveAt( index );
                 return true;
             }
-            else if ( pt == (int) PointType.TARGET) 
+            else if ( pt == (int) DMP.PointType.TARGET) 
             {
                 // 만약 Target 일경우 Target을 포함하는 Waypoint의 Target 정보를 삭제해야함
                 var list = DMP.DataModels.GvarDesignModel.Instance.WPList;
@@ -437,63 +465,6 @@ namespace DMP.DataModels
             /// 새로 바꾼 index로 소팅을 다시 한다. 
             SortAllKindWayPoint();
         }
-        /// <summary>
-        /// 각 웨이포인트별로 거리를 구한다...  첫번째 것은 HomePoint별로 구해야 하는데 이것은 비행기를 띠워야 아는 것이다.
-        /// </summary>
-        public double CalculationEachDistance()
-        {
-         
-            double totalDistance = 0.0;
-            var inst = GvarDesignModel.Instance;
-            WayPointModel pwp = null;
-            WayPointModel hwp = inst.HomePosition;
-
-            int totalcount = inst.WPList.Count;
-            int idx = 0;
-
-            foreach (var wp in inst.WPList)
-            {
-                idx++;
-                if (pwp == null)
-                {  // 첫번째라면...
-                    pwp = new WayPointModel();
-                    pwp.Latitude = hwp.Latitude;
-                    pwp.Longitude = hwp.Longitude;
-                }
-                wp.DistanceFromPrev = GeoCalculate.Distance(pwp.Latitude, pwp.Longitude, wp.Latitude, wp.Longitude);
-
-
-                
-                if (pwp.Target == 0)
-                {
-                    pwp.Bearing = (float)Math.Round(GeoCalculate.CalculateBearing(wp.Location, pwp.Location), 2);
-                }
-                else
-                {
-                    WayPointModel tp = inst.TPList.Single<WayPointModel>( i=> i.Index == pwp.Target);
-                    pwp.Bearing = (float)Math.Round(GeoCalculate.CalculateBearing(tp.Location, pwp.Location), 2);
-                }
-                //마지막꺼라면 내꺼도 채워 줘야지.... 
-                if (idx == totalcount)
-                {
-                    if (wp.Target == 0)
-                    {
-                        wp.Bearing = (float)Math.Round(GeoCalculate.CalculateBearing(hwp.Location, wp.Location), 2);
-                    }
-                    else
-                    {
-                        WayPointModel tp = inst.TPList.Single<WayPointModel>(i => i.Index == pwp.Target);
-                        wp.Bearing = (float)Math.Round(GeoCalculate.CalculateBearing(tp.Location, wp.Location), 2);
-                    }
-                }
-
-                pwp = wp;
-                totalDistance += wp.DistanceFromPrev;
-            }
-            GvarDesignModel.Instance.TotalFlightDistance = totalDistance;
-            return totalDistance;
-        }
-
         #endregion
 
         #region Data Connection with Drone 

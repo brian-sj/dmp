@@ -3491,8 +3491,7 @@ Please check the following
                 {
                     btr = logplaybackfile.BaseStream.Length - logplaybackfile.BaseStream.Position;
                 }
-                Console.Write("ReadPacket bps {0} loss {1} left {2} mem {3} mav2 {4} sign {5} mav1 {6} mav2 {7} signed {8}      \n", _bps1, MAV.synclost, btr,
-                    GC.GetTotalMemory(false)/1024/1024.0, MAV.mavlinkv2, MAV.signing, _mavlink1count, _mavlink2count, _mavlink2signed);
+                //Console.Write("ReadPacket bps {0} loss {1} left {2} mem {3} mav2 {4} sign {5} mav1 {6} mav2 {7} signed {8}      \n", _bps1, MAV.synclost, btr,  GC.GetTotalMemory(false)/1024/1024.0, MAV.mavlinkv2, MAV.signing, _mavlink1count, _mavlink2count, _mavlink2signed);
                 _bps2 = _bps1; // prev sec
                 _bps1 = 0; // current sec
                 _bpstime = DateTime.Now;

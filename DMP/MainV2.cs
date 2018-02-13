@@ -128,8 +128,11 @@ namespace MissionPlanner
             
             try
             {
-                comPort.BaseStream.BaudRate = 115200;
-                comPort.BaseStream.PortName = "COM3";
+                //comPort.BaseStream.BaudRate = 115200;
+                //comPort.BaseStream.PortName = "COM3";
+
+                comPort.BaseStream.BaudRate = 57600;
+                comPort.BaseStream.PortName = "COM8";
                 comPort.Open(false, skipconnectcheck);
             }
             catch (Exception ee)
@@ -790,7 +793,8 @@ namespace MissionPlanner
         }
         private void readPacketThread_loop()
         {
-            Console.WriteLine("loop");
+            var inst = GvarDesignModel.Instance;
+            var satellite_count = 0;
             while (readPacketloop)
             {
                 Thread.Sleep(500);
@@ -818,10 +822,10 @@ namespace MissionPlanner
                 {
                     MAVLink.mavlink_vfr_hud_t data = msg.ToStructure<MAVLink.mavlink_vfr_hud_t>();
                     //var pres = mavLinkMessage.ToStructure<MAVLink.mavlink_scaled_pressure_t>();
-                    GvarDesignModel.Instance.FDspeed = data.airspeed;
-                    GvarDesignModel.Instance.FDheading  = data.heading;
-                    GvarDesignModel.Instance.FDalt = data.alt;
-                    GvarDesignModel.Instance.FDthroattle = data.throttle;
+                    inst.FDspeed = data.airspeed;
+                    inst.FDheading  = data.heading;
+                    inst.FDalt = data.alt;
+                    inst.FDthroattle = data.throttle;
                     //lblHeading.Text = data.groundspeed.ToString();
                 }
                 else if (msg.msgid == (byte)MAVLink.MAVLINK_MSG_ID.STATUSTEXT)
@@ -833,11 +837,22 @@ namespace MissionPlanner
                 else if (msg.msgid == (byte)MAVLink.MAVLINK_MSG_ID.BATTERY_STATUS)
                 {
                     MAVLink.mavlink_battery_status_t data = msg.ToStructure<MAVLink.mavlink_battery_status_t>();
-                    GvarDesignModel.Instance.FDbattery = data.battery_remaining;
-                }
+                    inst.FDbattery = data.battery_remaining;
+                    inst.FDvoltage = Convert.ToInt32( data.voltages);
+                }else if ( msg.msgid == (byte) MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT )
+                {
+                    MAVLink.mavlink_gps_raw_int_t data = msg.ToStructure<MAVLink.mavlink_gps_raw_int_t>();
+                    satellite_count = data.satellites_visible;
 
-                MainV2.comPort.DebugPacket( msg, ref tomsg );
-Console.WriteLine( tomsg);
+                    /// GPS 위성이 없다면 그냥... 정보를 보여 주지 말자... 
+                    if ( satellite_count > 0 ){
+                        inst.FDalt = data.alt;
+                        inst.FDLon = data.lon;
+                        inst.FDLat = data.lat;
+                    }
+                    log.InfoFormat("Lat:{0}, Lon:{1} , alt:{2}, satellites {3} ", data.lat , data.lon , data.alt , satellite_count );
+                }
+                //MainV2.comPort.DebugPacket( msg, ref tomsg );
 
             }
         }

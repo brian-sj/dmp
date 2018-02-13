@@ -32,11 +32,19 @@ namespace DMP
 
         private MapPolyline polyline = new MapPolyline();
         //private MapLayer DmapLayer = new MapLayer();
-
+        private int pointType = (int)DMP.PointType.WAYPOINT;
+        public PageWp( int pointType)
+        {
+            this.pointType = pointType;
+            InitializeComponent();
+            InitializePage();
+        }
         public PageWp()
         {
             InitializeComponent();
-
+            InitializePage();
+        }
+        private void InitializePage() { 
             var mapModel = MapDesignModel.Instance;
             mapModel.DMap = MapWithEvents;
             ControlTemplate ttemplate = (ControlTemplate)this.FindResource("CustomTPushpinTemplate");
@@ -64,36 +72,31 @@ namespace DMP
             Location latlong = MapWithEvents.ViewportPointToLocation(l);
 
             // Template는 TargetPushpin 으로 가져 온다. 
-            ControlTemplate template = (ControlTemplate)this.FindResource("CustomPushpinTemplate");
+            //ControlTemplate template = (ControlTemplate)this.FindResource("CustomPushpinTemplate");
+            //ControlTemplate ttemplate = (ControlTemplate)this.FindResource("CustomTPushpinTemplate");
 
-            var pin = new DMPPushpin(ref MapWithEvents, ref polyline , ref DmapPushPinLayer);
-            pin.Name = "WP" + tpCount.ToString();
             WayPointModel wp = new WayPointModel();
 
-            wp.Index = (GvarDesignModel.Instance.ITotalWPCount + 1);
-            wp.Latitude  = latlong.Latitude;
-            wp.Longitude = latlong.Longitude;
-            wp.Name      = pin.Name;
-            pin.PositionOrigin = PositionOrigin.Center;
+            if( GvarDesignModel.Instance.PointType == (int) DMP.PointType.WAYPOINT)
+            {
+                wp.Index = (GvarDesignModel.Instance.WPList.Count + 1);
+                wp.Latitude = latlong.Latitude;
+                wp.Longitude = latlong.Longitude;
+                wp.Name = wp.Index.ToString();
+                GvarDesignModel.Instance.WPList.Add(wp);
+            }
+            else if(GvarDesignModel.Instance.PointType == (int)DMP.PointType.TARGET)
+            {
+                wp.Index = (GvarDesignModel.Instance.TPList.Count + 1);
+                wp.Latitude = latlong.Latitude;
+                wp.Longitude = latlong.Longitude;
+                wp.Name = wp.Index.ToString();
+                GvarDesignModel.Instance.TPList.Add(wp);
+            }
 
-            //pin.MouseDown += new MouseButtonEventHandler(pin_MouseDown);
-            pin.Index = wp.Index;
-            pin.Location = latlong;
-            pin.Template = template;
-            
-            //pin.Content = 10;  // 이내용이 들어 간다. 
-            pin.Content = pin.Name;
-            pin.ToolTip = "Altitude: " + wp.Height;
-
-            pin.WPM = wp;
-            //pin.LayoutTransform.Transform.Angle 
-
-            pushpins.Add( pin );
-            GvarDesignModel.Instance.WPList.Add(wp);
-            MapWithEvents.Children.Add(pin);
-
+            MapDesignModel.Instance.LoadPushpinFromWaypointList();
             MapDesignModel.Instance.DrawPolyLine();
-            var dist = GvarDesignModel.Instance.CalculationEachDistance();
+            //var dist = MapDesignModel.Instance.CalculationEachDistance();
         }
 
         /// <summary>

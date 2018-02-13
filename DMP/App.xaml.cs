@@ -11,6 +11,26 @@ using System.Windows;
 namespace DMP
 {
 #region ENUM 
+
+    enum CurrentMenuName : int
+    {
+        [Description("WAYPOINT")]
+        WAYPOINT = 0,
+        [Description("HOME")]
+        HOME = 1,
+        [Description("READY")]
+        READY = 2,
+        [Description("CONNECT")]
+        CONNECT = 3,
+        [Description("REVIEW")]
+        REVIEW = 4,
+        [Description("PLAY")]
+        PLAY = 5,
+        [Description("SETTING")]
+        SETTING = 6,
+        [Description("TARGET")]
+        TARGET = 7
+    }
     enum PointType : int
     {
         [Description("WAYPOINT")]

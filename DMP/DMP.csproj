@@ -135,6 +135,7 @@
     <Compile Include="Controls\notyet\LabeledLabel.xaml.cs">
       <DependentUpon>LabeledLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModels\CalibrationDataModel.cs" />
     <Compile Include="DataModels\Commands\MapClickCommand.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Controls\HUD.xaml.cs">

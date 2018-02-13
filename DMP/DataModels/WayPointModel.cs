@@ -41,6 +41,7 @@ namespace DMP.DataModels
             WPUpCommand = new RelayCommand(WPUp, WPUpButtonCanUse);
             WPDownCommand = new RelayCommand(WPDown, WPDownButtonCanUse);
             WPDeleteCommand = new RelayCommand(WPDelete, WPDeleteButtonCanUse);
+            TPDeleteCommand = new RelayCommand(TPDelete, TPDeleteButtonCanUse);
             TPUpCommand = new RelayCommand(TPUp, WPUpButtonCanUse);
             TPDownCommand = new RelayCommand(TPDown, WPDownButtonCanUse);
 
@@ -52,8 +53,10 @@ namespace DMP.DataModels
         public RelayCommand WPUpCommand { get; private set; }
         public RelayCommand WPDownCommand { get; private set; }
         public RelayCommand WPDeleteCommand { get; private set; }
+        public RelayCommand TPDeleteCommand { get; private set; }
         public RelayCommand TPUpCommand { get; private set; }
         public RelayCommand TPDownCommand { get; private set; }
+
 
         /// <summary>
         /// 순서 올리기...    PolyLine도 다시 그려야 한다..
@@ -146,6 +149,24 @@ namespace DMP.DataModels
 
             GvarDesignModel.Instance.SortAllKindWayPoint();
         }
+        /// <summary>
+        /// WP를 지운다... 
+        /// </summary>
+        /// <param name="sender"></param>
+        public void TPDelete(object sender)
+        {
+            var result = DMP.Dialogs.CustomMessageBox.Show("삭제하시겠습니까?", "주의", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.Cancel)
+                return;
+            if (sender != null)
+            {
+                var p = sender as WayPointModel;
+                GvarDesignModel.Instance.TPList.Remove(p);
+            }
+
+            GvarDesignModel.Instance.SortAllKindWayPoint();
+        }
 
         /// <summary>
         /// 이버튼은 항상 보인다. 
@@ -153,6 +174,15 @@ namespace DMP.DataModels
         /// <param name="sender"></param>
         /// <returns></returns>
         public bool WPDeleteButtonCanUse(object sender)
+        {
+            return true;
+        }
+        /// <summary>
+        /// 이버튼은 항상 보인다. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <returns></returns>
+        public bool TPDeleteButtonCanUse(object sender)
         {
             return true;
         }
