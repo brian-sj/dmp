@@ -231,6 +231,9 @@ namespace DMP.DataModels
             Console.WriteLine("  Connect ... ");
             log.Debug("Start connect ");
             MainV2.instance.doConnect(MainV2.comPort, "serial", "115200"); //, portname, baud);
+            MainV2.comPort.getParamList();
+            int a =MainV2.comPort.MAV.param.Count ;
+            log.DebugFormat(" 파람 갯수는" , a);
             //lblCompID.Content = MainV2.comPort.compidcurrent.ToString();
             //lblSysID.Content = MainV2.comPort.sysidcurrent.ToString();
         }

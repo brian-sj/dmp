@@ -1125,6 +1125,7 @@ Please check the following
         public void getParamList()
         {
             log.InfoFormat("getParamList {0} {1}", sysidcurrent, compidcurrent);
+            /*
             frmProgressReporter = new DMP.Dialogs.ProgressReporterDialogue
             {
                 //StartPosition = FormStartPosition.CenterScreen
@@ -1135,12 +1136,17 @@ Please check the following
             frmProgressReporter.DoWork += FrmProgressReporterGetParams;
             frmProgressReporter.UpdateProgressAndStatus(-1, Strings.GettingParamsD);
             //ThemeManager.ApplyThemeTo(frmProgressReporter);
-
             frmProgressReporter.RunBackgroundOperationAsync();
-
-              //수동으로 닫아라... 
+            */
+            /*
+            BackgroundWorker _backgroundWorker = new BackgroundWorker();
+            _backgroundWorker.DoWork += FrmProgressReporterGetParams;
+            _backgroundWorker.RunWorkerCompleted += _backgroundWorker_RunWorkerCompleted;
+            _backgroundWorker.WorkerReportsProgress = true;
+            _backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(_backgroundWorker_ProgressChanged);
+            //수동으로 닫아라... 
             //frmProgressReporter.Dispose();
-
+            */
             /**/
             if (ParamListChanged != null)
             {
@@ -1149,9 +1155,11 @@ Please check the following
         }
 
         void FrmProgressReporterGetParams(object sender, ProgressWorkerEventArgs e, object passdata = null)
+        //void FrmProgressReporterGetParams( object sender , DoWorkEventArgs e)
         {
             getParamListBG();
         }
+
 
         /// <summary>
         /// Get param list from apm
@@ -1807,7 +1815,7 @@ Please check the following
                 if (DateTime.Now > GUI.AddMilliseconds(100))
                 {
                     GUI = DateTime.Now;
-                    uicallback?.Invoke();
+                    //uicallback?.Invoke();
                 }
 
                 if (!(start.AddMilliseconds(timeout) > DateTime.Now))
@@ -3531,7 +3539,7 @@ Please check the following
                 }
                 else
                 {
-                    log.InfoFormat("Mavlink Bad Packet (Len Fail) len {0} pkno {1}", buffer.Length, message.msgid);
+                    //log.InfoFormat("Mavlink Bad Packet (Len Fail) len {0} pkno {1}", buffer.Length, message.msgid);
                     return MAVLinkMessage.Invalid;
                 }
             }
@@ -3541,9 +3549,9 @@ Please check the following
                 (message.crc16 & 0xff) != (crc & 0xff))
             {
                 if (buffer.Length > 5 && msginfo.name != null)
-                    log.InfoFormat("Mavlink Bad Packet (crc fail) len {0} crc {1} vs {4} pkno {2} {3}", buffer.Length,
-                        crc, message.msgid, msginfo.name.ToString(),
-                        message.crc16);
+                    //log.InfoFormat("Mavlink Bad Packet (crc fail) len {0} crc {1} vs {4} pkno {2} {3}", buffer.Length,
+                    //    crc, message.msgid, msginfo.name.ToString(),
+                    //    message.crc16);
                 if (logreadmode)
                     log.InfoFormat("bad packet pos {0} ", logplaybackfile.BaseStream.Position);
                 return MAVLinkMessage.Invalid;
@@ -3678,7 +3686,7 @@ Please check the following
                             MAVlist[sysid, compid].packetslost += numLost;
                             WhenPacketLost.OnNext(numLost);
 
-                           if(!logreadmode)
+                           if(logreadmode)
                                 log.InfoFormat("mav {2}-{4} seqno {0} exp {3} pkts lost {1}", packetSeqNo, numLost, sysid,
                                     expectedPacketSeqNo,compid);
                         }
@@ -3939,6 +3947,14 @@ Please check the following
         {
             MAVLINK_MSG_ID type = (MAVLINK_MSG_ID) buffer.msgid;
 
+
+            if (type == MAVLINK_MSG_ID.MAG_CAL_PROGRESS)
+            {
+                log.DebugFormat("OK.. Progress");
+            }
+            {
+
+            }
             lock (Subscriptions)
             {
                 //Console.WriteLine( Subscriptions.Count);

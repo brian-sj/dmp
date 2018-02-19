@@ -7,8 +7,7 @@
       xmlns:dm="clr-namespace:DMP.DataModels"
       mc:Ignorable="d" 
       d:DesignHeight="300" 
-      d:DesignWidth="300"
-      
+      d:DesignWidth="1000"
       Title="page_setting">
 
     <Page.Resources>
@@ -19,37 +18,55 @@
             <TabItem >
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Blue" Foreground="Blue" />
+                        <TextBlock Text="Accel Cali" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
-                <StackPanel>
-                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration" Name="btnAccCali"/>
-                    <TextBlock Text="{Binding AccCalibrateMsg}"  />
-                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration Continue" Name="btnAccCalicontinue"/>
+                <StackPanel HorizontalAlignment="Center">
+                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration Accel" Name="btnAccCali"/>
+                    <Border Height="20" />
+                    <TextBlock Text="{Binding AccCalibrateMsg}"  Foreground="Black" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                        <Button Command="{Binding AccelCaliCommand}" Content="Clibration Continue" Name="btnAccCalicontinue"/>
+                        <Button Command="{Binding AccelCaliCancelCommand}" Content="Clibration Accel Cancel" />
+                        <Button Command="{Binding RebootCommand}" Content="Reboot" />
+                    </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Red" Foreground="Red" />
+                        <TextBlock Text="CompassCali" Foreground="Red" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel>
-                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration" Name="btnCompassCali"/>
-                    <TextBlock Text="{Binding AccCalibrateMsg}" />
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnGetParamList" Content="나침반 조정" Click="btnGetParamList_Click" />
+                        <Button Command="{Binding CompassCaliCommand}" Content="나침반 조정" />
+                        <Button Command="{Binding CompassCaliAcceptCommand}" Content="이만하면 됬다" />
+                        <Button Command="{Binding CompassCaliCancelCommand}" Content="안되겠다 포기하자" />
+                    </StackPanel>
                     
-                    <TextBlock Text="콤패스가요... 3개네요." />
+                    <TextBlock Text="{Binding AccCalibrateMsg}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="콤패스 complete/total" Foreground="Black" />
+                        <TextBlock Text="{Binding Total_Compass_count, StringFormat={}{0} / }" Foreground="Black" />
+                        <TextBlock Text="{Binding Total_Compass_Calibration_Complete_count, StringFormat= {}{0}}" Foreground="Black" />
+                    </StackPanel>
+                    <Border Height="30" />
 
-                    <ProgressBar Name="pgMagcali1" Value="{Binding Mag1_cali_pct}"  />
-                    <ProgressBar Name="pgMagcali2" Value="{Binding Mag2_cali_pct}" />
-                    <ProgressBar Name="pgMagcali3" Value="{Binding Mag3_cali_pct}" />
+                    <TextBlock Text="Compass 1" Foreground="Black" />
+                    <ProgressBar Name="pgMagcali1" Value="{Binding Mag1_cali_pct}" Height="30" />
+                    <TextBlock Text="Compass 2" Foreground="Black" />
+                    <ProgressBar Name="pgMagcali2" Value="{Binding Mag2_cali_pct}" Height="30"/>
+                    <TextBlock Text="Compass 3" Foreground="Black" />
+                    <ProgressBar Name="pgMagcali3" Value="{Binding Mag3_cali_pct}" Height="30"/>
 
                 </StackPanel>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Green" Foreground="Green" />
+                        <TextBlock Text="RC Cali" Foreground="Green" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel>
@@ -65,6 +82,8 @@
                     <TextBlock Text="쓰로틀 위아래" />
                     <ProgressBar Name="pgRCcali3" Value="{Binding Mag3_cali_pct}" Height="100" Orientation="Vertical"/>
 
+
+                    <Button Command="{Binding RebootCommand}" Content="Reboot" />
                 </StackPanel>
             </TabItem>
         </TabControl>

@@ -26,6 +26,9 @@ namespace DMP.DataModels
         private WayPointModel _langdingPosition;
         private int _pointType = (int)DMP.PointType.WAYPOINT;
 
+
+        
+
         /// <summary>
         ///  현재 액션이 어느 메뉴에서 일어나고 있는지. 
         /// </summary>
@@ -58,6 +61,9 @@ namespace DMP.DataModels
         //Battery voltage of cells, in millivolts (1 = 1 millivolt).
         private int _fdvoltage = 0;
 
+        private int _total_param_count = 0 ;
+        private int _get_param_count = 0;
+
         public float FDpressAbs { get { return _fdpress_abs; } set { _fdpress_abs = value; OnPropertyChanged(); } }
         public float FDtemperature { get => _fdtemperature; set { _fdtemperature = value; OnPropertyChanged(); } }
         public float FDspeed { get => _fdspeed; set { _fdspeed = value; OnPropertyChanged(); } }
@@ -71,6 +77,10 @@ namespace DMP.DataModels
         public float FDLon { get => _fdLon; set { _fdLon = value; OnPropertyChanged(); } }
         public float FDLat { get => _fdLat; set { _fdLat = value; OnPropertyChanged(); } }
         public int FDvoltage { get => _fdvoltage; set { _fdvoltage = value; OnPropertyChanged(); }  }
+
+        public int TotalParamCount { get => _total_param_count; set { _total_param_count = value; OnPropertyChanged(); } }
+        public int GetParamCount { get => _get_param_count; set { _get_param_count = value; OnPropertyChanged(); } }
+
         #endregion
 
         public string Name { get; set; }

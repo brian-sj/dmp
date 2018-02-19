@@ -16,6 +16,7 @@ using Microsoft.Maps.MapControl.WPF;
 using GMap.NET.MapProviders;
 using System.Net;
 using DMP.DataModels;
+using MissionPlanner;
 
 namespace DMP
 {
@@ -67,6 +68,15 @@ namespace DMP
 
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGetParamList_Click(object sender, RoutedEventArgs e)
+        {
+
+            MainV2.comPort.getParamList();
+        }
     }
 }
