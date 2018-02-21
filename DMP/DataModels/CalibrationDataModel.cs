@@ -132,6 +132,11 @@ namespace DMP.DataModels
         #region  Command  Function and CanUse  
         public void AccelCali(object sender)
         {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                Dialogs.CustomMessageBox.Show("기체와 연결이 필요합니다.");
+                return;
+            }
             doAccelCalibrate();
         }
         public bool AccelCaliCanUse(object sender)
@@ -141,6 +146,11 @@ namespace DMP.DataModels
 
         public void AccelCaliContinue(object sender)
         {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                Dialogs.CustomMessageBox.Show("기체와 연결이 필요합니다.");
+                return;
+            }
             DoAccCalibContinue();
         }
         private bool CompassCaliCancelCanUse(object obj)
@@ -158,6 +168,11 @@ namespace DMP.DataModels
 
         private void AccelCaliCancel(object obj)
         {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                Dialogs.CustomMessageBox.Show("기체와 연결이 필요합니다.");
+                return;
+            }
             doAccelCaliCancel();
         }
 
@@ -176,6 +191,11 @@ namespace DMP.DataModels
 
         private void CompassCaliAccept(object obj)
         {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                Dialogs.CustomMessageBox.Show("기체와 연결이 필요합니다.");
+                return;
+            }
             doAcceptCompassCalib();
         }
 
@@ -186,12 +206,21 @@ namespace DMP.DataModels
 
         private void CompassCali(object obj)
         {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                Dialogs.CustomMessageBox.Show("기체와 연결이 필요합니다.");
+                return;
+            }
             doCompassCalibrate();
         }
 
         private void RadioCali(object sender)
         {
-
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                Dialogs.CustomMessageBox.Show("기체와 연결이 필요합니다.");
+                return;
+            }
         }
         private bool RadioCaliCanUse(object sender)
         {
@@ -200,6 +229,11 @@ namespace DMP.DataModels
 
         private void Reboot(object sender)
         {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                Dialogs.CustomMessageBox.Show("기체와 연결이 필요합니다.");
+                return;
+            }
             var result = Dialogs.CustomMessageBox.Show("기체를 재 부팅 하시겠습니까?", Dialogs.MessageBoxType.ConfirmationWithYesNo);
             if(result == MessageBoxResult.Yes || result == MessageBoxResult.OK )
             {
@@ -211,7 +245,6 @@ namespace DMP.DataModels
         {
             return true;
         }
-
 
         /// <summary>
         /// Accel Cali Continue는 _inAccelCali 가 true일때 활성화 되며, Cali가 complete, or Fail 될때 끝난다. 
@@ -225,8 +258,6 @@ namespace DMP.DataModels
             else
                 return false;
         }
-
-
         #endregion
 
 

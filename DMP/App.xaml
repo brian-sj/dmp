@@ -29,6 +29,8 @@
                 <Setter Property="Height" Value="80" />
                 <Setter Property="Background" Value="#3f424a" />
                 <Setter Property="Foreground" Value="#ffffff" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Lato-Regular" />
                 <Setter Property="Template">
                     <Setter.Value>

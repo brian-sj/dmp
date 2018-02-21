@@ -5,13 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DMP"
       xmlns:dm="clr-namespace:DMP.DataModels"
+      xmlns:c="clr-namespace:DMP.Controls"
       mc:Ignorable="d" 
-      d:DesignHeight="300" 
+      
       d:DesignWidth="1000"
       Title="page_setting">
 
     <Page.Resources>
         <dm:CalibrationDataModel x:Key="cdm" />
+        <Style TargetType="Grid" x:Key="ProgressStyle">
+        </Style>
     </Page.Resources>
     <Grid DataContext="{StaticResource cdm}">
         <TabControl>
@@ -69,21 +72,66 @@
                         <TextBlock Text="RC Cali" Foreground="Green" />
                     </StackPanel>
                 </TabItem.Header>
-                <StackPanel>
-                    <Button Command="{Binding AccelCaliCommand}" Content="Clibration" Name="btnRCCompassCali"/>
-                    <TextBlock Text="{Binding AccCalibrateMsg}" />
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Background="{StaticResource BackDarkNavyBrush}">
+                        <Button Command="{Binding RCCommand}" Content="RC Clibration" Name="btnRCCompassCali"/>
 
-                    <TextBlock Text="RC Control Calibration " />
+                        <TextBlock Text="RC Control Calibration " />
+                        <Border Height="10" />
+                        <TextBlock Text="Roll Cali" />
+                        <c:MMProgressBar Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200" x:Name="pgRCcaliRoll" />
 
-                    <TextBlock Text="좌우" />
-                    <ProgressBar Name="pgRCcali1" Value="{Binding Mag1_cali_pct}" Width="100" />
-                    <TextBlock Text="앞뒤" />
-                    <ProgressBar Name="pgRCcali2" Value="{Binding Mag2_cali_pct}" Width="100" />
-                    <TextBlock Text="쓰로틀 위아래" />
-                    <ProgressBar Name="pgRCcali3" Value="{Binding Mag3_cali_pct}" Height="100" Orientation="Vertical"/>
+                        <Border Height="10" />
+                        <TextBlock Text="Pitch Cali" />
+                        <c:MMProgressBar x:Name="pgRCcaliPitch" Height="40"
+                                         Width="200" MaxValue="2300" 
+                                         MMin="100" MMax="2200"/>
+
+                        <Border Height="10" />
+                        <TextBlock Text="Throatle" />
+                         <c:MMProgressBar x:Name="pgRCcaliThroatle" Width="200" MaxValue="2300" MMin="100" MMax="2200" />
+
+                        <Border Height="10" />
+                        <TextBlock Text="위아래 Pitch" />
+                        <c:MMProgressBar x:Name="pgRCcali3" 
+                                        Height="40" Width="200" 
+                                        MaxValue="2300" MMin="100" MMax="2200"/>
 
 
-                    <Button Command="{Binding RebootCommand}" Content="Reboot" />
+
+                        <Border Height="10" />
+                        <TextBlock Text="Yaw 좌우" />
+                        <c:MMProgressBar x:Name="pgRCcali4" Width="200" MaxValue="2300" MMin="100" MMax="2200"/>
+                            
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="BindDSM2" />
+                            <Button Content="BindDSMX" />
+                            <Button Content="BindDSM8" />
+                        </StackPanel>
+                        <Button Command="{Binding RebootCommand}" Content="Reboot" />
+                    </StackPanel>   
+                    <StackPanel Background="{StaticResource BackDarkGrayBrush}" Width="636" >
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="ddd" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ddd" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ddd" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ddd" />
+                        </StackPanel>
+                        
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock Text="cccc" />
+                        <c:MMProgressBar Height="40" x:Name="pgRCcali5" Width="200" MaxValue="2300" MMin="100" MMax="2200"/>
+                    </StackPanel>
+                    
+                    
                 </StackPanel>
             </TabItem>
         </TabControl>

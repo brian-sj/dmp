@@ -22,6 +22,7 @@ using Timer = System.Timers.Timer;
 using DMP.Resources;
 using System.Windows.Threading;
 using System.Drawing;
+using DMP.DataModels;
 
 namespace MissionPlanner.Mavlink
 {
@@ -1283,6 +1284,7 @@ Please check the following
 
                         // set new target
                         param_total = (par.param_count);
+                        GvarDesignModel.Instance.TotalParamCount = param_total;
                         newparamlist.TotalReported = param_total;
 
                         string paramID = ASCIIEncoding.ASCII.GetString(par.param_id);
@@ -1325,7 +1327,11 @@ Please check the following
 
                         // exclude index of 65535
                         if (par.param_index != 65535)
+                        {
                             indexsreceived.Add(par.param_index);
+                            GvarDesignModel.Instance.GetParamCount = indexsreceived.Count;
+                            GvarDesignModel.Instance.CurrentParamId = paramID;
+                        }
 
                         MAV.param_types[paramID] = (MAV_PARAM_TYPE) par.param_type;
 

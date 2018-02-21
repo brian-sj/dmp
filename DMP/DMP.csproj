@@ -129,6 +129,9 @@
     <Compile Include="Attached Properties\NoFrameHistory.cs" />
     <Compile Include="Attached Properties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="Attached Properties\TextAttachedProperties.cs" />
+    <Compile Include="Controls\MMProgressBar.xaml.cs">
+      <DependentUpon>MMProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\notyet\LabeledControl.xaml.cs">
       <DependentUpon>LabeledControl.xaml</DependentUpon>
     </Compile>
@@ -337,6 +340,10 @@
     <Compile Include="ValueConverters\TimeToDisplayTimeConverter.cs" />
     <Compile Include="ValueConverters\TimeToReadTimeConverter.cs" />
     <Page Include="Controls\HUD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MMProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

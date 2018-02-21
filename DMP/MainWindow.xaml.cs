@@ -479,38 +479,5 @@ namespace DMP
                 throw new FormatException("invalid number of wp's list "+ (a+1).ToString() , e );
             }
         }
-
-        private void getWP_Click(object sender, RoutedEventArgs e)
-        {
-            MAVLinkInterface port = MainV2.comPort;
-            Locationwp wp;
-
-            try
-            {
-                int total = port.getWPCount();   // 신기하게도 Home position을 포함하는지 꼭 한개가 추가가 된다. 
-                for (ushort i = 1; i < total; i++)
-                {
-                    wp = port.getWP(i);
-                }
-                port.setWPACK();
-            }
-            catch (Exception ed) {  }
-        }
-        private void temp_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Locationwp home = MainV2.comPort.getHomePosition();
-                WayPointModel wp = WayPointConvertUtility.LocationwpToWayPoint(home);
-                GvarDesignModel.Instance.HomePosition = wp;
-            }
-            catch (Exception ee ) { Dialogs.CustomMessageBox.Show("ERROR", "HomePoint를 읽을 수 없습니다."); }
-            
-        }
     }
 }

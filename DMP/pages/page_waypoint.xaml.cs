@@ -131,5 +131,21 @@ namespace DMP
         {
 
         }
+
+        private void BtnChangeMapMode_Click(object sender, RoutedEventArgs e)
+        {
+            if (MapWithEvents.Mode.ToString() == "Microsoft.Maps.MapControl.WPF.RoadMode")
+                {
+                //Set the map mode to Aerial with labels
+                MapWithEvents.Mode = new AerialMode(true);
+                }else 
+
+
+            if (MapWithEvents.Mode.ToString() == "Microsoft.Maps.MapControl.WPF.AerialMode")
+            {
+                //Set the map mode to RoadMode
+                MapWithEvents.Mode = new RoadMode();
+            }
+        }
     }
 }

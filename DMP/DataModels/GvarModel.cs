@@ -63,6 +63,7 @@ namespace DMP.DataModels
 
         private int _total_param_count = 0 ;
         private int _get_param_count = 0;
+        private string _current_param_id = "";
 
         public float FDpressAbs { get { return _fdpress_abs; } set { _fdpress_abs = value; OnPropertyChanged(); } }
         public float FDtemperature { get => _fdtemperature; set { _fdtemperature = value; OnPropertyChanged(); } }
@@ -80,6 +81,7 @@ namespace DMP.DataModels
 
         public int TotalParamCount { get => _total_param_count; set { _total_param_count = value; OnPropertyChanged(); } }
         public int GetParamCount { get => _get_param_count; set { _get_param_count = value; OnPropertyChanged(); } }
+        public string CurrentParamId { get => _current_param_id; set { _current_param_id = value; OnPropertyChanged(); } }
 
         #endregion
 

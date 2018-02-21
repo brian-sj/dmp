@@ -172,11 +172,17 @@ namespace DMP.Controls.pushpin
                     MapDesignModel.Instance.DrawPolyLine();
                 }
 
+
+                /// 거리뿐 아니라 각도도 다시 계산해야 하므로 HomePosition, Waypoint
+                
+
                 // Home 과 WayPoint일때만 거리를 재 측정한다. 
-                if(WPM.PointType == (int) DMP.PointType.WAYPOINT 
-                    || WPM.PointType == (int)DMP.PointType.WAYPOINT)
+                if (WPM.PointType == (int) DMP.PointType.WAYPOINT 
+                    || WPM.PointType == (int)DMP.PointType.HOME
+                    || WPM.PointType == (int)DMP.PointType.TARGET)
                 {
                     MapDesignModel.Instance.CalculationEachDistance();
+                    //MapDesignModel.Instance.
                 }
                 
                 

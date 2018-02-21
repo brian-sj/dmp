@@ -154,15 +154,19 @@
         </Grid>
         <Grid DockPanel.Dock="Right" Margin="10,0,0,0">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal" >
-                        <Button Name="btnConnect" Content="Connect" Command="{Binding ConnectCommand}"  Width="100"/>
-                        <Button Name="btnDisConnect" Content="DisConnect" Command="{Binding DisConnectCommand}"  Width="100"/>
-                        <Button Name="btnLogMonStart" Content="LogMonStart" Click="btnLogMonStart_Click"  Width="100"/>
-                        <Button Name="btnLogMonEnd" Content="LogMonEnd" Click="btnLogMonEnd_Click"  Width="100"/>
-                        <StackPanel>
-                            <TextBlock Text="Connect" />
+                <TextBlock Text="{Binding TotalParamCount, StringFormat=totalcount:{0} }"  />
+                <TextBlock Text="{Binding GetParamCount, StringFormat=get Param count  : {0}}" />
+                <TextBlock Text="{Binding CurrentParamId, StringFormat=Param Name : {0}}" />
+                <StackPanel HorizontalAlignment="Center">
+                    <Button Name="btnConnect" Content="Connect" Command="{Binding ConnectCommand}" />
+                    <Button Name="btnDisConnect" Content="DisConnect" Command="{Binding DisConnectCommand}"  />
+                </StackPanel>
 
-                        </StackPanel>
+                <StackPanel />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                        <Button Name="btnLogMonStart" Content="LogMonStart" Click="btnLogMonStart_Click"  />
+                        <Button Name="btnLogMonEnd" Content="LogMonEnd" Click="btnLogMonEnd_Click" />
+
                     </StackPanel>
                     <Border BorderThickness="2" BorderBrush="BlanchedAlmond">
                         <Grid>
@@ -195,6 +199,9 @@
                     <ProgressBar Name="progressBar1" Width="90" />
                     <ProgressBar Name="progressBar2" Width="90"/>
                     <ProgressBar Name="progressBar3" Width="90"/>
+                    
+                    <controls:MMProgressBar Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200" x:Name="pgRCcaliRoll" />
+                    <TextBlock Text="cccc" />
                 </StackPanel>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -245,7 +252,8 @@
                         <ToggleButton Style="{StaticResource AnimatedSwitch}" Height="16"/>
                     </StackPanel>
                     </Grid>
-                    <StackPanel>
+                
+                <StackPanel>
                     
                 </StackPanel>
                 
