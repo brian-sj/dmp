@@ -9,3 +9,8 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\Core\obj\Debug\Core.csproj.CoreCompileInputs.c
 D:\DronProject\DMP\DMP_v1\ExtLibs\Core\obj\Debug\Core.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\Core\obj\Debug\Core.pdb
 D:\DronProject\DMP\DMP_v1\ExtLibs\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\Core\bin\Debug\Core.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\Core\bin\Debug\Core.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\Core\obj\Debug\Core.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\Core\obj\Debug\Core.pdb

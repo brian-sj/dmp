@@ -7,7 +7,6 @@
       xmlns:dm="clr-namespace:DMP.DataModels"
       xmlns:c="clr-namespace:DMP.Controls"
       mc:Ignorable="d" 
-      
       d:DesignWidth="1000"
       Title="page_setting">
 
@@ -79,29 +78,19 @@
                         <TextBlock Text="RC Control Calibration " />
                         <Border Height="10" />
                         <TextBlock Text="Roll Cali" />
-                        <c:MMProgressBar Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200" x:Name="pgRCcaliRoll" />
+                        <c:CalibrationSlider x:Name="csRoll" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
 
                         <Border Height="10" />
                         <TextBlock Text="Pitch Cali" />
-                        <c:MMProgressBar x:Name="pgRCcaliPitch" Height="40"
-                                         Width="200" MaxValue="2300" 
-                                         MMin="100" MMax="2200"/>
-
+                        <c:CalibrationSlider x:Name="csPitch" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        
                         <Border Height="10" />
-                        <TextBlock Text="Throatle" />
-                         <c:MMProgressBar x:Name="pgRCcaliThroatle" Width="200" MaxValue="2300" MMin="100" MMax="2200" />
-
-                        <Border Height="10" />
-                        <TextBlock Text="위아래 Pitch" />
-                        <c:MMProgressBar x:Name="pgRCcali3" 
-                                        Height="40" Width="200" 
-                                        MaxValue="2300" MMin="100" MMax="2200"/>
-
-
+                        <TextBlock Text="Throattle" />
+                        <c:CalibrationSlider x:Name="csThroattle" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
 
                         <Border Height="10" />
                         <TextBlock Text="Yaw 좌우" />
-                        <c:MMProgressBar x:Name="pgRCcali4" Width="200" MaxValue="2300" MMin="100" MMax="2200"/>
+                        <c:CalibrationSlider x:Name="csYaw" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
                             
                         <StackPanel Orientation="Horizontal">
                             <Button Content="BindDSM2" />
@@ -113,24 +102,41 @@
                     <StackPanel Background="{StaticResource BackDarkGrayBrush}" Width="636" >
                         <StackPanel Orientation="Horizontal" >
                             <TextBlock Text="ddd" />
+                            <Border Height="10" />
+                            <TextBlock Text="5번" />
+                            <c:CalibrationSlider x:Name="csRad5" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="ddd" />
+                            <Border Height="10" />
+                            <TextBlock Text="6번" />
+                            <c:CalibrationSlider x:Name="csRad6" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="ddd" />
+                            <Border Height="10" />
+                            <TextBlock Text="7번" />
+                            <c:CalibrationSlider x:Name="csRad7" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
                         </StackPanel>
+
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="ddd" />
+                            <Border Height="10" />
+                            <TextBlock Text="8번" />
+                            <c:CalibrationSlider x:Name="csRad8" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
                         </StackPanel>
-                        
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ddd" />
+                            <Border Height="10" />
+                            <TextBlock Text="9번" />
+                            <c:CalibrationSlider x:Name="csRad9" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        </StackPanel>
+
                     </StackPanel>
 
-                    <StackPanel>
-                        <TextBlock Text="cccc" />
-                        <c:MMProgressBar Height="40" x:Name="pgRCcali5" Width="200" MaxValue="2300" MMin="100" MMax="2200"/>
-                    </StackPanel>
-                    
                     
                 </StackPanel>
             </TabItem>

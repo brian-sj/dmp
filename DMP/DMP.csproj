@@ -139,6 +139,9 @@
       <DependentUpon>LabeledLabel.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataModels\CalibrationDataModel.cs" />
+    <Compile Include="Controls\CalibrationSlider.xaml.cs">
+      <DependentUpon>CalibrationSlider.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModels\Commands\MapClickCommand.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Controls\HUD.xaml.cs">
@@ -183,6 +186,12 @@
     <Compile Include="DataModels\GvarModel.cs" />
     <Compile Include="DataModels\StaticComboOptionDesignModel.cs" />
     <Compile Include="DataModels\StaticComboOptions.cs" />
+    <Compile Include="Dialogs\ProgressDialog.xaml.cs">
+      <DependentUpon>ProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ProgressDialogResult.cs" />
+    <Compile Include="Dialogs\ProgressDialogSettings.cs" />
+    <Compile Include="Dialogs\WindowSettings.cs" />
     <Compile Include="util\WayPointConvertUtility.cs" />
     <Compile Include="Dialogs\CustomMessageBox.xaml.cs">
       <DependentUpon>CustomMessageBox.xaml</DependentUpon>
@@ -387,7 +396,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\CalibrationSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dialogs\CustomMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ProgressDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

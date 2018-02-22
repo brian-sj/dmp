@@ -67,7 +67,6 @@ log.Info("RunBackgroundOperation");
         {
             Running = true;
             log.Info("RunBackgroundOperation");
-            
             try
             {
                 Thread.CurrentThread.Name = "ProgressReporterDialogue Background thread";

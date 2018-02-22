@@ -265,10 +265,7 @@ namespace DMP
             }catch (Exception ee) { Dialogs.CustomMessageBox.Show("Error" , ee.ToString() ); }
         }
 
-        private void SetWP2_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
 
 

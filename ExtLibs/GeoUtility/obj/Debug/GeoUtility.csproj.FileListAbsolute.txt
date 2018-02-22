@@ -14,3 +14,11 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\GeoUtility\obj\Debug\GeoUtility.csproj.Generat
 D:\DronProject\DMP\DMP_v1\ExtLibs\GeoUtility\obj\Debug\GeoUtility.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\GeoUtility\obj\Debug\GeoUtility.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\GeoUtility\obj\Debug\GeoUtility.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\GeoUtility\bin\Debug\GeoUtility.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\GeoUtility\bin\Debug\GeoUtility.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\GeoUtility\obj\Debug\GeoUtility.Properties.Resources.resources
+D:\DronProject\DMP\GitDMP\ExtLibs\GeoUtility\obj\Debug\GeoUtility.csproj.GenerateResource.Cache
+D:\DronProject\DMP\GitDMP\ExtLibs\GeoUtility\obj\Debug\GeoUtility.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\GeoUtility\obj\Debug\GeoUtility.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\GeoUtility\obj\Debug\GeoUtility.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\GeoUtility\obj\Debug\GeoUtility.csprojResolveAssemblyReference.cache

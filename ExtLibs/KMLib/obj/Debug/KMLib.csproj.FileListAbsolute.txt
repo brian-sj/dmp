@@ -14,3 +14,11 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\KMLib\obj\Debug\KMLib.csprojResolveAssemblyRef
 D:\DronProject\DMP\DMP_v1\ExtLibs\KMLib\obj\Debug\KMLib.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\KMLib\obj\Debug\KMLib.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\KMLib\obj\Debug\KMLib.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\KMLib\bin\Debug\KMLib.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\KMLib\bin\Debug\KMLib.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\KMLib\bin\Debug\Core.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\KMLib\bin\Debug\Core.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\KMLib\obj\Debug\KMLib.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\KMLib\obj\Debug\KMLib.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\KMLib\obj\Debug\KMLib.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\KMLib\obj\Debug\KMLib.pdb

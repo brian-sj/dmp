@@ -14,3 +14,11 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\obj\Debug\SharpKml.csprojResolveAssem
 D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\obj\Debug\SharpKml.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\obj\Debug\SharpKml.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\SharpKml\obj\Debug\SharpKml.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpKml\bin\Debug\SharpKml.XML
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpKml\bin\Debug\SharpKml.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpKml\bin\Debug\SharpKml.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpKml\bin\Debug\Ionic.Zip.Reduced.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpKml\obj\Debug\SharpKml.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpKml\obj\Debug\SharpKml.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpKml\obj\Debug\SharpKml.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpKml\obj\Debug\SharpKml.pdb

@@ -26,7 +26,7 @@
           DataContext="{x:Static dm:GvarDesignModel.Instance }">
         <Border BorderBrush="{StaticResource WordRedBrush}" BorderThickness="2" Padding="4 4 4 4">
             <m:Map Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" 
-                   VerticalContentAlignment="Stretch"  
+                   VerticalContentAlignment="Stretch"
                    x:Name="MapWithEvents" CredentialsProvider="At7hRwCD3E_9oRFHn1geVrHct2_eN0EXzxYRVBW-Q6yxnG3wvBDDjqFEqU-K8ljL" 
                    Mode="Aerial"
                    MouseDoubleClick="MapWithEvents_MouseDoubleClick"
@@ -146,7 +146,7 @@
                 <Button Name="btnStart" Click="btnStart_Click" >시작</Button>
                 <Button Name="btnStop" Click="btnStop_Click" >멈춤</Button>
                 <Button Name="btnPause" Click="btnPause_Click" >일시중지</Button>
-                <uc:LabeledTextBox Label="Label"  Text="30" />
+                
 
             </StackPanel>
         </Border>

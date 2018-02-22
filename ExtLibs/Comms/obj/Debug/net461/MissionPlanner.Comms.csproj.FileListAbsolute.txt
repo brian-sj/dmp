@@ -13,8 +13,8 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\Comms\obj\Debug\net461\MissionPlanner.Comms.dl
 D:\DronProject\DMP\DMP_v1\ExtLibs\Comms\obj\Debug\net461\MissionPlanner.Comms.AssemblyInfoInputs.cache
 D:\DronProject\DMP\GitDMP\ExtLibs\Comms\bin\Debug\net461\MissionPlanner.Comms.dll
 D:\DronProject\DMP\GitDMP\ExtLibs\Comms\bin\Debug\net461\log4net.dll
-D:\DronProject\DMP\GitDMP\ExtLibs\Comms\obj\Debug\net461\MissionPlanner.Comms.csprojResolveAssemblyReference.cache
 D:\DronProject\DMP\GitDMP\ExtLibs\Comms\obj\Debug\net461\MissionPlanner.Comms.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\GitDMP\ExtLibs\Comms\obj\Debug\net461\MissionPlanner.Comms.AssemblyInfoInputs.cache
 D:\DronProject\DMP\GitDMP\ExtLibs\Comms\obj\Debug\net461\MissionPlanner.Comms.AssemblyInfo.cs
 D:\DronProject\DMP\GitDMP\ExtLibs\Comms\obj\Debug\net461\MissionPlanner.Comms.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\Comms\obj\Debug\net461\MissionPlanner.Comms.csprojResolveAssemblyReference.cache

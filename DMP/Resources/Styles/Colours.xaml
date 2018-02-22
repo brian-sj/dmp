@@ -35,7 +35,8 @@
     <Color x:Key="FontVeryLightGray">#999</Color>
     <SolidColorBrush x:Key="FontVeryLightGrayBrush" Color="{StaticResource FontVeryLightGray}" />
 
-
+    
+    
     <Color x:Key="LightGreen">#63dcbe</Color>
     <SolidColorBrush x:Key="LightGreenBrush" Color="{StaticResource LightGreen}" />
 
@@ -68,6 +69,11 @@
 
     <Color x:Key="PopupButtonDarkBorder">#808080</Color>
     <SolidColorBrush x:Key="PopupButtonDarkBorderBrush" Color="{StaticResource PopupButtonDarkBorder}" />
+
+    <!--   Slider 용이다. -->
+    <SolidColorBrush x:Key="BodyTextColorBrush" Color="#FF313131"/>
+    <SolidColorBrush x:Key="SliderTrackBrush" Color="#FF9D9D9D" />
+    <!--   Slider 용이다. 끝  -->
 
     <Color x:Key="AccentColor">#CC000000</Color>
     <Color x:Key="MainButtonGray">#FFADADAD</Color>

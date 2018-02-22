@@ -157,7 +157,7 @@
                 <TextBlock Text="{Binding TotalParamCount, StringFormat=totalcount:{0} }"  />
                 <TextBlock Text="{Binding GetParamCount, StringFormat=get Param count  : {0}}" />
                 <TextBlock Text="{Binding CurrentParamId, StringFormat=Param Name : {0}}" />
-                <StackPanel HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Name="btnConnect" Content="Connect" Command="{Binding ConnectCommand}" />
                     <Button Name="btnDisConnect" Content="DisConnect" Command="{Binding DisConnectCommand}"  />
                 </StackPanel>
@@ -176,19 +176,18 @@
                                 <ColumnDefinition Width="1*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="50" />
-                                <RowDefinition Height="50" />
-                                <RowDefinition Height="50" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Button Content="MotorTest All" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" />
                             <Button Name="btnMotorTest1" Content="MotorTest 1" Grid.Row="0" Grid.Column="1" Click="btnMotorTest1_Click" />
                             <Button Name="btnMotorTest2" Content="MotorTest 2" Grid.Row="0" Grid.Column="2" Click="btnMotorTest2_Click" />
                             <Button Name="btnMotorTest3" Content="MotorTest 3" Grid.Row="1" Grid.Column="1" Click="btnMotorTest3_Click" />
                             <Button Name="btnMotorTest4" Content="MotorTest 4" Grid.Row="1" Grid.Column="2" Click="btnMotorTest4_Click" />
-                            <StackPanel Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2">
-                                <TextBlock >MotorSpeed</TextBlock>
-                            <!-- <controls:NumericUpDown  MinValue="10" MaxValue="95" Value="{Binding Path=TestThroattle}"  /> -->
-                            </StackPanel>
+                            <StackPanel Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                            <TextBlock >MotorSpeed</TextBlock>
+                        </StackPanel>
                         </Grid>
                     </Border>
                 <StackPanel Orientation="Horizontal">
@@ -199,19 +198,17 @@
                     <ProgressBar Name="progressBar1" Width="90" />
                     <ProgressBar Name="progressBar2" Width="90"/>
                     <ProgressBar Name="progressBar3" Width="90"/>
-                    
-                    <controls:MMProgressBar Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200" x:Name="pgRCcaliRoll" />
-                    <TextBlock Text="cccc" />
+                    <controls:CalibrationSlider Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200" x:Name="pgRCcaliRoll" />
+
                 </StackPanel>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="SetHome" Click="SetHome_Click">SetHome(4444444)</Button>
-                        <Button Name="GetHome" Click="GetHome_Click" >GetHome</Button>
+                        <Button Name="SetHome" Click="SetHome_Click">SetHome( command 아님.)</Button>
+                        <Button Name="GetHome" Click="GetHome_Click" >GetHome(command 아님.)</Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="SetWP1" Click="SetWP1_Click">Set WP 1 </Button>
-                        <Button Name="SetWP2" Click="SetWP2_Click">Set WP 2 </Button>
-                        <Button Name="GetWP" Command="{Binding ReadWPCommand}">GetWp</Button>
+                        <Button Name="SetWP1" Click="SetWP1_Click">Set WP (Command 아님.) </Button>
+                        <Button Name="GetWP" Command="{Binding ReadWPCommand}">GetWp command 임.</Button>
                     </StackPanel>
                 </StackPanel>
                 <Grid>

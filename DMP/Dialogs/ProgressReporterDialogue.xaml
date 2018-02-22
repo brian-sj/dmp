@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:DMP.Dialogs"
         mc:Ignorable="d"
         Title="frmProgressReporter" Height="300" Width="300">
-    
         <StackPanel>
             <StackPanel>
                 <Image Name="imgWarning" Source="/Resources/imgs/logo.png" Width="32" Height="32"  Margin="20,0" />

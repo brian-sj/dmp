@@ -16,3 +16,12 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\ZedGraph\obj\Debug\ZedGraph.csproj.GenerateRes
 D:\DronProject\DMP\DMP_v1\ExtLibs\ZedGraph\obj\Debug\ZedGraph.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\ZedGraph\obj\Debug\ZedGraph.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\ZedGraph\obj\Debug\ZedGraph.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\bin\Debug\ZedGraph.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\bin\Debug\ZedGraph.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.ZedGraph.ZedGraphControl.resources
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.ZedGraph.ZedGraphLocale.resources
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.csproj.GenerateResource.Cache
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\ZedGraph\obj\Debug\ZedGraph.csprojResolveAssemblyReference.cache

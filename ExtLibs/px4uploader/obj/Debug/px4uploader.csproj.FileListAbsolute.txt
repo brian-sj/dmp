@@ -18,3 +18,13 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\px4uploader\obj\Debug\px4uploader.csprojResolv
 D:\DronProject\DMP\DMP_v1\ExtLibs\px4uploader\obj\Debug\px4uploader.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\px4uploader\obj\Debug\px4uploader.exe
 D:\DronProject\DMP\DMP_v1\ExtLibs\px4uploader\obj\Debug\px4uploader.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\bin\Debug\validcertificates.xml
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\bin\Debug\px4uploader.exe
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\bin\Debug\px4uploader.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\bin\Debug\BouncyCastle.Crypto.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\bin\Debug\DotNetZip.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\bin\Debug\DotNetZip.xml
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\obj\Debug\px4uploader.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\obj\Debug\px4uploader.exe
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\obj\Debug\px4uploader.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\px4uploader\obj\Debug\px4uploader.csprojResolveAssemblyReference.cache

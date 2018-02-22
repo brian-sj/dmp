@@ -13,8 +13,8 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.AssemblyInfoInputs.cache
 D:\DronProject\DMP\GitDMP\ExtLibs\Mavlink\bin\Debug\net461\MAVLink.dll
 D:\DronProject\DMP\GitDMP\ExtLibs\Mavlink\bin\Debug\net461\log4net.dll
-D:\DronProject\DMP\GitDMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.csprojResolveAssemblyReference.cache
 D:\DronProject\DMP\GitDMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\GitDMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.AssemblyInfoInputs.cache
 D:\DronProject\DMP\GitDMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.AssemblyInfo.cs
 D:\DronProject\DMP\GitDMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\Mavlink\obj\Debug\net461\MAVLink.csprojResolveAssemblyReference.cache

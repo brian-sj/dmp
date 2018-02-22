@@ -8,3 +8,8 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\AviFile\bin\Debug\AviFile.pdb
 D:\DronProject\DMP\DMP_v1\ExtLibs\AviFile\obj\Debug\AviFile.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\AviFile\obj\Debug\AviFile.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\AviFile\obj\Debug\AviFile.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\AviFile\bin\Debug\AviFile.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\AviFile\bin\Debug\AviFile.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\AviFile\obj\Debug\AviFile.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\AviFile\obj\Debug\AviFile.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\AviFile\obj\Debug\AviFile.pdb

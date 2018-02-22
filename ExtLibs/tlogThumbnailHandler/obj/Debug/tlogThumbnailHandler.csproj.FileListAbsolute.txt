@@ -9,3 +9,8 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHa
 D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.pdb
 D:\DronProject\DMP\DMP_v1\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\tlogThumbnailHandler\bin\Debug\tlogThumbnailHandler.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\tlogThumbnailHandler\bin\Debug\tlogThumbnailHandler.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\tlogThumbnailHandler\obj\Debug\tlogThumbnailHandler.pdb

@@ -14,3 +14,11 @@ D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.csproj
 D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.csproj.CoreCompileInputs.cache
 D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.dll
 D:\DronProject\DMP\DMP_v1\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpAdbClient\bin\Debug\SharpAdbClient.xml
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpAdbClient\bin\Debug\SharpAdbClient.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpAdbClient\bin\Debug\SharpAdbClient.pdb
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpAdbClient\bin\Debug\Mono.Posix.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.csprojResolveAssemblyReference.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.csproj.CoreCompileInputs.cache
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.dll
+D:\DronProject\DMP\GitDMP\ExtLibs\SharpAdbClient\obj\Debug\SharpAdbClient.pdb

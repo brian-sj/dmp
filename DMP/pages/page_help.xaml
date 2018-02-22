@@ -13,6 +13,10 @@
 
     <StackPanel >
         <TextBlock Text="{StaticResource FontAwesomeChatIcon}" FontFamily="{StaticResource FontAwesome}" />
+        <Button Name="btnTestProgress" Click="btnTestProgress_Click" Height="15"></Button>
+        <Button Name="btnTestAddProgress" Click="btnTestAddProgress_Click" Content="+5" />
+
+
         <!-- <gmaps:GMapControl x:Name="mapView" Loaded="mapView_Loaded" />  -->
     </StackPanel>
     
