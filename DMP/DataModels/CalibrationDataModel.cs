@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Threading;
 using System.Windows;
 using MissionPlanner.Controls;
+using System.Timers;
+using System.Threading;
 
 namespace DMP.DataModels
 {
@@ -30,6 +32,7 @@ namespace DMP.DataModels
         private int _accel_cali_pct = 0;
         private int _rc_cali_pct = 0;
         private string _acc_calibrate_msg = "";
+        private string _rc_calibrate_msg = "";
 
         /// <summary>
         ///  이 것은 기체로 부터 날라오는 데이터를 보고 판단한다... 
@@ -48,6 +51,58 @@ namespace DMP.DataModels
         public int Accel_cali_pct { get => _accel_cali_pct; set { _accel_cali_pct = value; OnPropertyChanged(); } }
         public int Rc_cali_pct { get => _rc_cali_pct; set { _rc_cali_pct = value; OnPropertyChanged(); } }
         public string AccCalibrateMsg { get => _acc_calibrate_msg; set { _acc_calibrate_msg = value; OnPropertyChanged(); } }
+        public string RCCalibrateMsg { get => _rc_calibrate_msg; set { _rc_calibrate_msg = value; OnPropertyChanged(); } }
+        #endregion
+
+        #region RC Calibration Variables 복잡하다. 
+        //radio  이 변수는 CurrentState Class 의 chNin이 바뀌면 자동으로 바뀌게 되어 있다. 
+        // 별도의 set을 하지는 않는다. 
+        public static float ch1in { get; set; }
+        public static float ch2in { get; set; }
+        public static float ch3in { get; set; }
+        public static float ch4in { get; set; }
+        public static float ch5in { get; set; }
+        public static float ch6in { get; set; }
+        public static float ch7in { get; set; }
+        public static float ch8in { get; set; }
+ 
+        public static float ch9in { get; set; }
+        public static float ch10in { get; set; }
+        public static float ch11in { get; set; }
+        public static float ch12in { get; set; }
+        public static float ch13in { get; set; }
+        public static float ch14in { get; set; }
+        public static float ch15in { get; set; }
+        public static float ch16in { get; set; }
+
+        // motors 아직 구현이 않됨.. 
+        public float ch1out { get; set; }
+        public float ch2out { get; set; }
+        public float ch3out { get; set; }
+        public float ch4out { get; set; }
+        public float ch5out { get; set; }
+        public float ch6out { get; set; }
+        public float ch7out { get; set; }
+        public float ch8out { get; set; }
+
+        public float ch9out { get; set; }
+        public float ch10out { get; set; }
+        public float ch11out { get; set; }
+        public float ch12out { get; set; }
+        public float ch13out { get; set; }
+        public float ch14out { get; set; }
+        public float ch15out { get; set; }
+        public float ch16out { get; set; }
+
+        private readonly float[] rcmax = new float[16];
+        private readonly float[] rcmin = new float[16];
+        private readonly float[] rctrim = new float[16];
+        private readonly System.Timers.Timer timer = new System.Timers.Timer();
+        private int chpitch = -1;
+        private int chroll = -1;
+        private int chthro = -1;
+        private int chyaw = -1;
+        private bool run;
         #endregion
 
         #region  Calibration variables 
@@ -74,7 +129,6 @@ namespace DMP.DataModels
         public RelayCommand CompassCaliCommand { get; private set; }
         public RelayCommand CompassCaliAcceptCommand { get; private set; }
         public RelayCommand CompassCaliCancelCommand { get; private set; }
-
         public RelayCommand RadioCaliCommand { get; private set; }
         public RelayCommand RebootCommand { get; private set; }
 
@@ -121,14 +175,35 @@ namespace DMP.DataModels
             }
             // Enabled = true;
             startup = true;
-
-
         }
         public void DeActivate()
         {
             timer1.Stop();
         }
 
+        private void RCActivate()
+        {
+            timer.Enabled = true;
+            timer.Interval = 100;
+            timer.Start();
+
+            if (!MainV2.comPort.MAV.param.ContainsKey("RCMAP_ROLL"))
+            {
+                chroll = 1;
+                chpitch = 2;
+                chthro = 3;
+                chyaw = 4;
+            }
+            else
+            {
+                //setup bindings
+                chroll = (int)(float)MainV2.comPort.MAV.param["RCMAP_ROLL"];
+                chpitch = (int)(float)MainV2.comPort.MAV.param["RCMAP_PITCH"];
+                chthro = (int)(float)MainV2.comPort.MAV.param["RCMAP_THROTTLE"];
+                chyaw = (int)(float)MainV2.comPort.MAV.param["RCMAP_YAW"];
+            }
+
+        }
         #region  Command  Function and CanUse  
         public void AccelCali(object sender)
         {
@@ -597,11 +672,122 @@ namespace DMP.DataModels
         private KeyValuePair<MAVLink.MAVLINK_MSG_ID, Func<MAVLink.MAVLinkMessage, bool>> packetsubRCCali;
         public void doRCCalibrate()
         {
+            RCActivate();
+            /// Cali중인데 한번 더 누르면 종료된다. 
             if (_inRcCalibrate)
             {
                 //MainV2
+                RCCalibrateMsg = Strings.Done;
+                _inRcCalibrate = false;
+                return;
             }
 
+            Dialogs.CustomMessageBox.Show("RC Transmitter와 Receiver가 정상적으로 연결되어 있는지 확인 바랍니다.");
+
+            var oldrc = MainV2.comPort.MAV.cs.raterc;
+            var oldatt = MainV2.comPort.MAV.cs.rateattitude;
+            var oldpos = MainV2.comPort.MAV.cs.rateposition;
+            var oldstatus = MainV2.comPort.MAV.cs.ratestatus;
+
+            MainV2.comPort.MAV.cs.raterc = 10;
+            MainV2.comPort.MAV.cs.rateattitude = 0;
+            MainV2.comPort.MAV.cs.rateposition = 0;
+            MainV2.comPort.MAV.cs.ratestatus = 0;
+
+            try
+            {
+                MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, 10);
+            }
+            catch
+            {
+            }
+
+            RCCalibrateMsg = Strings.Click_when_Done;
+            Dialogs.CustomMessageBox.Show("OK를 누르기사고 모든 RC 스틱을 자유롭게 움직여 주세요.");
+
+
+            _inRcCalibrate = true;
+
+            while (run)
+            {
+                //Application.DoEvents();
+
+                Thread.Sleep(5);
+
+                MainV2.comPort.MAV.cs.UpdateCurrentSettings( );
+
+                // check for non 0 values
+                if (MainV2.comPort.MAV.cs.ch1in > 800 && MainV2.comPort.MAV.cs.ch1in < 2200)
+                {
+                    rcmin[0] = Math.Min(rcmin[0], MainV2.comPort.MAV.cs.ch1in);
+                    rcmax[0] = Math.Max(rcmax[0], MainV2.comPort.MAV.cs.ch1in);
+
+                    rcmin[1] = Math.Min(rcmin[1], MainV2.comPort.MAV.cs.ch2in);
+                    rcmax[1] = Math.Max(rcmax[1], MainV2.comPort.MAV.cs.ch2in);
+
+                    rcmin[2] = Math.Min(rcmin[2], MainV2.comPort.MAV.cs.ch3in);
+                    rcmax[2] = Math.Max(rcmax[2], MainV2.comPort.MAV.cs.ch3in);
+
+                    rcmin[3] = Math.Min(rcmin[3], MainV2.comPort.MAV.cs.ch4in);
+                    rcmax[3] = Math.Max(rcmax[3], MainV2.comPort.MAV.cs.ch4in);
+
+                    rcmin[4] = Math.Min(rcmin[4], MainV2.comPort.MAV.cs.ch5in);
+                    rcmax[4] = Math.Max(rcmax[4], MainV2.comPort.MAV.cs.ch5in);
+
+                    rcmin[5] = Math.Min(rcmin[5], MainV2.comPort.MAV.cs.ch6in);
+                    rcmax[5] = Math.Max(rcmax[5], MainV2.comPort.MAV.cs.ch6in);
+
+                    rcmin[6] = Math.Min(rcmin[6], MainV2.comPort.MAV.cs.ch7in);
+                    rcmax[6] = Math.Max(rcmax[6], MainV2.comPort.MAV.cs.ch7in);
+
+                    rcmin[7] = Math.Min(rcmin[7], MainV2.comPort.MAV.cs.ch8in);
+                    rcmax[7] = Math.Max(rcmax[7], MainV2.comPort.MAV.cs.ch8in);
+
+                    rcmin[8] = Math.Min(rcmin[8], MainV2.comPort.MAV.cs.ch9in);
+                    rcmax[8] = Math.Max(rcmax[8], MainV2.comPort.MAV.cs.ch9in);
+
+                    rcmin[9] = Math.Min(rcmin[9], MainV2.comPort.MAV.cs.ch10in);
+                    rcmax[9] = Math.Max(rcmax[9], MainV2.comPort.MAV.cs.ch10in);
+
+                    rcmin[10] = Math.Min(rcmin[10], MainV2.comPort.MAV.cs.ch11in);
+                    rcmax[10] = Math.Max(rcmax[10], MainV2.comPort.MAV.cs.ch11in);
+
+                    rcmin[11] = Math.Min(rcmin[11], MainV2.comPort.MAV.cs.ch12in);
+                    rcmax[11] = Math.Max(rcmax[11], MainV2.comPort.MAV.cs.ch12in);
+
+                    rcmin[12] = Math.Min(rcmin[12], MainV2.comPort.MAV.cs.ch13in);
+                    rcmax[12] = Math.Max(rcmax[12], MainV2.comPort.MAV.cs.ch13in);
+
+                    rcmin[13] = Math.Min(rcmin[13], MainV2.comPort.MAV.cs.ch14in);
+                    rcmax[13] = Math.Max(rcmax[13], MainV2.comPort.MAV.cs.ch14in);
+
+                    rcmin[14] = Math.Min(rcmin[14], MainV2.comPort.MAV.cs.ch15in);
+                    rcmax[14] = Math.Max(rcmax[14], MainV2.comPort.MAV.cs.ch15in);
+
+                    rcmin[15] = Math.Min(rcmin[15], MainV2.comPort.MAV.cs.ch16in);
+                    rcmax[15] = Math.Max(rcmax[15], MainV2.comPort.MAV.cs.ch16in);
+                }
+            }
+
+            if (rcmin[0] > 800 && rcmin[0] < 2200)
+            {
+            }
+            else
+            {
+                Dialogs.CustomMessageBox.Show("Bad channel 1 input, canceling");
+                return;
+            }
+
+        }
+        private void RCCalibration_Timer_Tick( object sender , EventArgs e )
+        {
+            try
+            {
+                MainV2.comPort.MAV.cs.UpdateCurrentSettings();
+            }
+            catch(Exception ex) {
+                log.ErrorFormat(ex.ToString());
+            }
         }
         #endregion
     }

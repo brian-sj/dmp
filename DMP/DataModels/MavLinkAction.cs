@@ -25,7 +25,6 @@ namespace DMP.DataModels
         // accel cali 할때 단계를 보여줘야 한다. 
         byte count = 0;
 
-
         public static void doReadWP()
         {
 
