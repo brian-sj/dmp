@@ -67,9 +67,10 @@
                                     
                                     <Border Style="{StaticResource MENU_BORDER}" >
                                         <DockPanel LastChildFill="True">
-                                            
                                                     <Button Name="btnUp"  Content="Up" Width="80" Click="btnUp_Click" Tag="{Binding}"/>
                                                     <Button Name="btnDown"  Content="Down" Width="80" Click="btnDown_Click" Tag="{Binding}"/>
+                                                    <Button Command="{Binding TPDeleteCommand}" Style="{StaticResource MainButtonSmall}"
+                                                        CommandParameter="{Binding}" Width="70">Del</Button>
                                                 </DockPanel>
                                     </Border>
                                     </StackPanel>

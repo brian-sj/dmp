@@ -27,9 +27,7 @@ namespace DMP
     public partial class PageWp : Page
     {
         ObservableCollection<DMPPushpin> pushpins = new ObservableCollection<DMPPushpin>();
-
-
-
+        
         private MapPolyline polyline = new MapPolyline();
         //private MapLayer DmapLayer = new MapLayer();
         private int pointType = (int)DMP.PointType.WAYPOINT;
@@ -57,6 +55,13 @@ namespace DMP
             mapModel.DmlPushpin = DmapPushPinLayer;
             mapModel.DmlFlight = DmapFlightLayer;
             /// 잠깐 멈춤 
+            /// 
+            if( GvarDesignModel.Instance.WPList .Count>0)
+            {
+                var st1 = GvarDesignModel.Instance.WPList.First();
+                MapWithEvents.Center = new Location( st1.Latitude , st1.Longitude);
+            }
+            
             mapModel.LoadPushpinFromWaypointList();
         }
 

@@ -136,9 +136,9 @@ namespace DMP.DataModels
         /// <param name="sender"></param>
         public void WPDelete(object sender)
         {
-            var result = DMP.Dialogs.CustomMessageBox.Show("삭제하시겠습니까?", "주의", MessageBoxButton.OKCancel);
+            var result = DMP.Dialogs.CustomMessageBox.Show("삭제하시겠습니까?", "주의", MessageBoxButton.YesNo);
 
-            if (result == MessageBoxResult.Cancel)
+            if (result == MessageBoxResult.No)
                 return;
 
             if(sender != null)
@@ -146,7 +146,9 @@ namespace DMP.DataModels
                 var p = sender as WayPointModel;
                 GvarDesignModel.Instance.WPList.Remove(p);
             }
-
+            MapDesignModel.Instance.DmlPushpin.Children.Clear();
+            MapDesignModel.Instance.DmlPolyline.Children.Clear();
+            MapDesignModel.Instance.LoadPushpinFromWaypointList();
             GvarDesignModel.Instance.SortAllKindWayPoint();
         }
         /// <summary>
@@ -155,16 +157,19 @@ namespace DMP.DataModels
         /// <param name="sender"></param>
         public void TPDelete(object sender)
         {
-            var result = DMP.Dialogs.CustomMessageBox.Show("삭제하시겠습니까?", "주의", MessageBoxButton.OKCancel);
+            var result = DMP.Dialogs.CustomMessageBox.Show("삭제하시겠습니까?", "주의", MessageBoxButton.YesNo);
 
-            if (result == MessageBoxResult.Cancel)
+            if (result == MessageBoxResult.No)
                 return;
             if (sender != null)
             {
                 var p = sender as WayPointModel;
                 GvarDesignModel.Instance.TPList.Remove(p);
             }
-
+            /// 모든 애들을 지운후 다시 그린다.... 
+            MapDesignModel.Instance.DmlPushpin.Children.Clear();
+            MapDesignModel.Instance.DmlPolyline.Children.Clear();
+            MapDesignModel.Instance.LoadPushpinFromWaypointList();
             GvarDesignModel.Instance.SortAllKindWayPoint();
         }
 
@@ -196,7 +201,6 @@ namespace DMP.DataModels
         {
             if (sender != null)
             {
-
                 var wp = sender as WayPointModel;
                 //Console.WriteLine("WPUpButttonCanUse Index" + wp.Index + " Latitude : " + wp.Latitude);
                 if (wp.Index == 1) return false;

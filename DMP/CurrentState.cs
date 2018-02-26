@@ -12,10 +12,12 @@ using System.Linq;
 //using DirectShowLib;
 using DMP.Resources;
 using MissionPlanner.Mavlink;
+using DMP.DataModels;
+using DMP;
 
 namespace MissionPlanner
 {
-    public class CurrentState : ICloneable
+    public class CurrentState :  ICloneable 
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -376,24 +378,47 @@ namespace MissionPlanner
             get { return (float)Math.Sqrt(Math.Pow(mx3, 2) + Math.Pow(my3, 2) + Math.Pow(mz3, 2)); }
         }
 
-        //radio
-        public float ch1in { get; set; }
-        public float ch2in { get; set; }
-        public float ch3in { get; set; }
-        public float ch4in { get; set; }
-        public float ch5in { get; set; }
-        public float ch6in { get; set; }
-        public float ch7in { get; set; }
-        public float ch8in { get; set; }
 
-        public float ch9in { get; set; }
-        public float ch10in { get; set; }
-        public float ch11in { get; set; }
-        public float ch12in { get; set; }
-        public float ch13in { get; set; }
-        public float ch14in { get; set; }
-        public float ch15in { get; set; }
-        public float ch16in { get; set; }
+        private float _ch1in;
+        private float _ch2in;
+        private float _ch3in;
+        private float _ch4in;
+        private float _ch5in;
+        private float _ch6in;
+        private float _ch7in;
+        private float _ch8in;
+        private float _ch9in;
+        private float _ch10in;
+        private float _ch11in;
+        private float _ch12in;
+        private float _ch13in;
+        private float _ch14in;
+        private float _ch15in;
+        private float _ch16in;
+
+        /// <summary>
+        /// 원래 Get Set 인데 바꾸었다... 
+        /// Brian 2018.2.23 일 
+        /// </summary>
+
+        //radio    
+        public float ch1in {  get{return _ch1in;} set{ _ch1in=value; CalibrationDataModel.ch1in = value ;} }
+        public float ch2in {  get{return _ch2in;} set{ _ch2in=value; CalibrationDataModel.ch2in = value ;} }
+        public float ch3in {  get{return _ch3in;} set{ _ch3in=value; CalibrationDataModel.ch3in = value ;} }
+        public float ch4in {  get{return _ch4in;} set{ _ch4in=value; CalibrationDataModel.ch4in = value ;} }
+        public float ch5in {  get{return _ch5in;} set{ _ch5in=value; CalibrationDataModel.ch5in = value ;} }
+        public float ch6in {  get{return _ch6in;} set{ _ch6in=value; CalibrationDataModel.ch6in = value ;} }
+        public float ch7in {  get{return _ch7in;} set{ _ch7in=value; CalibrationDataModel.ch7in = value ;} }
+        public float ch8in {  get{return _ch8in;} set{ _ch8in=value; CalibrationDataModel.ch8in = value; } }
+                                                       
+        public float ch9in {  get{return _ch9in;}  set{ _ch9in=value; CalibrationDataModel.ch9in = value  ; } }
+        public float ch10in { get{return _ch10in;} set{ _ch10in=value; CalibrationDataModel.ch10in = value; } }
+        public float ch11in { get{return _ch10in;} set{ _ch11in=value; CalibrationDataModel.ch11in = value; } }
+        public float ch12in { get{return _ch12in;} set{ _ch12in=value; CalibrationDataModel.ch12in = value; } }
+        public float ch13in { get{return _ch13in;} set{ _ch13in=value; CalibrationDataModel.ch13in = value; } }
+        public float ch14in { get{return _ch14in;} set{ _ch14in=value; CalibrationDataModel.ch14in = value; } }
+        public float ch15in { get{return _ch15in;} set{ _ch15in=value; CalibrationDataModel.ch15in = value; } }
+        public float ch16in { get{ return _ch16in;} set{ _ch16in=value; CalibrationDataModel.ch16in = value; } }
 
         // motors
         public float ch1out { get; set; }
@@ -1419,7 +1444,6 @@ namespace MissionPlanner
             return desc;
         }
 
-
         /// <summary>
         /// use for main serial port only
         /// </summary>
@@ -1430,7 +1454,16 @@ namespace MissionPlanner
             UpdateCurrentSettings(bs, false, MainV2.comPort, MainV2.comPort.MAV);
         }
         */
+        ///
 
+        public void UpdateCurrentSettings( object o, bool updatenow , MAVLinkInterface mavlinkinterface , MAVState MAV)
+        {
+            UpdateCurrentSettings(false, mavlinkinterface, MAV);
+        }
+        public void UpdateCurrentSettings()
+        {
+            UpdateCurrentSettings(false, MainV2.comPort, MainV2.comPort.MAV);
+        }
         /// <summary>
         /// Use the default sysid
         /// </summary>
@@ -1448,7 +1481,7 @@ namespace MissionPlanner
         */
 
         //public void UpdateCurrentSettings(System.Windows.Forms.BindingSource sbs, bool updatenow,
-        public void UpdateCurrentSettings(string sbs, bool updatenow,
+        public void UpdateCurrentSettings( bool updatenow,
             MAVLinkInterface mavinterface, MAVState MAV)
         {
             lock (this)
@@ -1541,9 +1574,7 @@ namespace MissionPlanner
                         hilch6 = hil.chan6_scaled;
                         hilch7 = hil.chan7_scaled;
                         hilch8 = hil.chan8_scaled;
-
                         // Console.WriteLine("RC_CHANNELS_SCALED Packet");
-
                         MAV.clearPacket((uint) MAVLink.MAVLINK_MSG_ID.RC_CHANNELS_SCALED);
                     }
 

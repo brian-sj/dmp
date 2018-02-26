@@ -76,21 +76,22 @@
                         <Button Command="{Binding RCCommand}" Content="RC Clibration" Name="btnRCCompassCali"/>
 
                         <TextBlock Text="RC Control Calibration " />
+                        <TextBlock Text="{Binding RCCalibrateMsg}" />
                         <Border Height="10" />
                         <TextBlock Text="Roll Cali" />
-                        <c:CalibrationSlider x:Name="csRoll" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        <c:CalibrationSlider x:Name="csRoll" Value="{Binding ch1in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
 
                         <Border Height="10" />
                         <TextBlock Text="Pitch Cali" />
-                        <c:CalibrationSlider x:Name="csPitch" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        <c:CalibrationSlider x:Name="csPitch" Value="{Binding ch2in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
                         
                         <Border Height="10" />
                         <TextBlock Text="Throattle" />
-                        <c:CalibrationSlider x:Name="csThroattle" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        <c:CalibrationSlider x:Name="csThroattle" Value="{Binding ch3in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
 
                         <Border Height="10" />
                         <TextBlock Text="Yaw 좌우" />
-                        <c:CalibrationSlider x:Name="csYaw" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        <c:CalibrationSlider x:Name="csYaw" Value="{Binding ch4in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
                             
                         <StackPanel Orientation="Horizontal">
                             <Button Content="BindDSM2" />
@@ -101,40 +102,44 @@
                     </StackPanel>   
                     <StackPanel Background="{StaticResource BackDarkGrayBrush}" Width="636" >
                         <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="ddd" />
+                            <TextBlock Text="Radio" />
                             <Border Height="10" />
-                            <TextBlock Text="5번" />
-                            <c:CalibrationSlider x:Name="csRad5" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
-
+                            <TextBlock Text="5번" Width="50" />
+                            <c:CalibrationSlider x:Name="csRad5" Value="{Binding ch5in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Radio" />
+                            <Border Height="10" />
+                            <TextBlock Text="6번" Width="50" />
+                            <c:CalibrationSlider x:Name="csRad6" Value="{Binding ch6in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="ddd" />
+                            <TextBlock Text="Radio" />
                             <Border Height="10" />
-                            <TextBlock Text="6번" />
-                            <c:CalibrationSlider x:Name="csRad6" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
-
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="ddd" />
-                            <Border Height="10" />
-                            <TextBlock Text="7번" />
-                            <c:CalibrationSlider x:Name="csRad7" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="ddd" />
-                            <Border Height="10" />
-                            <TextBlock Text="8번" />
-                            <c:CalibrationSlider x:Name="csRad8" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                            <TextBlock Text="7번" Width="50" />
+                            <c:CalibrationSlider x:Name="csRad7" Value="{Binding ch7in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="ddd" />
+                            <TextBlock Text="Radio" />
                             <Border Height="10" />
-                            <TextBlock Text="9번" />
-                            <c:CalibrationSlider x:Name="csRad9" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                            <TextBlock Text="8번" Width="50"  />
+                            <c:CalibrationSlider x:Name="csRad8" Value="{Binding ch8in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
                         </StackPanel>
 
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Radio" />
+                            <Border Height="10" />
+                            <TextBlock Text="9번" Width="50"  />
+                            <c:CalibrationSlider x:Name="csRad9" Value="{Binding ch9in}" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Radio" />
+                            <Border Height="10" />
+                            <TextBlock Text="10번" Width="50" />
+                            <c:CalibrationSlider x:Name="csRad10" Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200"  />
+                        </StackPanel>
                     </StackPanel>
 
                     

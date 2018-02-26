@@ -31,7 +31,7 @@
                    Mode="Aerial"
                    MouseDoubleClick="MapWithEvents_MouseDoubleClick"
                    Center="37.3844168105,126.65596369" 
-                   ZoomLevel="16"
+                   ZoomLevel="17"
             >
                 <m:MapLayer x:Name="DmapPolylineLayer" >
 
