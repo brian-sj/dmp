@@ -73,7 +73,7 @@
             <Border Style="{StaticResource MENU_BORDER}" Height="1"/>
             <DockPanel>
                 <TextBlock DockPanel.Dock="Left" Text="● Target"  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeLarge}" />
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Width="90" Margin="0 0 -12 0">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Margin="0 0 -12 0">
                     <TextBlock  Text="총 타겟수 : "  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" 
                                 FontSize="{StaticResource FontSizeRegular}"  Padding="0 0 0 0" />
                     <TextBlock Name="tbTotalTarget" Text="{Binding ITotalTPCount}"  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" 
@@ -85,12 +85,12 @@
             <Border Style="{StaticResource MENU_BORDER}" Height="1"/>
 
             <DockPanel>
-                <TextBlock DockPanel.Dock="Left" Text="● Waypoint"  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeLarge}" />
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Width="90" Margin="0 0 -12 0">
-                    <TextBlock  Text="총 WP수 : "  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" 
+                <TextBlock DockPanel.Dock="Left" Text="● Waypoint "  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeLarge}" />
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right"  Margin="0 0 -12 0">
+                    <TextBlock  Text="총 WP 수: "  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" 
                                 FontSize="{StaticResource FontSizeRegular}"  Padding="0 0 0 0" />
                     <TextBlock  Text="{Binding ITotalWPCount}" Name="tbTotalWP"  Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" 
-                                FontSize="{StaticResource FontSizeRegular}"  Padding="0 0 0 0" />
+                                FontSize="{StaticResource FontSizeRegular}" Padding="0 0 0 0" />
                 </StackPanel>
             </DockPanel>
 
@@ -104,25 +104,38 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Column="0">
-                    <TextBlock x:Name="tbMaxWpDistance" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeSmall}" Text="MaxWP"/>
-                    <TextBlock x:Name="tbAvgSpeed" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" FontSize="{StaticResource FontSizeSmall}" Text="AvgSpeed" />
-                </StackPanel>
+                    <TextBlock x:Name="tbMaxWpDistance" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" 
+                               FontSize="{StaticResource FontSizeSmall}" Text="MaxWP"/>
+                        <TextBlock 
+                               Text="{Binding MaxWPDistance , StringFormat={}{0:N0} m}" />
+                        <TextBlock x:Name="tbAvgSpeed" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}" 
+                               FontSize="{StaticResource FontSizeSmall}" Text="AvgSpeed" />
+                        <TextBlock 
+                               Text="{Binding AvgSpeed, StringFormat={}{0} m/s}"/>
+                    </StackPanel>
                 <Border Grid.Row="0" Grid.Column="1" BorderThickness="1" BorderBrush="{DynamicResource ForegroundLightBrush}" />
-                <StackPanel Grid.Column="2">
-                        <uc:LabeledLabel x:Name="tbTotalDistance" Style="{StaticResource REVIEW_LABEDEDTEXTBLOCK}" FontSize="{StaticResource FontSizeSmall}" Label="TotalDistance"  Text="0"/>
-                        <uc:LabeledLabel x:Name="tbTotalFlightTime" Style="{StaticResource REVIEW_LABEDEDTEXTBLOCK}" FontSize="{StaticResource FontSizeSmallest}" Label="Flight Time"  Text="0"/>
-                        <uc:LabeledLabel x:Name="tbBattery" Style="{StaticResource REVIEW_LABEDEDTEXTBLOCK}" FontSize="{StaticResource FontSizeXXXLarge}" Label="Battery"   Text="{Binding FDbattery}"/>
-                </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock FontSize="12" Margin="8 0 4 0"  Text="총거리" Width="70"/>
+                            <TextBlock Text="{Binding TotalFlightDistance, StringFormat={}{0} m}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock FontSize="12" Margin="8 0 4 0"  Text="소요시간(e)" Width="70"/>
+                            <TextBlock Text="{Binding EstimatedFlightTime,StringFormat={}{0} s}" />
+                        </StackPanel>
+                    </StackPanel>
 
             </Grid>
             <Border Style="{StaticResource MENU_BORDER}" Height="1"/>
             <TextBlock Text="★설정 저장" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}"  FontSize="{StaticResource FontSizeRegular}" FontWeight="ExtraBold" />
-            <TextBox Name="tbFileName"  Style="{StaticResource MENU_TEXTBOX}" Text="FILENAME.."/>
+
             <!--<Button Name="btnSave" Click="Button_Click" Style="{StaticResource StandardButton}" >파일에저장</Button>-->
                 <Button Name="btnSave" Command="{Binding SaveXmlFileCommand}"  >파일에저장</Button>
                 <!--  -->
-                    <TextBlock Text="★드론에 비행경로 전달" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}"  FontSize="{StaticResource FontSizeRegular}" FontWeight="ExtraBold" />
-            <Button Name="btnSendToDrone" >드론에 저장</Button>
+                    <TextBlock Text="★드론에 비행경로 전달" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}"  
+                               FontSize="{StaticResource FontSizeRegular}" FontWeight="ExtraBold" />
+            <Button Name="btnSendToDrone" >드론에 전송</Button>
             </StackPanel>
         </Border>
 

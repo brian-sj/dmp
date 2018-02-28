@@ -1,11 +1,6 @@
-﻿using log4net;
-using MissionPlanner;
-using MissionPlanner.Comms;
-using MissionPlanner.Mavlink;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,19 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DMP
+
+namespace DMP.Controls
 {
     /// <summary>
-    /// page_connect.xaml에 대한 상호 작용 논리
+    /// slideMenuReady.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PageConnect : Page
+    public partial class slideMenuReady : System.Windows.Controls.UserControl
     {
-        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private bool skipconnectcheck = false;
-        public PageConnect()
+        public slideMenuReady()
         {
             InitializeComponent();
         }
-        
     }
 }

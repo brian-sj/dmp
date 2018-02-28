@@ -7,11 +7,13 @@
       xmlns:model="clr-namespace:DMP.DataModels"
       xmlns:controls="clr-namespace:DMP.Controls"
       mc:Ignorable="d"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:util="clr-namespace:DMP.util"
       Title="Ready">
 
     <Page.Resources>
+        <model:StaticComboOptionDesignModel x:Key="cdmSCOD" />
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="AntiqueWhite" />
             <Setter Property="FontSize" Value="{StaticResource FontSizeSmallest}" />
@@ -47,12 +49,14 @@
             <Border Style="{StaticResource MENU_BORDER}" >
                 <DockPanel >
                     <Label Content="원점높이형태" Width="{StaticResource SUB_MENU_ITEM_LEFT_SIZE}"  />
-                        <ComboBox Name="cmbInitialHeightType" 
+                    <ComboBox Name="cmbInitialHeightType" 
                                   Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"
                                   Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}" SelectedValuePath="Key" 
                                 DisplayMemberPath="Value"
-                            ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdInitialHeightType }" SelectedValue="{Binding InitialHeightType}"
-                      />
+                            ItemsSource="{Binding Source={StaticResource cdmSCOD}, Path=DpdInitialHeightType }" 
+                                  SelectedValue="{Binding InitialHeightType}"
+                         />
+                    
                     
                 </DockPanel>
             </Border>
@@ -83,7 +87,7 @@
                               Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
                               Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"
                               SelectedValuePath="Key" 
-                                  ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdLandingType }"
+                                  ItemsSource="{Binding Source={StaticResource cdmSCOD}, Path=DpdLandingType }"
                       DisplayMemberPath="Value" 
                       SelectedValue="{Binding Landing_style}"
                       />
@@ -108,8 +112,8 @@
                               Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"
                               Style="{StaticResource LIST_MENU_BORDER_COMBOBOX}"
                                   SelectedValuePath="Key" DisplayMemberPath="Value"  
-                                  ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdDoWhenError }"
-                                  SelectedValue="{Binding Dowhenerror}" 
+                                  ItemsSource="{Binding Source={StaticResource cdmSCOD}, Path=DpdDoWhenError }"
+                                  SelectedValue="{Binding Do_when_error}" 
                          />
                     
                 </DockPanel>
@@ -123,7 +127,7 @@
                               Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"
                       Background="Brown"
                       SelectedValuePath="Key" DisplayMemberPath="Value"  
-                      ItemsSource="{Binding Source={x:Static model:StaticComboOptionDesignModel.Instance}, Path=DpdCornerType}"
+                      ItemsSource="{Binding Source={StaticResource cdmSCOD}, Path=DpdCornerType}"
                       SelectedValue="{Binding Path=CornerType , Mode=TwoWay}"/>
                     
                 </DockPanel>
@@ -169,42 +173,47 @@
 
                     </StackPanel>
                     <Border BorderThickness="2" BorderBrush="BlanchedAlmond">
-                        <Grid>
+                        <Grid Width="400">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="1*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                
                             </Grid.RowDefinitions>
                             <Button Content="MotorTest All" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" />
-                            <Button Name="btnMotorTest1" Content="MotorTest 1" Grid.Row="0" Grid.Column="1" Click="btnMotorTest1_Click" />
-                            <Button Name="btnMotorTest2" Content="MotorTest 2" Grid.Row="0" Grid.Column="2" Click="btnMotorTest2_Click" />
-                            <Button Name="btnMotorTest3" Content="MotorTest 3" Grid.Row="1" Grid.Column="1" Click="btnMotorTest3_Click" />
-                            <Button Name="btnMotorTest4" Content="MotorTest 4" Grid.Row="1" Grid.Column="2" Click="btnMotorTest4_Click" />
-                            <StackPanel Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                            <TextBlock >MotorSpeed</TextBlock>
-                        </StackPanel>
+                        <Button Name="btnMotorTest1" Content="Motor 1 " Grid.Row="0" Grid.Column="1" Click="btnMotorTest1_Click" >
+                            
+                              
+                        </Button>
+                        <Button Name="btnMotorTest2" Grid.Row="0" Grid.Column="2" Click="btnMotorTest2_Click" >
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome  Icon="StopCircle" Spin="True" SpinDuration="10" />
+                                <TextBlock Text="Motor 2" HorizontalAlignment="Center" Margin="4 -4 0 0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnMotorTest3"  Grid.Row="1" Grid.Column="1" Click="btnMotorTest3_Click" >
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome  Icon="StopCircle" Spin="True" SpinDuration="10" />
+                                <TextBlock Text="Motor 3" HorizontalAlignment="Center" Margin="4 -4 0 0"/>
+                            </StackPanel>
+                        </Button>
+                            <Button Name="btnMotorTest4"  Grid.Row="1" Grid.Column="2" Click="btnMotorTest4_Click" >
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome  Icon="StopCircle" Spin="True" SpinDuration="10" />
+                                <TextBlock Text="Motor 4" HorizontalAlignment="Center" Margin="4 -4 0 0"/>
+                            </StackPanel>
+                        </Button>
+
                         </Grid>
                     </Border>
-                <StackPanel Orientation="Horizontal">
-                    <Border BorderThickness="2" Padding="4 4 4 4">
-                        <Label Name="_nouse" Content=" magnetic calibration "  />
-                    </Border>
-                    <Label Name="lbl_obmagresult"  />
-                    <ProgressBar Name="progressBar1" Width="90" />
-                    <ProgressBar Name="progressBar2" Width="90"/>
-                    <ProgressBar Name="progressBar3" Width="90"/>
-                    <controls:CalibrationSlider Width="200" Height="40" MaxValue="2300" MMin="100" MMax="2200" x:Name="pgRCcaliRoll" />
-
-                </StackPanel>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="SetHome" Click="SetHome_Click">SetHome( command 아님.)</Button>
-                        <Button Name="GetHome" Click="GetHome_Click" >GetHome(command 아님.)</Button>
+                        <Button Name="SetHome" Click="SetHome_Click"> SetHome( command 아님.)</Button>
+                        <Button Name="GetHome" Click="GetHome_Click">GetHome(command 아님.)</Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Button Name="SetWP1" Click="SetWP1_Click">Set WP (Command 아님.) </Button>

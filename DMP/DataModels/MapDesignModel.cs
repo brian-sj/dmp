@@ -27,7 +27,9 @@ namespace DMP.DataModels
         private static MapDesignModel _instance;
         public static MapDesignModel Instance => _instance ?? (_instance = new MapDesignModel());
         #endregion Singleton
-        
+
+        GvarDesignModel inst = GvarDesignModel.Instance;
+
         public MapDesignModel()
         {
             DPushpins = new ObservableCollection<DMPPushpin>();
@@ -197,7 +199,7 @@ namespace DMP.DataModels
         {
 
             double totalDistance = 0.0;
-            var inst = GvarDesignModel.Instance;
+            
             WayPointModel pwp = null;
             WayPointModel hwp = inst.HomePosition;
             if (hwp == null)
@@ -255,7 +257,49 @@ namespace DMP.DataModels
                 totalDistance += wp.DistanceFromPrev;
             }
             GvarDesignModel.Instance.TotalFlightDistance = totalDistance;
+            setMaxWPDistanceNavgSpeed();
+            ReCalculateEstimatedFlightTime();
             return totalDistance;
+        }
+
+
+        /// <summary>
+        /// HomePosition에서 가장 먼거리에 있는 것은. 그리고 평균 속도는
+        /// </summary>
+        public void setMaxWPDistanceNavgSpeed()
+        {
+            double maxdist = 0;
+            double now = 0;
+            //Location wp;
+            //Location home = new Location( HomePosition.Latitude, HomePosition.Longitude );
+            double sumDistanceBySpeed = 0;
+
+            foreach (var item in inst.WPList)
+            {
+                now = DMP.util.GeoCalculate.Distance(inst.HomePosition, item);
+                if (now > maxdist) maxdist = now;
+                sumDistanceBySpeed += item.DistanceFromPrev * item.Speed;
+            }
+            inst.MaxWPDistance = (float)maxdist;
+            try
+            {
+                inst.AvgSpeed = (float)Math.Round((sumDistanceBySpeed / inst.TotalFlightDistance), 0);
+            }
+            catch (Exception ee)
+            {
+                Dialogs.CustomMessageBox.Show("평균속도를 구할 수 없습니다.");
+                Console.WriteLine("평균속도 계산 오류" + ee.Message);
+            }
+            ReCalculateEstimatedFlightTime();
+        }
+
+        /// <summary>
+        /// Estimate 함수를 다시 계산함. 
+        /// </summary>
+        public void ReCalculateEstimatedFlightTime()
+        {
+            try { inst.EstimatedFlightTime = (float)Math.Round(inst.TotalFlightDistance / inst.AvgSpeed); } catch { }
+
         }
 
     }

@@ -12,7 +12,7 @@ namespace DMP.DataModels
         //public static DefaultValue Instance => _instance ?? (_instance = new DefaultValue());
 
         public static float DefaultHeight = 10         ;
-        public static float DefaultSpeed = 10          ;
+        public static float DefaultSpeed = 18          ;
         public static float DefaultBearing = 10        ;
         public static float DefaultTargetAltitude = 0  ;
         public static float DefaultWayPointHeight = 15 ;

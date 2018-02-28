@@ -9,7 +9,7 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style TargetType="{x:Type Button}">
+    <Style  TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource ForegroundDarkBrush}" />
         <Setter Property="Foreground" Value="{StaticResource BackLightBlue2Brush}" />
         <Setter Property="BorderThickness" Value="0" />
@@ -38,8 +38,8 @@
                                 FontSize="{TemplateBinding FontSize}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                 Text="{TemplateBinding Content}"
-                                            />
-                      
+                            />
+
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -90,15 +90,17 @@
         </Setter>
     </Style>
     <!--  System Icon Button  -->
-    <Style
+
+
+    <!--  Window Control Buttons  
+        <Style
         x:Key="SystemIconButton"
         BasedOn="{StaticResource Hoverless}"
         TargetType="{x:Type Button}">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Margin" Value="8" />
     </Style>
-
-    <!--  Window Control Buttons  
+    
     <Style
         x:Key="WindowControlButton"
         BasedOn="{StaticResource BaseStyle}"

@@ -93,24 +93,8 @@ namespace DMP
                     this.mprog.Add(packet);
                 }
                 */
-
                 Console.WriteLine("received Packet:" + obj.completion_pct.ToString(), true);
-
-
-                lbl_obmagresult.Dispatcher.Invoke(new Action(delegate {
-                    lbl_obmagresult.Content += "_" + obj.completion_pct.ToString();
-
-
-                }));
-
-
-                if (obj.compass_id == 0)
-                    progressBar1.Dispatcher.Invoke(new Action(delegate { progressBar1.Value = obj.completion_pct; }));//progressBar1.Value = obj.completion_pct;
-                if (obj.compass_id == 1)
-                    progressBar2.Dispatcher.Invoke(new Action(delegate { progressBar2.Value = obj.completion_pct; }));//progressBar1.Value = obj.completion_pct;
-                if (obj.compass_id == 2)
-                    progressBar3.Dispatcher.Invoke(new Action(delegate { progressBar3.Value = obj.completion_pct; }));//progressBar1.Value = obj.completion_pct;
-
+                
                 return true;
             }
             else if (packet.msgid == (byte)MAVLink.MAVLINK_MSG_ID.MAG_CAL_REPORT)

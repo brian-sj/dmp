@@ -297,7 +297,7 @@ namespace DMP.DataModels
         public float Action { get => _action; set { _action = value; OnPropertyChanged(); } }
         public string Name { get => _name; set { _name = value; OnPropertyChanged(); } }
 
-        public int Target { get => _target; set { _target = value; OnPropertyChanged(); } }
+        public int   Target { get => _target; set { _target = value; OnPropertyChanged(); } }
         public float Speed { get => _speed; set { _speed = value; OnPropertyChanged(); } }
         public double DistanceFromPrev { get => _distanceFromPrev; set { _distanceFromPrev = value; OnPropertyChanged(); } }
         public float TimeFromPrev { get => _timeFromPrev; set { _timeFromPrev = value; OnPropertyChanged(); } }

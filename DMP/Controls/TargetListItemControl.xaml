@@ -101,7 +101,7 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
                             <Setter TargetName="background" Property="Background" Value="#cccccc" />
                         </DataTrigger>
                         </ControlTemplate.Triggers>

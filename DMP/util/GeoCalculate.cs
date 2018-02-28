@@ -1,4 +1,5 @@
-﻿using Microsoft.Maps.MapControl.WPF;
+﻿using DMP.DataModels;
+using Microsoft.Maps.MapControl.WPF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,7 +61,11 @@ namespace DMP.util
         }
         public static double Distance(Location location1, Location location2)
         {
-            return Distance( location1.Latitude , location1.Longitude , location2.Latitude , location2.Latitude , "K");
+            return Distance( location1.Latitude , location1.Longitude , location2.Latitude , location2.Longitude , "m");
+        }
+        public static double Distance(WayPointModel from , WayPointModel to)
+        {
+            return Distance( from.Latitude , from.Longitude , to.Latitude , to.Longitude ,"m");
         }
         public static double CalculateDistanceTotal( params Location[] locations  )
         {

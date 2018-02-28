@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -94,11 +95,16 @@ namespace DMP.DataModels
         /// 웨이 포인트 합산 거리 
         /// </summary>
         private double _totalFlightDistance = 0;
+
+        /// <summary>
+        /// 총 예상 비행 시간... 
+        /// </summary>
+        private float _estimatedFlightTime = 0;
+
         /// <summary>
         /// 예상 빠떼리 소모 
         /// </summary>
         private float _expectedBatteryUsage = 0;
-
         /// <summary>
         /// 평균속도... 그럼 총 비행시간 나오네요. 
         /// </summary>
@@ -127,42 +133,15 @@ namespace DMP.DataModels
         /// 이 부분은 통계를 내서 보여 줘야함. 
         /// </summary>
         public int ITotalWPCount { get { return wpList.Where(x => x.PointType == (int)DMP.PointType.WAYPOINT).Count<WayPointModel>(); } }  // set 은 없다. 
-        public int ITotalTPCount { get { return wpList.Where(x => x.PointType == (int)DMP.PointType.TARGET).Count<WayPointModel>(); } }
-        public float IAvgSpeed
-        {
-            get => _avgSpeed; set
-            {
-                //return _speed ;
-
-                if (wpList == null || wpList.Count == 0)
-                    _avgSpeed = 0;
-
-                float _avgs = 0;
-                foreach (var wp in wpList)
-                {
-                    _avgs += wp.Speed;
-                }
-
-                _avgSpeed = _avgs / wpList.Count;
-            }
-        }
+        public int ITotalTPCount { get { return tpList.Where(x => x.PointType == (int)DMP.PointType.TARGET).Count<WayPointModel>(); } }
+        public float IAvgSpeed { get => _avgSpeed; set { _avgSpeed = value; OnPropertyChanged(); } }
 
         // 이부분은 꼭 처리해 줘라... 
         //public float MaxWPDistance { get { return _maxWPDistance; } }
         public double TotalFlightDistance
         {
-            get => _totalFlightDistance;
+            get => Math.Round( _totalFlightDistance,0 );
             set { _totalFlightDistance = value; OnPropertyChanged(); }
-            /*set
-            {
-                float val = 0;
-                foreach (var wp in waypointList)
-                {
-                    val += wp.Speed;
-                }
-                _totalFlightDistance = val;
-            }*/
-
         }
         public float ExpectedBatteryUsage { get => _expectedBatteryUsage; set => _expectedBatteryUsage = value; }
 
@@ -180,9 +159,20 @@ namespace DMP.DataModels
         public int ShowDistance { get => _showDistance; set { _showDistance = value; OnPropertyChanged(); } }
         public int CornerType { get => _cornerType; set { _cornerType = value; OnPropertyChanged(); } }
         public int Headingtype { get => _headingtype; set { _headingtype = value; OnPropertyChanged(); } }
-        public float MaxWPDistance { get => _maxWPDistance; set { _maxWPDistance = value; OnPropertyChanged(); } }
+        public float EstimatedFlightTime {
+            get => _estimatedFlightTime;
+            set { _estimatedFlightTime = value; OnPropertyChanged(); }
+        }
         
+        /// <summary>
+        /// 이것은 언제 해줄래?, Review할때 할래? MainWindow 에다가 넣어 주자... 
+        /// </summary>
         public float AvgSpeed { get => _avgSpeed; set { _avgSpeed = value; OnPropertyChanged(); } }
+        public float MaxWPDistance
+        {
+            get => _maxWPDistance;
+            set { _maxWPDistance = value; OnPropertyChanged(); }
+        }
 
         public ObservableCollection<WayPointModel> WPList { get => wpList; set { wpList = value; OnPropertyChanged(); } }
 
@@ -206,7 +196,7 @@ namespace DMP.DataModels
             get=>_currentMenuName ; set { _currentMenuName = value; OnPropertyChanged(); }
         }
 
-        
+
         #endregion
 
 

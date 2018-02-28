@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DMP.pages"
       xmlns:u="clr-namespace:DMP.Controls"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
       xmlns:model="clr-namespace:DMP.DataModels"
       xmlns:gmaps="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
       mc:Ignorable="d" 
@@ -13,7 +14,20 @@
 
     <StackPanel >
         <TextBlock Text="{StaticResource FontAwesomeChatIcon}" FontFamily="{StaticResource FontAwesome}" />
-        <Button Name="btnTestProgress" Click="btnTestProgress_Click" Height="15"></Button>
+        <fa:FontAwesome Icon="Flag" />
+        <fa:ImageAwesome Height="20" Icon="StopCircle" FlipOrientation="Horizontal" Rotation="180" />
+        <fa:ImageAwesome Height="20" Icon="StopCircle" Spin="True" SpinDuration="10" />
+
+
+        <Button Name="btnTestProgress" Click="btnTestProgress_Click" Height="15">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{StaticResource FontAwesomeChatIcon}" FontFamily="{StaticResource FontAwesome}" />
+                <TextBlock Text="{StaticResource FontAwesomeChatIcon}" FontFamily="{StaticResource FontAwesome}" />
+                <fa:FontAwesome Icon="Flag" />
+                <fa:ImageAwesome  Icon="StopCircle" Spin="True" SpinDuration="10" />
+                <TextBlock Text="aa" HorizontalAlignment="Center" Margin="4 -4 0 0"/>
+            </StackPanel>
+        </Button>
         <Button Name="btnTestAddProgress" Click="btnTestAddProgress_Click" Content="+5" />
 
 

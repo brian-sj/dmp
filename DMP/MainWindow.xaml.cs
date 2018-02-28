@@ -115,6 +115,7 @@ namespace DMP
             var pagename = Main.Content.GetType();
             GvarDesignModel.Instance.CurrentMenuName = (int)CurrentMenuName.TARGET;
             GvarDesignModel.Instance.PointType = (int)DMP.PointType.TARGET;
+            _vm.ShowInformation("지도를 더블 클릭하면 관심 지점이 추가됩니다.");
             if (pagename.Name != "PageWp")
             {
                 Main.Content = new PageWp(); 
@@ -132,6 +133,10 @@ namespace DMP
             var pagename = Main.Content.GetType();
             GvarDesignModel.Instance.CurrentMenuName = (int)CurrentMenuName.WAYPOINT;
             GvarDesignModel.Instance.PointType = (int)DMP.PointType.WAYPOINT;
+
+
+            _vm.ShowInformation("지도를 더블 클릭하면  지점이 추가됩니다.");
+
             if (pagename.Name != "PageWp")
             {
                 Main.Content = new PageWp( );
@@ -145,10 +150,12 @@ namespace DMP
         {
             var pagename = Main.Content.GetType();
             GvarDesignModel.Instance.CurrentMenuName = (int)CurrentMenuName.REVIEW;
+            
             if (pagename.Name != "PageWp")
             {
                 Main.Content = new PageWp();
             }
+            MapDesignModel.Instance.setMaxWPDistanceNavgSpeed();
         }
         private void Button_play(object sender, RoutedEventArgs e)
         {
@@ -171,274 +178,9 @@ namespace DMP
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            /**** ####  홈정보를 입력한후   */
-            Locationwp home = new Locationwp();
-            try
-            {
-                home.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
-                home.alt = 10;
-                home.lat = 37.3795214;
-                home.lng = 126.6758602;
-            }
-            catch {
-            }
 
-            ///foreach() 여기다가는 WAYPoint를 저장하고 정보가 문제가 없는지 확인한다.
-            ///
-
-            DMP.Dialogs.ProgressReporterDialogue frmProgressReporter = new DMP.Dialogs.ProgressReporterDialogue();
-
-            frmProgressReporter.DoWork += saveWPs;
-            frmProgressReporter.UpdateProgressAndStatus( -1 , "Sending WP's ");
-            frmProgressReporter.RunBackgroundOperationAsync();
-            //frmProgressReporter.Dispose();
         }
-        /// <summary>
-        /// 드론에 WPS를 저장을 한다...  이 함수는 GvarDesignModel에 집어 넣는다.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// <param name="passdata"></param>
-        private void saveWPs(object sender, ProgressWorkerEventArgs e, object passdata = null)
-        {
-            try
-            {
-                MAVLinkInterface port = MainV2.comPort;
-                var wplist = GvarDesignModel.Instance.WPList;
 
-                if (!port.BaseStream.IsOpen)
-                {
-                    throw new Exception("Pls connect first");
-                }
-                MainV2.comPort.giveComport = true;
-                int a = 0;
-
-                Locationwp home = new Locationwp();
-                /// 홈포지션은 waypoints에서 가지고 와서 타입이 home인 애를 가져온다. 
-                try
-                {
-                    home.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
-                    home.lat = (double)37.3795214;// home 정보 넣어 주라..  ;
-                    home.alt = (float)100;
-                    home.lng = (double)126.6758602;
-                }
-                catch { throw new Exception("Your Home location is invalid "); }
-
-                // log
-                log.Info("wps values " + MainV2.comPort.MAV.wps.Values.Count);
-                log.Info("cmd rows " + (wplist.Count + 1)); // + home
-
-                // check for changes / future mod to send just changed wp's
-                if (MainV2.comPort.MAV.wps.Values.Count == (wplist.Count + 1))
-                {
-                    Hashtable wpstoupload = new Hashtable();
-                    a = -1;
-                    foreach (var item in MainV2.comPort.MAV.wps.Values)
-                    {
-                        // skip home
-                        if (a == -1)
-                        {
-                            a++;
-                            continue;
-                        }
-                        //MAVLink.mavlink_mission_item_t temp = DataViewtoLocationwp(a);
-                        MAVLink.mavlink_mission_item_t temp = WPModeltoLocationwp(a);
-
-
-                        if (temp.command == item.command &&
-                            temp.x == item.x &&
-                            temp.y == item.y &&
-                            temp.z == item.z &&
-                            temp.param1 == item.param1 &&
-                            temp.param2 == item.param2 &&
-                            temp.param3 == item.param3 &&
-                            temp.param4 == item.param4
-                            )
-                        {
-                            log.Info("wp match " + (a + 1));
-                        }
-                        else
-                        {
-                            log.Info("wp no match" + (a + 1));
-                            wpstoupload[a] = "";
-                        }
-
-                        a++;
-                    }
-                }
-
-                bool use_int = (port.MAV.cs.capabilities & (uint)MAVLink.MAV_PROTOCOL_CAPABILITY.MISSION_INT) > 0;
-
-                // set wp total
-                ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(0, "Set total wps ");
-
-                ushort totalwpcountforupload = (ushort)(wplist.Count + 1);
-
-                if (port.MAV.apname == MAVLink.MAV_AUTOPILOT.PX4)
-                {
-                    totalwpcountforupload--;
-                }
-
-                port.setWPTotal(totalwpcountforupload); // + home
-
-                // set home location - overwritten/ignored depending on firmware.
-                ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(0, "Set home");
-
-                // upload from wp0
-                a = 0;
-
-                if (port.MAV.apname != MAVLink.MAV_AUTOPILOT.PX4)
-                {
-                    try
-                    {
-                        var homeans = port.setWP(home, (ushort)a, MAVLink.MAV_FRAME.GLOBAL, 0, 1, use_int);
-                        if (homeans != MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ACCEPTED)
-                        {
-                            if (homeans != MAVLink.MAV_MISSION_RESULT.MAV_MISSION_INVALID_SEQUENCE)
-                            {
-                                Dialogs.CustomMessageBox.Show(Strings.ErrorRejectedByMAV, Strings.ERROR);
-                                return;
-                            }
-                        }
-                        a++;
-                    }
-                    catch (TimeoutException)
-                    {
-                        use_int = false;
-                        // added here to prevent timeout errors
-                        port.setWPTotal(totalwpcountforupload);
-                        var homeans = port.setWP(home, (ushort)a, MAVLink.MAV_FRAME.GLOBAL, 0, 1, use_int);
-                        if (homeans != MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ACCEPTED)
-                        {
-                            if (homeans != MAVLink.MAV_MISSION_RESULT.MAV_MISSION_INVALID_SEQUENCE)
-                            {
-                                Dialogs.CustomMessageBox.Show(Strings.ErrorRejectedByMAV, Strings.ERROR);
-                                return;
-                            }
-                        }
-                        a++;
-                    }
-                }
-                else
-                {
-                    use_int = false;
-                }
-
-                // define the default frame.
-                MAVLink.MAV_FRAME frame = MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT;
-
-                // get the command list from the datagrid
-                var commandlist = WayPointConvertUtility.GetCommandList(); //GetCommandList();
-
-                // process commandlist to the mav
-                for (a = 1; a <= commandlist.Count; a++)
-                {
-                    var temp = commandlist[a - 1];
-
-                    ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(a * 100 / wplist.Count,
-                        "Setting WP " + a);
-
-                    // make sure we are using the correct frame for these commands
-                    if (temp.id < (ushort)MAVLink.MAV_CMD.LAST || temp.id == (ushort)MAVLink.MAV_CMD.DO_SET_HOME)
-                    {
-
-                        /// 일단 relavive 로 하고 나중에 3가지 다 지원하자. 
-                        /// 
-                        /*
-                        var mode = currentaltmode;
-
-                        if (mode == altmode.Terrain)
-                        {
-                            frame = MAVLink.MAV_FRAME.GLOBAL_TERRAIN_ALT;
-                        }
-                        else if (mode == altmode.Absolute)
-                        {
-                            frame = MAVLink.MAV_FRAME.GLOBAL;
-                        }
-                        else
-                        {
-                            frame = MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT;
-                        }
-                        */
-                        ///#######################   일단.. relative 입니다. 
-                        frame = MAVLink.MAV_FRAME.GLOBAL_RELATIVE_ALT;
-                    }
-                    // handle current wp upload number
-                    int uploadwpno = a;
-                    if (port.MAV.apname == MAVLink.MAV_AUTOPILOT.PX4)
-                        uploadwpno--;
-
-                    // try send the wp
-                    MAVLink.MAV_MISSION_RESULT ans = port.setWP(temp, (ushort)(uploadwpno), frame, 0, 1, use_int);
-
-                    // we timed out while uploading wps/ command wasnt replaced/ command wasnt added
-                    if (ans == MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ERROR)
-                    {
-                        // resend for partial upload
-                        port.setWPPartialUpdate((ushort)(uploadwpno), totalwpcountforupload);
-                        // reupload this point.
-                        ans = port.setWP(temp, (ushort)(uploadwpno), frame, 0, 1, use_int);
-                    }
-
-                    if (ans == MAVLink.MAV_MISSION_RESULT.MAV_MISSION_NO_SPACE)
-                    {
-                        e.ErrorMessage = "Upload failed, please reduce the number of wp's";
-                        return;
-                    }
-                    if (ans == MAVLink.MAV_MISSION_RESULT.MAV_MISSION_INVALID)
-                    {
-                        e.ErrorMessage =
-                            "Upload failed, mission was rejected byt the Mav,\n item had a bad option wp# " + a + " " +
-                            ans;
-                        return;
-                    }
-                    if (ans == MAVLink.MAV_MISSION_RESULT.MAV_MISSION_INVALID_SEQUENCE)
-                    {
-                        // invalid sequence can only occur if we failed to see a response from the apm when we sent the request.
-                        // or there is io lag and we send 2 mission_items and get 2 responces, one valid, one a ack of the second send
-                        // the ans is received via mission_ack, so we dont know for certain what our current request is for. as we may have lost the mission_request
-                        // get requested wp no - 1;
-                        a = port.getRequestedWPNo() - 1;
-
-                        continue;
-                    }
-                    if (ans != MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ACCEPTED)
-                    {
-                        e.ErrorMessage = "Upload wps failed " + Enum.Parse(typeof(MAVLink.MAV_CMD), temp.id.ToString()) +
-                                         " " + Enum.Parse(typeof(MAVLink.MAV_MISSION_RESULT), ans.ToString());
-                        return;
-                    }
-                }
-
-                port.setWPACK();
-                ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(95, "Setting params");
-
-                // m    이거 원래 화면에서 받는것인데... 없으니까. 일단 그냥넣어 봅시다. 
-                port.setParam("WP_RADIUS",  GvarDesignModel.Instance.FDRAD / CurrentState.multiplierdist);
-
-                // cm's
-                port.setParam("WPNAV_RADIUS", GvarDesignModel.Instance.FDRAD / CurrentState.multiplierdist * 100.0);
-
-                try
-                {
-                    port.setParam(new[] { "LOITER_RAD", "WP_LOITER_RAD" },
-                        GvarDesignModel.Instance.FDLoiterRad  / CurrentState.multiplierdist);
-                }
-                catch
-                {
-
-                }
-                ((Dialogs.ProgressReporterDialogue)sender).UpdateProgressAndStatus(100, "Done.");
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-                MainV2.comPort.giveComport = false;
-                throw;
-            }
-
-            MainV2.comPort.giveComport = false;
-        }
 
         /// <summary>
         /// WP 리스트에서 locationwp 구조체 형태를 가져오는 함수 이다. 

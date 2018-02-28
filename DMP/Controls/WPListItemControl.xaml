@@ -66,7 +66,8 @@
                                                 <Label Content="Bearing" Width="60"  Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" />
                                                 <TextBox Name="cmbBearing"
                                                          Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"
-                                                         Style="{StaticResource SUB_MENU_TB_ROUND}" Text="{Binding Path=Bearing , Mode=TwoWay}"/>
+                                                         Style="{StaticResource SUB_MENU_TB_ROUND}" 
+                                                         Text="{Binding Path=Bearing , Mode=TwoWay}"/>
                                             </DockPanel>
                                         </Border>
 
@@ -99,6 +100,14 @@
                                                     Foreground="Black" FontWeight="ExtraBold"
                                                         />
                                                 
+                                            </DockPanel>
+                                        </Border>
+                                        <Border Style="{StaticResource MENU_BORDER}" >
+                                            <DockPanel >
+                                                <Label Content="Speed" Style="{StaticResource SUB_MENU_ITEM_LEFT_LABEL}" />
+                                                <TextBox Text="{Binding Speed}" Width="{StaticResource SUB_MENU_ITEM_RIGHT_SIZE}"
+                                                         Style="{StaticResource SUB_MENU_TB_ROUND}"
+                                                         />
                                             </DockPanel>
                                         </Border>
                                         <Border Style="{StaticResource MENU_BORDER}" >
@@ -140,7 +149,7 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
                             <Setter TargetName="background" Property="Background" Value="{StaticResource WordVeryVeryLightBlueBrush}" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>

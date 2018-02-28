@@ -42,6 +42,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
       <HintPath>..\packages\GMap.NET.Presentation.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
     </Reference>
@@ -181,7 +184,6 @@
     <Compile Include="DataModels\MapModel.cs" />
     <Compile Include="DataModels\MavLinkAction.cs" />
     <Compile Include="DataModels\ToastViewModel.cs" />
-    <Compile Include="DataModels\UIDesignModel.cs" />
     <Compile Include="DataModels\GvarDesignModel.cs" />
     <Compile Include="DataModels\GvarModel.cs" />
     <Compile Include="DataModels\StaticComboOptionDesignModel.cs" />

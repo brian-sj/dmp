@@ -68,9 +68,9 @@
                 <TextBlock Text="★설정 저장" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}"  FontSize="{StaticResource FontSizeRegular}" FontWeight="ExtraBold" />
                 <TextBox Name="tbFileName"  Style="{StaticResource MENU_TEXTBOX}" Text="FILENAME.."/>
                 <!--<Button Name="btnSave" Click="Button_Click" Style="{StaticResource StandardButton}" >파일에저장</Button>-->
-                <Button Name="btnSave" Command="{Binding SaveXmlFileCommand}" Style="{StaticResource StandardButton}" >파일에저장</Button>
+                <Button Name="btnSave" Command="{Binding SaveXmlFileCommand}"  >파일에저장</Button>
                 <TextBlock Text="★드론에 비행경로 전달" Style="{StaticResource REVIEW_TEXTBLOCK_STYLE}"  FontSize="{StaticResource FontSizeRegular}" FontWeight="ExtraBold" />
-                <Button Name="btnSendToDrone" Click="btnSendToDrone_Click" Style="{StaticResource StandardButton}" >드론에 저장</Button>
+                <Button Name="btnSendToDrone" Click="btnSendToDrone_Click"  >드론에 저장</Button>
             </StackPanel>
         </Border>
     </Grid>
